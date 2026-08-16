@@ -1,5 +1,6 @@
 
 const brandStyles=document.createElement('link');brandStyles.rel='stylesheet';brandStyles.href='assets/brand-logo.css';document.head.appendChild(brandStyles);
+const symmetryStyles=document.createElement('link');symmetryStyles.rel='stylesheet';symmetryStyles.href='assets/mobile-symmetry.css';document.head.appendChild(symmetryStyles);
 document.documentElement.classList.add('js');
 const menuButton=document.querySelector('.menu-toggle');const nav=document.querySelector('#site-nav');if(menuButton&&nav){menuButton.addEventListener('click',()=>{const open=menuButton.getAttribute('aria-expanded')==='true';menuButton.setAttribute('aria-expanded',String(!open));menuButton.setAttribute('aria-label',open?'Open navigation':'Close navigation');nav.classList.toggle('is-open',!open)});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menuButton.setAttribute('aria-expanded','false');nav.classList.remove('is-open')}))}
 document.querySelectorAll('[data-year]').forEach(el=>el.textContent=new Date().getFullYear());
