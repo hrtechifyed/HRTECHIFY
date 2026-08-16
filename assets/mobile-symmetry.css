@@ -1,0 +1,43 @@
+@media (max-width: 620px){
+  .shell{width:min(100% - 32px,1180px)!important}
+  .hero{padding:48px 0 64px!important;min-height:auto!important}
+  .hero-grid{gap:34px!important}
+  .hero-copy{text-align:left}
+  .hero-copy .actions{gap:14px!important}
+  .hero-copy .button{width:100%;max-width:320px}
+  .hero-copy .text-link{display:inline-flex;justify-content:flex-start}
+  .intelligence-map{width:100%!important;max-width:520px!important;min-height:430px!important;margin:0 auto!important;border-radius:26px!important}
+  .intelligence-map svg{inset:0!important;width:100%!important;height:100%!important}
+  .map-node{width:142px!important;padding:15px 16px!important;text-align:left}
+  .map-node-a{top:8%!important;left:7%!important;right:auto!important}
+  .map-node-b{top:39%!important;right:7%!important;left:auto!important}
+  .map-node-c{bottom:7%!important;left:50%!important;right:auto!important;transform:translateX(-50%)!important}
+  .audience-section{padding-top:76px!important}
+  .section-heading{margin-bottom:30px!important}
+  .section-heading h2{font-size:clamp(2.15rem,11vw,3.3rem)!important;line-height:1.04!important}
+  .audience-grid,.tension-grid,.thinking-grid,.journey-track{gap:16px!important}
+  .audience-card,.tension-card,.vm-card{padding:24px!important}
+  .vm-grid{gap:16px!important}
+  .vm-belief{margin-top:16px!important;padding:20px!important;text-align:left}
+  .difference-section{padding:76px 0!important}
+  .difference-grid{gap:16px!important}
+  .difference-row{border-radius:18px!important}
+  .difference-old,.difference-new{padding:24px!important}
+  .difference-arrow{height:34px!important;margin:0!important}
+  .journey-track>div{min-height:112px!important;padding:18px 16px!important}
+  .journey-center{max-width:100%!important;padding:18px 20px!important}
+  .thinking-grid>div{min-height:auto!important;padding:24px!important}
+  .future-orbit{min-height:auto!important;grid-template-columns:1fr!important;padding:22px!important;gap:12px!important}
+  .future-orbit strong{grid-column:auto!important;width:100%;text-align:center}
+  .future-orbit span{min-height:60px!important;width:100%}
+  .final-cta .actions{gap:14px!important}
+  .final-cta .button{width:100%}
+  .site-footer .footer-grid{gap:30px!important}
+}
+
+@media (max-width: 390px){
+  .map-node{width:132px!important}
+  .map-node-a{left:5%!important}
+  .map-node-b{right:5%!important}
+  .intelligence-map{min-height:410px!important}
+}
