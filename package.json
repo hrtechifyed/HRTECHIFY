@@ -1,0 +1,17 @@
+{
+  "name": "hrtechify",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "serve": "http-server . -p 4173 -c-1",
+    "validate:html": "html-validate \"**/*.html\"",
+    "check:links": "linkinator http://127.0.0.1:4173 --recurse --skip 'https://linkedin.com|https://growwithhr.onrender.com|https://hrtechifyed.github.io'",
+    "lhci": "lhci autorun"
+  },
+  "devDependencies": {
+    "@lhci/cli": "0.14.0",
+    "html-validate": "9.7.1",
+    "http-server": "14.1.1",
+    "linkinator": "6.1.2"
+  }
+}
