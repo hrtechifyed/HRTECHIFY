@@ -5,7 +5,7 @@
   "scripts": {
     "serve": "http-server . -p 4173 -c-1",
     "validate:html": "html-validate \"*.html\" \"insights/*.html\"",
-    "check:links": "linkinator http://127.0.0.1:4173 --recurse --skip 'https://linkedin.com|https://growwithhr.onrender.com|https://hrtechifyed.github.io'",
+    "check:links": "linkinator http://127.0.0.1:4173 --recurse --skip 'https://hrtechify.com|https://linkedin.com|https://growwithhr.onrender.com|https://hrtechifyed.github.io'",
     "lhci": "lhci autorun"
   },
   "devDependencies": {
