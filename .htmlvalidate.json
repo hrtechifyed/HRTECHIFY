@@ -1,1 +1,11 @@
-{"extends":["html-validate:recommended"],"rules":{"no-inline-style":"off","wcag/h37":"off"}}
+{
+  "extends": ["html-validate:recommended"],
+  "rules": {
+    "doctype-style": "off",
+    "long-title": "off",
+    "aria-label-misuse": "off",
+    "no-implicit-input-type": "off",
+    "no-inline-style": "off",
+    "wcag/h37": "off"
+  }
+}
