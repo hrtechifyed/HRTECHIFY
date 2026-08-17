@@ -406,3 +406,75 @@
 @media(prefers-reduced-motion:reduce){
   .ptg-map .graph-motion-group{display:none!important}
 }
+
+/* Safari-safe centre emblem: use the real inline SVG instead of a CSS data-image. */
+.ptg-map .map-centre{
+  background-image:radial-gradient(circle at 50% 46%,rgba(246,198,83,.075),rgba(29,3,3,.6) 68%,rgba(12,1,1,.82))!important;
+  background-position:center!important;
+  background-repeat:no-repeat!important;
+  background-size:100% 100%!important;
+}
+.ptg-map .map-centre svg{
+  display:block!important;
+  position:absolute!important;
+  left:50%!important;
+  top:50%!important;
+  width:128px!important;
+  height:88px!important;
+  margin:0!important;
+  transform:translate(-50%,-50%)!important;
+  overflow:visible!important;
+  pointer-events:none!important;
+  opacity:1!important;
+  filter:drop-shadow(0 5px 12px rgba(0,0,0,.22))!important;
+}
+.ptg-map .brain-symbol{display:block!important;opacity:1!important}
+.ptg-map .brain-outline{
+  fill:none!important;
+  stroke:#f7df9b!important;
+  stroke-width:3.2!important;
+  stroke-linecap:round!important;
+  stroke-linejoin:round!important;
+}
+.ptg-map .brain-fold{
+  fill:none!important;
+  stroke:#f0c85e!important;
+  stroke-width:2.3!important;
+  stroke-linecap:round!important;
+  stroke-linejoin:round!important;
+}
+.ptg-map .heart-symbol{
+  fill:none!important;
+  stroke:#f0a14a!important;
+  stroke-width:4!important;
+  stroke-linecap:round!important;
+  stroke-linejoin:round!important;
+  filter:drop-shadow(0 0 5px rgba(240,161,74,.24))!important;
+}
+.ptg-map .symbol-divider{
+  stroke:#f7df9b!important;
+  stroke-width:1.35!important;
+  stroke-dasharray:3 5!important;
+  opacity:.52!important;
+}
+/* Fallback artwork before script.js replaces the initial SVG paths. */
+.ptg-map .brain-half{
+  fill:none!important;
+  stroke:#f7df9b!important;
+  stroke-width:2.6!important;
+  stroke-linecap:round!important;
+  stroke-linejoin:round!important;
+}
+.ptg-map .heart-half{
+  fill:none!important;
+  stroke:#f0a14a!important;
+  stroke-width:3.2!important;
+  stroke-linecap:round!important;
+  stroke-linejoin:round!important;
+}
+@media(max-width:620px){
+  .ptg-map .map-centre svg{width:104px!important;height:72px!important}
+}
+@media(max-width:390px){
+  .ptg-map .map-centre svg{width:96px!important;height:66px!important}
+}
