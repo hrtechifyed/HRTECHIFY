@@ -130,7 +130,7 @@ body .ptg-map .map-node-a .node-detail{
   position:absolute!important;
   left:50%!important;
   top:auto!important;
-  bottom:29px!important;
+  bottom:43px!important;
   width:56px!important;
   height:56px!important;
   min-width:56px!important;
@@ -159,27 +159,41 @@ body .ptg-map .map-node-a .node-detail{
   pointer-events:none!important;
 }
 body .ptg-map .map-node-a::after{display:none!important}
-body .ptg-map .map-node-a strong{bottom:91px!important}
+body .ptg-map .map-node-a strong{bottom:105px!important}
+
+/* Give all three icon badges a deliberate visual gap from the glowing triangle vertices. */
+body .ptg-map .map-node-b .node-icon,
+body .ptg-map .map-node-c .node-icon{top:43px!important}
+body .ptg-map .map-node-b strong,
+body .ptg-map .map-node-c strong{top:105px!important}
 
 @media(max-width:620px){
   body .ptg-map .map-node-a .node-detail{
-    bottom:25px!important;
+    bottom:39px!important;
     width:50px!important;
     height:50px!important;
     min-width:50px!important;
     min-height:50px!important;
     background-size:34px 34px!important;
   }
-  body .ptg-map .map-node-a strong{bottom:78px!important}
+  body .ptg-map .map-node-a strong{bottom:92px!important}
+  body .ptg-map .map-node-b .node-icon,
+  body .ptg-map .map-node-c .node-icon{top:39px!important}
+  body .ptg-map .map-node-b strong,
+  body .ptg-map .map-node-c strong{top:92px!important}
 }
 @media(max-width:390px){
   body .ptg-map .map-node-a .node-detail{
-    bottom:23px!important;
+    bottom:37px!important;
     width:46px!important;
     height:46px!important;
     min-width:46px!important;
     min-height:46px!important;
     background-size:31px 31px!important;
   }
-  body .ptg-map .map-node-a strong{bottom:72px!important}
+  body .ptg-map .map-node-a strong{bottom:86px!important}
+  body .ptg-map .map-node-b .node-icon,
+  body .ptg-map .map-node-c .node-icon{top:37px!important}
+  body .ptg-map .map-node-b strong,
+  body .ptg-map .map-node-c strong{top:86px!important}
 }
