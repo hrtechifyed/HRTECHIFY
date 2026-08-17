@@ -214,10 +214,10 @@
   .ptg-map .map-node-a{top:4.8%!important}.ptg-map .map-node-b{left:14%!important;top:87%!important}.ptg-map .map-node-c{left:86%!important;top:87%!important}
 }
 @media(max-width:620px){
-  .ptg-map{width:100%!important;max-width:430px!important;aspect-ratio:600/560!important;margin-top:10px!important}
+  .ptg-map{width:100%!important;max-width:430px!important;aspect-ratio:600/520!important;margin-top:10px!important}
   .ptg-map .map-node strong{font-size:1.03rem!important}
-  .ptg-map .map-node-a{top:4%!important}.ptg-map .map-node-b{left:16%!important;top:80%!important}.ptg-map .map-node-c{left:84%!important;top:80%!important}
-  .ptg-map .map-centre{top:51%!important;width:124px!important;height:108px!important}.ptg-map .map-centre svg{width:120px!important;height:88px!important}
+  .ptg-map .map-node-a{top:4%!important}.ptg-map .map-node-b{left:16%!important;top:84%!important}.ptg-map .map-node-c{left:84%!important;top:84%!important}
+  .ptg-map .map-centre{top:55.4%!important;width:124px!important;height:108px!important}.ptg-map .map-centre svg{width:120px!important;height:88px!important}
   .ptg-map .graph-explainer{width:174px!important;padding:11px 12px!important;font-size:.7rem!important}
   .ptg-map[data-active-node="people"] .graph-explainer{left:2%!important;top:51%!important}
   .ptg-map[data-active-node="technology"] .graph-explainer{right:2%!important;top:51%!important}
