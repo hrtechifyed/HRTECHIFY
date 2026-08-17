@@ -15,6 +15,57 @@
 <link rel="stylesheet" href="assets/styles.css">
 <link rel="stylesheet" href="assets/brand-logo.css">
 <link rel="stylesheet" href="assets/mobile-symmetry.css">
+<style>
+/* Homepage editorial alignment: use the content canvas symmetrically without making body copy too wide. */
+body #audiences > .section-heading,
+body #showcase > .shell > .section-heading,
+body .difference-section .difference-intro{
+  width:100%!important;
+  max-width:none!important;
+  margin:0 auto 48px!important;
+  text-align:center!important;
+}
+body #audiences > .section-heading .eyebrow,
+body #showcase > .shell > .section-heading .eyebrow,
+body .difference-section .difference-intro .eyebrow{
+  display:block!important;
+  width:100%!important;
+  text-align:center!important;
+}
+body #audiences > .section-heading h2,
+body #showcase > .shell > .section-heading h2,
+body .difference-section .difference-intro h2{
+  width:min(100%,1080px)!important;
+  max-width:1080px!important;
+  margin:.08em auto .34em!important;
+  text-align:center!important;
+  text-wrap:balance;
+}
+body #audiences > .section-heading > p:last-child,
+body #showcase > .shell > .section-heading > p:last-child{
+  width:min(100%,900px)!important;
+  max-width:900px!important;
+  margin:0 auto!important;
+  text-align:center!important;
+}
+body .vision-mission .vm-grid{align-items:stretch!important}
+body .vision-mission .vm-card{display:flex!important;flex-direction:column!important;justify-content:flex-start!important}
+@media(max-width:720px){
+  body #audiences > .section-heading,
+  body #showcase > .shell > .section-heading,
+  body .difference-section .difference-intro,
+  body #audiences > .section-heading .eyebrow,
+  body #showcase > .shell > .section-heading .eyebrow,
+  body .difference-section .difference-intro .eyebrow,
+  body #audiences > .section-heading h2,
+  body #showcase > .shell > .section-heading h2,
+  body .difference-section .difference-intro h2,
+  body #audiences > .section-heading > p:last-child,
+  body #showcase > .shell > .section-heading > p:last-child{
+    text-align:left!important;
+  }
+}
+</style>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -110,7 +161,7 @@
 
 <section class="vision-mission">
   <div class="shell vm-grid">
-    <div class="vm-card reveal"><span>VISION</span><h2>A future where people and organizations thrive together.</h2></div>
+    <div class="vm-card reveal"><span>VISION</span><h2>Growth isn’t a trade-off. It’s people, organizations, and technology — together.</h2></div>
     <div class="vm-card reveal"><span>MISSION</span><h2>To make HR a true enabler for people and organizations.</h2></div>
   </div>
 </section>
