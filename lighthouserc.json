@@ -4,8 +4,14 @@
       "url": [
         "http://127.0.0.1:4173/index.html",
         "http://127.0.0.1:4173/products.html",
+        "http://127.0.0.1:4173/insights.html",
         "http://127.0.0.1:4173/about.html",
-        "http://127.0.0.1:4173/contact.html"
+        "http://127.0.0.1:4173/contact.html",
+        "http://127.0.0.1:4173/privacy.html",
+        "http://127.0.0.1:4173/terms.html",
+        "http://127.0.0.1:4173/insights/ai-explain-compliance-outcome.html",
+        "http://127.0.0.1:4173/insights/employee-exits-sequences-not-scores.html",
+        "http://127.0.0.1:4173/insights/two-sides-of-the-workplace.html"
       ],
       "numberOfRuns": 1
     },
@@ -17,6 +23,6 @@
         "categories:best-practices": ["warn", {"minScore": 0.9}]
       }
     },
-    "upload": {"target": "temporary-public-storage"}
+    "upload": {"target":"temporary-public-storage"}
   }
 }
