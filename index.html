@@ -50,6 +50,57 @@ body #showcase > .shell > .section-heading > p:last-child{
 }
 body .vision-mission .vm-grid{align-items:stretch!important}
 body .vision-mission .vm-card{display:flex!important;flex-direction:column!important;justify-content:flex-start!important}
+
+/* Narrative doorway: context first, graph immediately after. Specificity intentionally beats the late hero CSS layer. */
+body .future-hero.journey-hero .hero-grid{
+  grid-template-columns:1fr!important;
+  justify-items:center!important;
+  align-items:start!important;
+  gap:34px!important;
+}
+body .future-hero.journey-hero .hero-intro{
+  width:min(100%,900px)!important;
+  max-width:900px!important;
+  margin:0 auto!important;
+  padding:8px 20px 0!important;
+  text-align:center!important;
+  position:relative!important;
+  z-index:2!important;
+}
+body .future-hero.journey-hero .hero-intro .hero-intro-kicker{
+  margin:0 0 14px!important;
+  color:#ffd12a!important;
+  font-size:.76rem!important;
+  font-weight:900!important;
+  letter-spacing:.17em!important;
+  line-height:1.3!important;
+  text-transform:uppercase!important;
+}
+body .future-hero.journey-hero .hero-intro h1{
+  width:min(100%,820px)!important;
+  margin:0 auto!important;
+  color:#fff8eb!important;
+  font-size:clamp(2.7rem,5.2vw,4.7rem)!important;
+  font-weight:900!important;
+  letter-spacing:-.045em!important;
+  line-height:.98!important;
+  text-align:center!important;
+  text-wrap:balance;
+}
+body .future-hero.journey-hero .hero-intro .hero-intro-copy{
+  width:min(100%,760px)!important;
+  margin:22px auto 0!important;
+  color:#ffe1a8!important;
+  font-size:clamp(1rem,1.55vw,1.18rem)!important;
+  font-weight:500!important;
+  line-height:1.7!important;
+  text-align:center!important;
+  text-wrap:pretty;
+}
+body .future-hero.journey-hero .hero-visual{
+  grid-column:1!important;
+  justify-self:center!important;
+}
 @media(max-width:720px){
   body #audiences > .section-heading,
   body #showcase > .shell > .section-heading,
@@ -64,6 +115,11 @@ body .vision-mission .vm-card{display:flex!important;flex-direction:column!impor
   body #showcase > .shell > .section-heading > p:last-child{
     text-align:left!important;
   }
+  body .future-hero.journey-hero .hero-grid{gap:24px!important}
+  body .future-hero.journey-hero .hero-intro{padding:0 12px!important}
+  body .future-hero.journey-hero .hero-intro .hero-intro-kicker{font-size:.68rem!important;margin-bottom:11px!important}
+  body .future-hero.journey-hero .hero-intro h1{font-size:clamp(2.15rem,10.6vw,3.15rem)!important;line-height:1.02!important}
+  body .future-hero.journey-hero .hero-intro .hero-intro-copy{margin-top:16px!important;font-size:.96rem!important;line-height:1.62!important}
 }
 </style>
 </head>
@@ -74,6 +130,11 @@ body .vision-mission .vm-card{display:flex!important;flex-direction:column!impor
 <section class="hero future-hero journey-hero">
   <div class="hero-signals" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
   <div class="shell hero-grid">
+    <div class="hero-intro reveal">
+      <p class="hero-intro-kicker">People • Organizations • Technology</p>
+      <h1>No part of work thrives in isolation.</h1>
+      <p class="hero-intro-copy">People, organizations and technology shape one another. HRTechify connects those realities with intelligence and empathy—so growth works for the whole system.</p>
+    </div>
     <div class="hero-visual reveal">
       <div class="intelligence-map ptg-map" aria-label="Growth at the top, People at the lower left and Technology at the lower right, with intelligence and empathy at the centre">
         <svg class="graph-lines" viewBox="0 0 600 520" role="img" aria-label="An equilateral triangle connecting Growth, People and Technology, with Intelligence and Empathy in the centre">
