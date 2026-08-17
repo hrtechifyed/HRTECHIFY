@@ -98,8 +98,8 @@ body .page-hero .button,
 body .final-cta .button,
 body .conversation-card .button{color:#220302!important}
 
-/* Light surfaces: keep small accent text deep enough for easy reading. */
-body .section:not(.section-dark) .eyebrow,
+/* Light surfaces: keep small accent text deep enough for easy reading. Explicitly exclude dark section variants. */
+body .section:not(.section-dark):not(.difference-section):not(.product-showcase):not(.conversations-section):not(.final-cta) .eyebrow,
 body .vision-mission .eyebrow,
 body .audience-card:not(.audience-org) > span,
 body .insight-card > div,
