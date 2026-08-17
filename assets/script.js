@@ -17,6 +17,8 @@
   ensureStylesheet('hrtechify-mobile-styles','assets/mobile-symmetry.css');
   ensureStylesheet('hrtechify-visual-refresh','assets/visual-refresh.css');
   ensureStylesheet('hrtechify-linkedin-graph','assets/linkedin-graph.css');
+  ensureStylesheet('hrtechify-ptg-motion','assets/ptg-motion.css');
+  ensureStylesheet('hrtechify-final-polish','assets/final-polish.css');
   document.documentElement.classList.add('js');
 
   const linkedinUrl='https://www.linkedin.com/company/hrtechifyed';
@@ -36,16 +38,17 @@
     schema.textContent=JSON.stringify({
       '@context':'https://schema.org',
       '@type':'Organization',
-      'name':'HRTechify',
-      'url':'https://hrtechify.com/',
-      'logo':'https://hrtechify.com/assets/hrtechify-logo.png',
-      'sameAs':[linkedinUrl]
+      name:'HRTechify',
+      url:'https://hrtechify.com/',
+      logo:'https://hrtechify.com/assets/hrtechify-logo.png',
+      sameAs:[linkedinUrl]
     });
     document.head.appendChild(schema);
   }
 
   const currentFile=(location.pathname.split('/').filter(Boolean).pop()||'index.html').toLowerCase();
   const activeKey=currentFile==='index.html'?'home':currentFile==='products.html'?'products':currentFile==='insights.html'||location.pathname.includes('/insights/')?'insights':currentFile==='about.html'?'about':'';
+
   const header=document.querySelector('.site-header');
   if(header){
     header.innerHTML=`<div class="shell header-inner">
@@ -64,36 +67,30 @@
     </div>`;
   }
 
+  const footer=document.querySelector('.site-footer');
+  if(footer){
+    footer.innerHTML=`<div class="shell simple-footer">
+      <a class="footer-wordmark" href="${withRoot('index.html')}">HRTechify</a>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="${withRoot('about.html')}">About</a>
+        <a href="${withRoot('privacy.html')}">Privacy</a>
+        <a href="${withRoot('contact.html')}">Contact</a>
+      </nav>
+      <p class="footer-copyright">© 2026 HRTechify. All rights reserved.</p>
+    </div>`;
+  }
+
   document.querySelectorAll('.founder-portrait img, img[alt*="Anurag Sinha"]').forEach(img=>{
     img.src=withRoot('assets/founder-anurag-sinha.png');
     img.alt='Anurag Sinha, Founder of HRTechify';
     img.removeAttribute('srcset');
   });
 
-  const textWalker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);
+  const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);
   const textNodes=[];
-  while(textWalker.nextNode())textNodes.push(textWalker.currentNode);
+  while(walker.nextNode())textNodes.push(walker.currentNode);
   textNodes.forEach(node=>{
     node.nodeValue=node.nodeValue.replace(/GrowWith\s+HR/g,'GrowWithHR').replace(/Growwith\s*HR/g,'GrowWithHR');
-  });
-
-  document.querySelectorAll('.footer-brand').forEach(brand=>{
-    brand.innerHTML=`<img class="brand-logo-image" src="${withRoot('assets/hrtechify-logo.png')}" alt="HRTechify">`;
-  });
-
-  const footerIntro=document.querySelector('.site-footer .footer-grid > div:first-child');
-  if(footerIntro&&!footerIntro.querySelector('.footer-linkedin')){
-    const linkedIn=document.createElement('a');
-    linkedIn.className='footer-linkedin';
-    linkedIn.href=linkedinUrl;
-    linkedIn.target='_blank';
-    linkedIn.rel='noopener noreferrer';
-    linkedIn.innerHTML=`${linkedinIcon}<span>HRTechify on LinkedIn ↗</span>`;
-    footerIntro.appendChild(linkedIn);
-  }
-
-  document.querySelectorAll('.footer-base span').forEach(span=>{
-    if(/Context before judg|Evidence before conclu/i.test(span.textContent||''))span.remove();
   });
 
   const menuButton=document.querySelector('.menu-toggle');
@@ -113,25 +110,134 @@
 
   const graph=document.querySelector('.ptg-map');
   if(graph){
-    const explainer=graph.querySelector('#graph-explainer');
+    let visual=graph.parentElement;
+    if(!visual.classList.contains('hero-visual')){
+      const wrapper=document.createElement('div');
+      wrapper.className='hero-visual reveal';
+      graph.parentNode.insertBefore(wrapper,graph);
+      wrapper.appendChild(graph);
+      graph.classList.remove('reveal');
+      visual=wrapper;
+    }
+
+    const centre=graph.querySelector('.map-centre');
+    const centreSvg=centre&&centre.querySelector('svg');
+    if(centreSvg){
+      centreSvg.setAttribute('viewBox','0 0 160 90');
+      centreSvg.innerHTML=`
+        <g class="brain-symbol" aria-hidden="true">
+          <path class="brain-outline" d="M42 15c-10-8-24-2-24 10-9 2-12 13-7 20-6 8-1 20 9 22 0 10 12 15 20 9 7 7 19 2 19-8V27c0-9-9-15-17-12Z"></path>
+          <path class="brain-fold" d="M31 24c-7 2-9 9-5 14M43 20c7 5 5 14-1 17M24 47c6-5 13-3 16 3M43 43c8 1 11 8 8 14M29 62c7 0 12 4 12 10"></path>
+        </g>
+        <line class="symbol-divider" x1="78" y1="18" x2="78" y2="72"></line>
+        <path class="heart-symbol" aria-hidden="true" d="M116 73 107 65C84 45 88 24 101 20c8-3 14 1 19 8 5-7 11-11 19-8 13 4 17 25-6 45l-9 8-4 4-4-4Z"></path>`;
+    }
+
+    if(centre){
+      centre.setAttribute('aria-label','Intelligence and empathy: organizations need both to grow.');
+    }
+
+    if(!visual.querySelector('.emblem-logic')){
+      const logic=document.createElement('div');
+      logic.className='emblem-logic';
+      logic.innerHTML='<strong>Why this emblem?</strong><p>People and technology reinforce each other. Guided by empathy and intelligence, they create the conditions for meaningful organizational growth. The arrows show that this relationship is continuous and two-way.</p>';
+      visual.appendChild(logic);
+    }
+
     const messages={
-      people:'People drive trust, experience and culture.',
-      technology:'Technology brings structure, speed and intelligence.',
-      growth:'Growth happens when people and technology work together.',
-      centre:'Organizations need both intelligence and empathy to grow.'
+      people:'People: People drive trust, experience and culture.',
+      technology:'Technology: Technology brings structure, speed and intelligence.',
+      growth:'Growth: Growth happens when people and technology work together.',
+      centre:'Intelligence + Empathy: Organizations need both intelligence and empathy to grow.'
     };
     graph.querySelectorAll('.graph-trigger').forEach(trigger=>{
+      const key=trigger.dataset.graphKey;
+      if(messages[key])trigger.setAttribute('aria-label',messages[key]);
       trigger.addEventListener('click',()=>{
         graph.querySelectorAll('.graph-trigger').forEach(item=>item.setAttribute('aria-pressed','false'));
         trigger.setAttribute('aria-pressed','true');
-        const key=trigger.dataset.graphKey;
-        if(explainer&&messages[key])explainer.textContent=messages[key];
+        graph.dataset.activeNode=key||'';
       });
     });
+
+    const svg=graph.querySelector('.graph-lines');
+    const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(svg&&!reduced){
+      const NS='http://www.w3.org/2000/svg';
+      svg.querySelectorAll('.graph-motion-group,.graph-anchor-group').forEach(el=>el.remove());
+
+      const anchors=[['growth',300,80],['people',120,392],['technology',480,392]];
+      const anchorGroup=document.createElementNS(NS,'g');
+      anchorGroup.setAttribute('class','graph-anchor-group');
+      anchorGroup.setAttribute('aria-hidden','true');
+      anchors.forEach(([,x,y])=>{
+        const ring=document.createElementNS(NS,'circle');
+        ring.setAttribute('class','graph-anchor-ring');ring.setAttribute('cx',x);ring.setAttribute('cy',y);ring.setAttribute('r','16');
+        const dot=document.createElementNS(NS,'circle');
+        dot.setAttribute('class','graph-anchor');dot.setAttribute('cx',x);dot.setAttribute('cy',y);dot.setAttribute('r','6');
+        anchorGroup.append(ring,dot);
+      });
+      svg.appendChild(anchorGroup);
+
+      const motionGroup=document.createElementNS(NS,'g');
+      motionGroup.setAttribute('class','graph-motion-group');
+      motionGroup.setAttribute('aria-hidden','true');
+      const trail=[];
+      for(let i=0;i<5;i++){
+        const c=document.createElementNS(NS,'circle');
+        c.setAttribute('class','graph-trail-dot');
+        c.setAttribute('r',String(Math.max(2.4,5.4-i*.65)));
+        c.setAttribute('cx','300');c.setAttribute('cy','80');
+        motionGroup.appendChild(c);trail.push(c);
+      }
+      const movingDot=document.createElementNS(NS,'circle');
+      movingDot.setAttribute('class','graph-motion-dot');movingDot.setAttribute('r','7');movingDot.setAttribute('cx','300');movingDot.setAttribute('cy','80');
+      motionGroup.appendChild(movingDot);svg.appendChild(motionGroup);
+
+      const outer=Array.from(svg.querySelectorAll('.triangle-edge'));
+      const inner=Array.from(svg.querySelectorAll('.centre-link'));
+      const routes=[];
+      if(outer.length>=3){
+        routes.push({path:outer[0],reverse:false},{path:outer[1],reverse:false},{path:outer[2],reverse:false});
+      }
+      if(inner.length>=3){
+        routes.push({path:inner[0],reverse:true},{path:inner[1],reverse:false},{path:inner[1],reverse:true},{path:inner[2],reverse:false},{path:inner[2],reverse:true},{path:inner[0],reverse:false});
+      }
+
+      if(routes.length&&typeof routes[0].path.getTotalLength==='function'){
+        let routeIndex=0;
+        let routeStart=performance.now();
+        let history=[];
+        const routeDuration=1800;
+        const pause=180;
+        function draw(ts){
+          const route=routes[routeIndex];
+          const elapsed=ts-routeStart;
+          const raw=Math.max(0,Math.min(1,elapsed/routeDuration));
+          const progress=route.reverse?1-raw:raw;
+          const len=route.path.getTotalLength();
+          const point=route.path.getPointAtLength(len*progress);
+          movingDot.setAttribute('cx',point.x);movingDot.setAttribute('cy',point.y);
+          history.unshift({x:point.x,y:point.y});
+          if(history.length>18)history.pop();
+          trail.forEach((dot,i)=>{
+            const h=history[Math.min(history.length-1,(i+1)*3)]||point;
+            dot.setAttribute('cx',h.x);dot.setAttribute('cy',h.y);
+          });
+          if(raw>=1){
+            routeIndex=(routeIndex+1)%routes.length;
+            routeStart=ts+pause;
+            history=[];
+          }
+          requestAnimationFrame(draw);
+        }
+        requestAnimationFrame(draw);
+      }
+    }
   }
 
   const carousel=document.querySelector('.showcase-carousel');
-  if(carousel&&carousel.children.length){
+  if(carousel&&carousel.children.length&&!document.querySelector('.showcase-controls')){
     const controls=document.createElement('div');
     controls.className='showcase-controls';
     controls.innerHTML='<button class="showcase-control" type="button" data-dir="-1" aria-label="Previous product preview">←</button><button class="showcase-control" type="button" data-dir="1" aria-label="Next product preview">→</button>';
@@ -147,10 +253,10 @@
     });
   }
 
-  document.querySelectorAll('[data-year]').forEach(el=>el.textContent=new Date().getFullYear());
+  document.querySelectorAll('[data-year]').forEach(el=>el.textContent='2026');
 
-  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(!reduced&&'IntersectionObserver'in window){
+  const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reducedMotion&&'IntersectionObserver'in window){
     const io=new IntersectionObserver(entries=>{
       entries.forEach(entry=>{
         if(entry.isIntersecting){entry.target.classList.add('is-visible');io.unobserve(entry.target);}
@@ -166,7 +272,6 @@
     window.hrtechifyDataLayer.push({event:eventName,...detail,timestamp:new Date().toISOString()});
     window.dispatchEvent(new CustomEvent('hrtechify:analytics',{detail:{event:eventName,...detail}}));
   }
-
   document.querySelectorAll('[data-event]').forEach(el=>el.addEventListener('click',()=>track(el.dataset.event,{href:el.getAttribute('href')})));
 
   const contactForm=document.querySelector('#contact-form');
@@ -179,175 +284,4 @@
       if(status)status.textContent='This build does not yet have a live submission endpoint. Configure the approved form provider before production launch.';
     });
   }
-})();
-
-/* Refined animated People • Technology • Growth system */
-(function(){
-  const scriptEl=document.currentScript||Array.from(document.scripts).find(s=>(s.getAttribute('src')||'').includes('assets/script.js'));
-  const scriptSrc=(scriptEl&&scriptEl.getAttribute('src'))||'assets/script.js';
-  const rootPrefix=scriptSrc.replace(/assets\/script\.js(?:[?#].*)?$/,'');
-  if(!document.getElementById('hrtechify-ptg-motion')){
-    const link=document.createElement('link');
-    link.id='hrtechify-ptg-motion';
-    link.rel='stylesheet';
-    link.href=`${rootPrefix}assets/ptg-motion.css`;
-    document.head.appendChild(link);
-  }
-
-  const graph=document.querySelector('.ptg-map');
-  if(!graph)return;
-  const svg=graph.querySelector('.graph-lines');
-  const explainer=graph.querySelector('#graph-explainer');
-  if(!svg||!explainer)return;
-
-  const NS='http://www.w3.org/2000/svg';
-  const messages={
-    people:{title:'People',body:'People drive trust, experience and culture.'},
-    technology:{title:'Technology',body:'Brings structure, speed, and intelligence.'},
-    growth:{title:'Growth',body:'Growth happens when people and technology work together.'},
-    centre:{title:'Intelligence + Empathy',body:'Organizations need both intelligence and empathy to grow.'}
-  };
-  const anchorData=[
-    {key:'growth',x:300,y:80},
-    {key:'people',x:120,y:392},
-    {key:'technology',x:480,y:392}
-  ];
-
-  function makeSvg(tag,attrs={}){
-    const el=document.createElementNS(NS,tag);
-    Object.entries(attrs).forEach(([key,value])=>el.setAttribute(key,String(value)));
-    return el;
-  }
-
-  const anchorGroup=makeSvg('g',{'class':'graph-anchor-group','aria-hidden':'true'});
-  const anchorEls=new Map();
-  anchorData.forEach(({key,x,y})=>{
-    const ring=makeSvg('circle',{'class':'graph-anchor-ring',cx:x,cy:y,r:16});
-    const dot=makeSvg('circle',{'class':'graph-anchor',cx:x,cy:y,r:6,'data-graph-key':key});
-    anchorGroup.append(ring,dot);
-    anchorEls.set(key,dot);
-  });
-  svg.appendChild(anchorGroup);
-
-  const motionGroup=makeSvg('g',{'class':'graph-motion-group','aria-hidden':'true'});
-  const trail=[];
-  for(let i=0;i<5;i++){
-    const circle=makeSvg('circle',{'class':'graph-trail-dot',r:Math.max(2.4,5.4-i*.65),cx:300,cy:80});
-    motionGroup.appendChild(circle);
-    trail.push(circle);
-  }
-  const movingDot=makeSvg('circle',{'class':'graph-motion-dot',r:7,cx:300,cy:80});
-  motionGroup.appendChild(movingDot);
-  svg.appendChild(motionGroup);
-
-  const centreSvg=graph.querySelector('.map-centre svg');
-  if(centreSvg&&!centreSvg.querySelector('.brain-sparks')){
-    centreSvg.insertAdjacentHTML('beforeend','<g class="brain-sparks" aria-hidden="true"><path d="M20 20 L12 14"></path><path d="M18 34 L8 34"></path><path d="M21 49 L12 56"></path><circle class="brain-neuron" cx="40" cy="25" r="2.2"></circle><circle class="brain-neuron" cx="47" cy="38" r="2"></circle><circle class="brain-neuron" cx="39" cy="50" r="1.8"></circle></g>');
-  }
-
-  let manualUntil=0;
-  let hideTimer=0;
-  const triggers=Array.from(graph.querySelectorAll('.graph-trigger'));
-
-  function renderTooltip(key,manual=false){
-    const message=messages[key];
-    if(!message)return;
-    if(!manual&&Date.now()<manualUntil)return;
-    window.clearTimeout(hideTimer);
-    if(manual)manualUntil=Date.now()+3200;
-    graph.dataset.activeNode=key;
-    graph.dataset.tooltipVisible='true';
-    explainer.innerHTML=`<strong>${message.title}</strong><span>${message.body}</span>`;
-    triggers.forEach(trigger=>trigger.setAttribute('aria-pressed',String(trigger.dataset.graphKey===key)));
-    anchorEls.forEach((anchor,anchorKey)=>anchor.classList.toggle('is-active',anchorKey===key));
-  }
-
-  function hideTooltip(delay=0){
-    window.clearTimeout(hideTimer);
-    hideTimer=window.setTimeout(()=>{
-      if(Date.now()<manualUntil)return;
-      graph.dataset.tooltipVisible='false';
-      anchorEls.forEach(anchor=>anchor.classList.remove('is-active'));
-      triggers.forEach(trigger=>trigger.setAttribute('aria-pressed','false'));
-    },delay);
-  }
-
-  triggers.forEach(trigger=>{
-    const key=trigger.dataset.graphKey;
-    const message=messages[key];
-    if(message)trigger.setAttribute('aria-label',`${message.title}: ${message.body}`);
-    trigger.addEventListener('mouseenter',()=>renderTooltip(key,true));
-    trigger.addEventListener('focus',()=>renderTooltip(key,true));
-    trigger.addEventListener('click',()=>renderTooltip(key,true));
-    trigger.addEventListener('mouseleave',()=>hideTooltip(420));
-    trigger.addEventListener('blur',()=>hideTooltip(420));
-  });
-
-  const outer=Array.from(svg.querySelectorAll('.triangle-edge'));
-  const inner=Array.from(svg.querySelectorAll('.centre-link'));
-  if(outer.length<3||inner.length<3)return;
-
-  const routes=[
-    {path:outer[0],reverse:false,arrive:'people'},
-    {path:outer[1],reverse:false,arrive:'technology'},
-    {path:outer[2],reverse:false,arrive:'growth'},
-    {path:inner[0],reverse:true,arrive:'centre'},
-    {path:inner[1],reverse:false,arrive:'people'},
-    {path:inner[1],reverse:true,arrive:'centre'},
-    {path:inner[2],reverse:false,arrive:'technology'},
-    {path:inner[2],reverse:true,arrive:'centre'},
-    {path:inner[0],reverse:false,arrive:'growth'}
-  ];
-
-  const history=[];
-  function placeMotion(point){
-    movingDot.setAttribute('cx',point.x);
-    movingDot.setAttribute('cy',point.y);
-    history.unshift({x:point.x,y:point.y});
-    if(history.length>55)history.length=55;
-    const offsets=[4,8,13,19,26];
-    trail.forEach((circle,index)=>{
-      const past=history[Math.min(offsets[index],history.length-1)]||point;
-      circle.setAttribute('cx',past.x);
-      circle.setAttribute('cy',past.y);
-    });
-  }
-
-  function wait(ms){return new Promise(resolve=>window.setTimeout(resolve,ms));}
-  function animatePath(route){
-    const length=route.path.getTotalLength();
-    const duration=Math.max(900,length*4.4);
-    return new Promise(resolve=>{
-      let start=null;
-      function frame(now){
-        if(start===null)start=now;
-        const progress=Math.min(1,(now-start)/duration);
-        const distance=route.reverse?length*(1-progress):length*progress;
-        placeMotion(route.path.getPointAtLength(distance));
-        if(progress<1)requestAnimationFrame(frame);else resolve();
-      }
-      requestAnimationFrame(frame);
-    });
-  }
-
-  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(reduced){
-    motionGroup.style.display='none';
-    return;
-  }
-
-  (async function runSignal(){
-    placeMotion({x:300,y:80});
-    await wait(650);
-    while(document.documentElement.contains(graph)){
-      for(const route of routes){
-        hideTooltip();
-        await animatePath(route);
-        renderTooltip(route.arrive,false);
-        await wait(route.arrive==='centre'?620:1100);
-        hideTooltip();
-        await wait(140);
-      }
-    }
-  })();
 })();
