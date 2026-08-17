@@ -67,16 +67,12 @@
     </div>`;
   }
 
+  /* Match the compact GrowWithHR Version 2 footer and keep LinkedIn out of the footer. */
   const footer=document.querySelector('.site-footer');
   if(footer){
-    footer.innerHTML=`<div class="shell simple-footer">
-      <a class="footer-wordmark" href="${withRoot('index.html')}">HRTechify</a>
-      <nav class="footer-links" aria-label="Footer navigation">
-        <a href="${withRoot('about.html')}">About</a>
-        <a href="${withRoot('privacy.html')}">Privacy</a>
-        <a href="${withRoot('contact.html')}">Contact</a>
-      </nav>
-      <p class="footer-copyright">© 2026 HRTechify. All rights reserved.</p>
+    footer.innerHTML=`<div class="site-footer__inner">
+      <p class="site-footer__brand-line"><a href="${withRoot('index.html')}">HRTechify - People • Technology • Growth</a></p>
+      <p class="site-footer__rights-line">© <span data-year></span> All Rights Reserved.</p>
     </div>`;
   }
 
@@ -123,33 +119,58 @@
     const centre=graph.querySelector('.map-centre');
     const centreSvg=centre&&centre.querySelector('svg');
     if(centreSvg){
-      centreSvg.setAttribute('viewBox','0 0 160 90');
+      centreSvg.setAttribute('viewBox','0 0 180 100');
       centreSvg.innerHTML=`
         <g class="brain-symbol" aria-hidden="true">
-          <path class="brain-outline" d="M42 15c-10-8-24-2-24 10-9 2-12 13-7 20-6 8-1 20 9 22 0 10 12 15 20 9 7 7 19 2 19-8V27c0-9-9-15-17-12Z"></path>
-          <path class="brain-fold" d="M31 24c-7 2-9 9-5 14M43 20c7 5 5 14-1 17M24 47c6-5 13-3 16 3M43 43c8 1 11 8 8 14M29 62c7 0 12 4 12 10"></path>
+          <path class="brain-outline" d="M70 17c-5-6-14-8-21-4-4 2-7 5-9 9-9-1-16 6-16 15 0 3 1 6 2 8-5 4-7 10-5 17 2 6 7 10 13 11 1 9 10 15 19 12 5 7 17 5 17-5V17Z"></path>
+          <path class="brain-fold" d="M43 27c8-1 13 5 12 12M31 43c7-4 15-1 17 6M31 60c6-2 12 1 15 6M54 17c-3 5-2 10 2 14M52 47c7 2 10 8 8 14M46 73c5-2 10 0 13 4"></path>
         </g>
-        <line class="symbol-divider" x1="78" y1="18" x2="78" y2="72"></line>
-        <path class="heart-symbol" aria-hidden="true" d="M116 73 107 65C84 45 88 24 101 20c8-3 14 1 19 8 5-7 11-11 19-8 13 4 17 25-6 45l-9 8-4 4-4-4Z"></path>`;
+        <line class="symbol-divider" x1="88" y1="18" x2="88" y2="82"></line>
+        <path class="heart-symbol" aria-hidden="true" d="M133 83c-2-2-30-23-30-43 0-12 8-20 18-20 6 0 11 3 15 9 4-6 9-9 15-9 10 0 18 8 18 20 0 20-28 41-30 43l-3 2-3-2Z"></path>`;
     }
 
     if(centre){
       centre.setAttribute('aria-label','Intelligence and empathy: organizations need both to grow.');
     }
 
+    const svg=graph.querySelector('.graph-lines');
+    if(svg&&!svg.querySelector('.edge-direction-group')){
+      const NS='http://www.w3.org/2000/svg';
+      const arrowGroup=document.createElementNS(NS,'g');
+      arrowGroup.setAttribute('class','edge-direction-group');
+      arrowGroup.setAttribute('aria-hidden','true');
+      [
+        'M256 156 L235 192',
+        'M188 274 L211 234',
+        'M344 156 L365 192',
+        'M412 274 L389 234',
+        'M220 392 L275 392',
+        'M380 392 L325 392'
+      ].forEach(d=>{
+        const path=document.createElementNS(NS,'path');
+        path.setAttribute('class','edge-direction');
+        path.setAttribute('d',d);
+        path.setAttribute('marker-end','url(#arrow-end)');
+        arrowGroup.appendChild(path);
+      });
+      const firstCentre=svg.querySelector('.centre-link');
+      if(firstCentre)svg.insertBefore(arrowGroup,firstCentre);else svg.appendChild(arrowGroup);
+    }
+
     if(!visual.querySelector('.emblem-logic')){
       const logic=document.createElement('div');
       logic.className='emblem-logic';
-      logic.innerHTML='<strong>Why this emblem?</strong><p>People and technology reinforce each other. Guided by empathy and intelligence, they create the conditions for meaningful organizational growth. The arrows show that this relationship is continuous and two-way.</p>';
+      logic.innerHTML='<strong>Why this emblem?</strong><p>People and technology form the foundation for growth. At the centre, the heart and brain represent empathy and intelligence. The two-way arrows show that each force strengthens the others, while the moving signal represents continuous learning and feedback across the system.</p>';
       visual.appendChild(logic);
     }
 
     const messages={
-      people:'People: People drive trust, experience and culture.',
-      technology:'Technology: Technology brings structure, speed and intelligence.',
-      growth:'Growth: Growth happens when people and technology work together.',
-      centre:'Intelligence + Empathy: Organizations need both intelligence and empathy to grow.'
+      people:'People drive trust, experience and culture. They give technology and growth their human context.',
+      technology:'Technology brings structure, speed and intelligence. It helps strong people practices scale.',
+      growth:'Growth is the outcome when people and technology reinforce each other with purpose.',
+      centre:'Empathy + Intelligence: organizations need both human understanding and informed judgment to grow.'
     };
+    const graphExplainer=graph.querySelector('#graph-explainer');
     graph.querySelectorAll('.graph-trigger').forEach(trigger=>{
       const key=trigger.dataset.graphKey;
       if(messages[key])trigger.setAttribute('aria-label',messages[key]);
@@ -157,10 +178,10 @@
         graph.querySelectorAll('.graph-trigger').forEach(item=>item.setAttribute('aria-pressed','false'));
         trigger.setAttribute('aria-pressed','true');
         graph.dataset.activeNode=key||'';
+        if(graphExplainer&&messages[key])graphExplainer.textContent=messages[key];
       });
     });
 
-    const svg=graph.querySelector('.graph-lines');
     const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if(svg&&!reduced){
       const NS='http://www.w3.org/2000/svg';
