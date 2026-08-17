@@ -1,0 +1,6 @@
+People–Technology–Growth graph interaction notes:
+- Gold/orange dotted lines represent the system connections.
+- Cyan signal traverses outer and inner routes.
+- Arrival at People, Technology or Growth opens the matching explanation.
+- Hover, focus and click expose the same explanation accessibly.
+- Heart pulse and brain activity respect prefers-reduced-motion.
