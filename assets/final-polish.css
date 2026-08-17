@@ -1,6 +1,6 @@
-/* HRTechify final approved hero visual and site polish */
+/* HRTechify approved hero visual — isolated final layer */
 
-/* Direction / ambition notes stay directly on their section backgrounds. */
+/* Keep direction notes unobtrusive across the site. */
 .future-note,.direction-note,.ecosystem-note{
   margin-top:18px!important;
   padding:0!important;
@@ -16,47 +16,45 @@
 }
 .section-dark .future-note,.difference-section .future-note,.final-cta .future-note{color:#ffe1a8!important}
 
-/* Approved hero palette: deep maroon / black with warm gold and amber light. */
+/* Approved hero surface: deep maroon/black, no square grid, no stray signal dots. */
 .future-hero{
   background:
-    radial-gradient(circle at 78% 34%,rgba(240,106,0,.15),transparent 27%),
-    radial-gradient(circle at 88% 72%,rgba(255,194,28,.07),transparent 30%),
-    linear-gradient(135deg,#100102 0%,#220302 48%,#140102 100%)!important;
+    radial-gradient(circle at 76% 30%,rgba(240,106,0,.13),transparent 28%),
+    radial-gradient(circle at 90% 72%,rgba(255,194,28,.055),transparent 30%),
+    linear-gradient(135deg,#100102 0%,#220302 50%,#130102 100%)!important;
 }
-.future-hero .hero-grid{align-items:center!important;gap:56px!important}
+.future-hero:before{
+  background:
+    radial-gradient(circle at 76% 31%,rgba(255,177,38,.07),transparent 25%),
+    radial-gradient(circle at 22% 78%,rgba(240,106,0,.035),transparent 28%)!important;
+  background-size:auto!important;
+  opacity:1!important;
+}
+.future-hero .hero-signals{display:none!important}
+.future-hero .hero-grid{align-items:center!important;gap:50px!important}
 .future-hero .hero-copy{align-self:center}
 
-/* The approved graph floats freely: no card, border, panel or clipping. */
+/* One clean visual unit. No decorative wireframe behind the approved artwork. */
 .hero-visual{
   position:relative;
   isolation:isolate;
-  display:grid;
-  justify-items:center;
-  gap:16px;
-  width:min(100%,620px);
-  min-width:0;
-  margin-inline:auto;
-  overflow:visible;
+  display:grid!important;
+  justify-items:center!important;
+  align-content:start!important;
+  gap:30px!important;
+  width:min(100%,620px)!important;
+  min-width:0!important;
+  margin-inline:auto!important;
+  overflow:visible!important;
 }
-.hero-visual:before{
-  content:"";
-  position:absolute;
-  z-index:0;
-  inset:7% -5% 31%;
-  pointer-events:none;
-  opacity:.72;
-  background:
-    repeating-radial-gradient(ellipse at 0 72%,transparent 0 18px,rgba(240,106,0,.07) 19px 20px,transparent 21px 29px),
-    repeating-radial-gradient(ellipse at 100% 72%,transparent 0 18px,rgba(255,194,28,.055) 19px 20px,transparent 21px 29px);
-  -webkit-mask-image:linear-gradient(90deg,#000 0%,transparent 40%,transparent 60%,#000 100%);
-  mask-image:linear-gradient(90deg,#000 0%,transparent 40%,transparent 60%,#000 100%);
-}
+.hero-visual:before,.hero-visual:after{display:none!important}
 .hero-visual>*{position:relative;z-index:1}
 
+/* Free-floating equilateral triangle. */
 .ptg-map{
   position:relative!important;
-  width:min(100%,590px)!important;
-  max-width:590px!important;
+  width:min(100%,600px)!important;
+  max-width:600px!important;
   min-height:0!important;
   height:auto!important;
   aspect-ratio:600/520!important;
@@ -66,7 +64,7 @@
   background:transparent!important;
   box-shadow:none!important;
   overflow:visible!important;
-  isolation:isolate;
+  isolation:isolate!important;
 }
 .ptg-map:before,.ptg-map:after{display:none!important}
 .ptg-map .graph-lines{
@@ -75,53 +73,70 @@
   inset:0!important;
   width:100%!important;
   height:100%!important;
-  overflow:visible!important;
   z-index:1!important;
+  overflow:visible!important;
 }
 .ptg-map marker,.ptg-map .edge-direction-group,.ptg-map .edge-direction{display:none!important}
 
-/* Equilateral triangle edges are continuous; the center connections are dotted. */
 .ptg-map .triangle-edge{
-  stroke:#f6c653!important;
+  stroke:#f4c45a!important;
   fill:none!important;
-  stroke-width:2.1!important;
+  stroke-width:2!important;
   stroke-linecap:round!important;
+  stroke-linejoin:round!important;
   stroke-dasharray:none!important;
   opacity:.96!important;
-  filter:drop-shadow(0 0 4px rgba(246,198,83,.34))!important;
-  vector-effect:non-scaling-stroke;
+  filter:drop-shadow(0 0 3px rgba(244,196,90,.28))!important;
+  vector-effect:non-scaling-stroke!important;
 }
 .ptg-map .centre-link{
-  stroke:#f4a225!important;
+  stroke:#eaa12f!important;
   fill:none!important;
-  stroke-width:1.6!important;
+  stroke-width:1.55!important;
   stroke-linecap:round!important;
   stroke-dasharray:2 9!important;
-  opacity:.9!important;
-  filter:drop-shadow(0 0 3px rgba(244,162,37,.25))!important;
-  vector-effect:non-scaling-stroke;
+  opacity:.92!important;
+  filter:drop-shadow(0 0 2px rgba(234,161,47,.24))!important;
+  vector-effect:non-scaling-stroke!important;
 }
 
-/* Vertex controls sit exactly on the SVG nodes; labels and icons orbit the node without covering it. */
+/* Remove the old animated starburst anchors. Clean node rings are rendered by the controls instead. */
+.ptg-map .graph-anchor-group,.ptg-map .graph-anchor-ring,.ptg-map .graph-anchor{display:none!important}
+
+/* Vertex controls are invisible hit areas plus a clean luminous node ring. */
 .ptg-map .map-node{
   appearance:none!important;
   position:absolute!important;
   z-index:6!important;
-  width:44px!important;
-  height:44px!important;
-  min-width:44px!important;
-  min-height:44px!important;
+  width:40px!important;
+  height:40px!important;
+  min-width:40px!important;
+  min-height:40px!important;
   margin:0!important;
   padding:0!important;
   border:0!important;
   border-radius:50%!important;
   background:transparent!important;
   box-shadow:none!important;
-  color:#f5e4a1!important;
-  text-align:center!important;
-  cursor:pointer;
   overflow:visible!important;
+  color:#f4dfa0!important;
+  text-align:center!important;
+  cursor:pointer!important;
   transform:translate(-50%,-50%)!important;
+}
+.ptg-map .map-node::before{
+  content:""!important;
+  position:absolute!important;
+  left:50%!important;
+  top:50%!important;
+  width:18px!important;
+  height:18px!important;
+  transform:translate(-50%,-50%)!important;
+  border:1.5px solid #f8ce63!important;
+  border-radius:50%!important;
+  background:#fff1b5!important;
+  box-shadow:0 0 0 5px rgba(246,184,49,.11),0 0 13px rgba(246,184,49,.48)!important;
+  pointer-events:none!important;
 }
 .ptg-map .map-node-a{left:50%!important;top:15.4%!important;right:auto!important;bottom:auto!important}
 .ptg-map .map-node-b{left:20%!important;top:75.4%!important;right:auto!important;bottom:auto!important}
@@ -131,7 +146,11 @@
   border:0!important;
   background:transparent!important;
   box-shadow:none!important;
-  transform:translate(-50%,-50%) scale(1.02)!important;
+  transform:translate(-50%,-50%)!important;
+}
+.ptg-map .map-node:hover::before,.ptg-map .map-node:focus-visible::before{
+  background:#fff8d4!important;
+  box-shadow:0 0 0 5px rgba(246,184,49,.14),0 0 16px rgba(246,184,49,.56)!important;
 }
 .ptg-map .map-node strong{
   position:absolute!important;
@@ -140,52 +159,21 @@
   max-width:none!important;
   margin:0!important;
   padding:0!important;
-  color:#f3e0a0!important;
+  color:#f2df9e!important;
   font-family:Georgia,"Times New Roman",serif!important;
-  font-size:clamp(1.48rem,2.15vw,1.96rem)!important;
+  font-size:clamp(1.46rem,2.15vw,1.92rem)!important;
   font-weight:700!important;
   line-height:1!important;
   letter-spacing:-.025em!important;
   white-space:nowrap!important;
-  text-shadow:0 3px 20px rgba(0,0,0,.34),0 0 14px rgba(246,198,83,.1)!important;
-  pointer-events:none;
-}
-.ptg-map .map-node:hover strong,.ptg-map .map-node:focus-visible strong,.ptg-map .map-node[aria-pressed="true"] strong{color:#ffe58a!important}
-.ptg-map .map-node-a strong{left:50%!important;bottom:52px!important;transform:translateX(-50%)!important}
-.ptg-map .map-node-b strong,.ptg-map .map-node-c strong{left:50%!important;top:99px!important;transform:translateX(-50%)!important}
-
-/* People and Technology icons from the approved visual. */
-.ptg-map .map-node .node-icon{
-  display:grid!important;
-  place-items:center!important;
-  position:absolute!important;
-  left:50%!important;
-  top:34px!important;
-  width:58px!important;
-  height:58px!important;
-  margin:0!important;
-  padding:0!important;
-  overflow:visible!important;
-  clip:auto!important;
-  white-space:normal!important;
-  transform:translateX(-50%)!important;
-  border:1px solid rgba(246,198,83,.72)!important;
-  border-radius:50%!important;
-  background:rgba(18,2,2,.72)!important;
-  box-shadow:0 0 18px rgba(246,198,83,.09)!important;
+  text-shadow:0 3px 18px rgba(0,0,0,.4),0 0 12px rgba(246,198,83,.09)!important;
   pointer-events:none!important;
 }
-.ptg-map .map-node .node-icon svg{
-  display:block!important;
-  width:35px!important;
-  height:35px!important;
-  overflow:visible!important;
-  fill:none!important;
-  stroke:#f5d474!important;
-  stroke-width:1.8!important;
-  stroke-linecap:round!important;
-  stroke-linejoin:round!important;
-}
+.ptg-map .map-node-a strong{left:50%!important;bottom:48px!important;transform:translateX(-50%)!important}
+.ptg-map .map-node-b strong,.ptg-map .map-node-c strong{left:50%!important;top:91px!important;transform:translateX(-50%)!important}
+.ptg-map .map-node:hover strong,.ptg-map .map-node:focus-visible strong,.ptg-map .map-node[aria-pressed="true"] strong{color:#ffe89a!important}
+
+/* Keep the hidden supporting descriptions hidden. */
 .ptg-map .map-node .node-detail{
   position:absolute!important;
   width:1px!important;
@@ -194,51 +182,76 @@
   margin:-1px!important;
   overflow:hidden!important;
   clip:rect(0,0,0,0)!important;
+  clip-path:inset(50%)!important;
   white-space:nowrap!important;
   border:0!important;
 }
 
-/* Center intelligence + empathy emblem: brain and heart in one glowing circle. */
+/* Self-contained People and Technology icons so legacy span/svg rules cannot distort them. */
+.ptg-map .map-node .node-icon{
+  display:block!important;
+  position:absolute!important;
+  left:50%!important;
+  top:29px!important;
+  width:56px!important;
+  height:56px!important;
+  margin:0!important;
+  padding:0!important;
+  transform:translateX(-50%)!important;
+  border:1px solid rgba(244,196,90,.7)!important;
+  border-radius:50%!important;
+  background-color:rgba(18,2,2,.7)!important;
+  background-position:center!important;
+  background-repeat:no-repeat!important;
+  background-size:38px 38px!important;
+  box-shadow:0 0 16px rgba(244,196,90,.08)!important;
+  overflow:visible!important;
+  clip:auto!important;
+  clip-path:none!important;
+  white-space:normal!important;
+  pointer-events:none!important;
+}
+.ptg-map .map-node .node-icon svg{display:none!important}
+.ptg-map .node-icon-people{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='none' stroke='%23f5d474' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='32' cy='19' r='7'/%3E%3Ccircle cx='16' cy='24' r='5'/%3E%3Ccircle cx='48' cy='24' r='5'/%3E%3Cpath d='M19 50c0-10 5-16 13-16s13 6 13 16'/%3E%3Cpath d='M5 48c0-8 4-13 11-13 4 0 7 2 9 5'/%3E%3Cpath d='M39 40c2-3 5-5 9-5 7 0 11 5 11 13'/%3E%3C/svg%3E")!important;
+}
+.ptg-map .node-icon-technology{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='none' stroke='%23f5d474' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='20' y='20' width='24' height='24' rx='2'/%3E%3Crect x='26' y='26' width='12' height='12' rx='1'/%3E%3Cpath d='M24 10v10M32 10v10M40 10v10M24 44v10M32 44v10M40 44v10M10 24h10M10 32h10M10 40h10M44 24h10M44 32h10M44 40h10'/%3E%3C/svg%3E")!important;
+}
+
+/* Center emblem: exact clean brain + heart artwork, independent of the older injected SVG paths. */
 .ptg-map .map-centre{
   appearance:none!important;
   position:absolute!important;
   z-index:5!important;
   left:50%!important;
   top:55.4%!important;
-  width:154px!important;
-  height:154px!important;
+  width:148px!important;
+  height:148px!important;
   min-height:0!important;
   padding:0!important;
   transform:translate(-50%,-50%)!important;
-  border:1.6px solid rgba(246,198,83,.9)!important;
+  border:1.5px solid rgba(244,196,90,.88)!important;
   border-radius:50%!important;
-  background:radial-gradient(circle at 50% 45%,rgba(246,198,83,.08),rgba(28,3,3,.62) 67%,rgba(13,1,1,.76))!important;
-  box-shadow:0 0 0 1px rgba(255,242,197,.08),0 0 26px rgba(246,166,51,.22),inset 0 0 24px rgba(246,198,83,.045)!important;
+  background-color:rgba(24,3,3,.74)!important;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 110' fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cg stroke='%23f7df9b' stroke-width='3.6'%3E%3Cpath d='M72 18c-7-7-18-6-24 1-8-2-16 4-17 13-8 2-12 12-7 19-6 5-6 16 1 21-2 10 8 18 17 14 4 8 16 9 22 2V20c2-2 5-3 8-2Z'/%3E%3Cpath d='M48 28c8-1 13 5 12 12M35 43c8-4 16 0 17 8M35 62c7-2 13 1 16 7M58 20c-3 7-1 12 4 16M55 50c8 1 12 7 10 14M48 79c6-2 11 1 14 5' stroke='%23f0c85e' stroke-width='2.4'/%3E%3C/g%3E%3Cpath d='M132 88c-3-3-34-26-34-49 0-13 9-22 20-22 7 0 13 4 17 11 4-7 10-11 17-11 11 0 20 9 20 22 0 23-31 46-34 49l-3 2-3-2Z' stroke='%23f0a14a' stroke-width='4.2'/%3E%3Cline x1='88' y1='18' x2='88' y2='91' stroke='%23f7df9b' stroke-opacity='.52' stroke-width='1.4'/%3E%3C/svg%3E"),
+    radial-gradient(circle at 50% 46%,rgba(246,198,83,.075),rgba(29,3,3,.6) 68%,rgba(12,1,1,.82))!important;
+  background-position:center,center!important;
+  background-repeat:no-repeat,no-repeat!important;
+  background-size:132px 88px,100% 100%!important;
+  box-shadow:0 0 0 1px rgba(255,242,197,.06),0 0 24px rgba(238,154,49,.18),inset 0 0 22px rgba(246,198,83,.04)!important;
   color:#f6e5ad!important;
-  cursor:pointer;
+  cursor:pointer!important;
   overflow:visible!important;
 }
 .ptg-map .map-centre:hover,.ptg-map .map-centre:focus-visible,.ptg-map .map-centre[aria-pressed="true"]{
   outline:none!important;
-  transform:translate(-50%,-50%) scale(1.025)!important;
+  transform:translate(-50%,-50%)!important;
   border-color:#ffe58a!important;
-  box-shadow:0 0 0 1px rgba(255,242,197,.1),0 0 32px rgba(246,166,51,.28),inset 0 0 24px rgba(246,198,83,.055)!important;
+  box-shadow:0 0 0 1px rgba(255,242,197,.08),0 0 28px rgba(238,154,49,.22),inset 0 0 22px rgba(246,198,83,.045)!important;
 }
-.ptg-map .map-centre svg{
-  display:block!important;
-  width:134px!important;
-  height:92px!important;
-  margin:31px auto 0!important;
-  opacity:1!important;
-  overflow:visible!important;
-  pointer-events:none!important;
-  filter:drop-shadow(0 8px 18px rgba(0,0,0,.25))!important;
-}
-.ptg-map .brain-symbol{animation:brainFloat 2.7s ease-in-out infinite}
-.ptg-map .brain-outline{fill:none!important;stroke:#ffe5a3!important;stroke-width:3!important;stroke-linecap:round!important;stroke-linejoin:round!important}
-.ptg-map .brain-fold{fill:none!important;stroke:#f6c653!important;stroke-width:2.2!important;stroke-linecap:round!important;stroke-linejoin:round!important}
-.ptg-map .heart-symbol{fill:none!important;stroke:#f3a04a!important;stroke-width:4!important;stroke-linejoin:round!important;animation:heartBeatClear 1.5s ease-in-out infinite;filter:drop-shadow(0 0 7px rgba(243,160,74,.28))}
-.ptg-map .symbol-divider{stroke:rgba(255,238,195,.65)!important;stroke-width:1.4!important;stroke-dasharray:3 5!important}
+.ptg-map .map-centre svg{display:none!important}
 .ptg-map .map-centre strong{
   position:absolute!important;
   width:1px!important;
@@ -247,41 +260,34 @@
   margin:-1px!important;
   overflow:hidden!important;
   clip:rect(0,0,0,0)!important;
+  clip-path:inset(50%)!important;
   white-space:nowrap!important;
   border:0!important;
 }
 .ptg-map .map-centre:before,.ptg-map .map-centre:after{display:none!important}
 
-/* Glowing anchors and one warm signal traversing every outer and inner path. */
-.ptg-map .graph-anchor-ring{
-  fill:none!important;
-  stroke:#ffc94c!important;
-  stroke-width:1.35!important;
-  opacity:.34!important;
-  filter:drop-shadow(0 0 4px rgba(255,201,76,.4))!important;
+/* One unmistakable travelling dot with a warm trail; no competing permanent animated stars. */
+.ptg-map .graph-motion-group{pointer-events:none!important}
+.ptg-map .graph-trail-dot{
+  fill:#f5ae2f!important;
+  stroke:none!important;
+  filter:drop-shadow(0 0 4px rgba(245,174,47,.72))!important;
 }
-.ptg-map .graph-anchor{
-  fill:#ffc21c!important;
-  stroke:#fff1c4!important;
-  stroke-width:2.6!important;
-  filter:drop-shadow(0 0 7px rgba(255,194,28,.82)) drop-shadow(0 0 14px rgba(246,166,51,.35))!important;
-}
-.ptg-map .graph-trail-dot{fill:#ffc21c!important;filter:drop-shadow(0 0 5px rgba(255,194,28,.76))!important}
 .ptg-map .graph-motion-dot{
-  fill:#fff4bd!important;
-  stroke:#ffc21c!important;
+  fill:#fff7d2!important;
+  stroke:#ffc347!important;
   stroke-width:3!important;
-  filter:drop-shadow(0 0 7px rgba(255,244,189,.98)) drop-shadow(0 0 15px rgba(246,166,51,.7))!important;
+  filter:drop-shadow(0 0 7px rgba(255,247,210,.98)) drop-shadow(0 0 15px rgba(245,174,47,.72))!important;
 }
 
-/* The approved artwork is self-explanatory; no hover cards or boxed captions. */
+/* No legacy hover cards on this self-explanatory diagram. */
 .ptg-map .graph-explainer,.ptg-map .map-node:after{display:none!important}
 
-/* Approved message beneath the free-floating graph. */
+/* Approved message, fully visible and outside any card. */
 .emblem-logic{
   width:min(100%,600px)!important;
   margin:0 auto!important;
-  padding:4px 8px 0!important;
+  padding:0 8px!important;
   border:0!important;
   border-radius:0!important;
   background:transparent!important;
@@ -295,11 +301,12 @@
   margin:0!important;
   color:#f2dfa0!important;
   font-family:Georgia,"Times New Roman",serif!important;
-  font-size:clamp(1.45rem,2.25vw,2.05rem)!important;
+  font-size:clamp(1.42rem,2.2vw,2rem)!important;
   font-weight:700!important;
-  line-height:1.12!important;
+  line-height:1.14!important;
   letter-spacing:-.025em!important;
   text-transform:none!important;
+  white-space:normal!important;
 }
 .emblem-logic .logic-divider{
   display:flex!important;
@@ -308,7 +315,7 @@
   gap:12px!important;
   width:190px!important;
   height:auto!important;
-  margin:14px auto 13px!important;
+  margin:14px auto 14px!important;
   padding:0!important;
   overflow:visible!important;
   color:#f5a623!important;
@@ -321,23 +328,24 @@
   display:block;
   flex:1;
   height:1px;
-  background:linear-gradient(90deg,transparent,rgba(246,198,83,.9));
+  background:linear-gradient(90deg,transparent,rgba(246,198,83,.88));
 }
-.emblem-logic .logic-divider:after{background:linear-gradient(90deg,rgba(246,198,83,.9),transparent)}
+.emblem-logic .logic-divider:after{background:linear-gradient(90deg,rgba(246,198,83,.88),transparent)}
 .emblem-logic p{
   max-width:590px!important;
   margin:0 auto!important;
   padding:0!important;
   color:#f4eee8!important;
-  font-size:clamp(.86rem,1.18vw,.98rem)!important;
+  font-size:clamp(.88rem,1.2vw,1rem)!important;
   font-weight:500!important;
-  line-height:1.7!important;
+  line-height:1.72!important;
   letter-spacing:.002em!important;
   text-align:center!important;
+  overflow:visible!important;
 }
 .emblem-logic .logic-key{color:#f2a21d!important;font-weight:850!important}
 
-/* Footer mirrors GrowWithHR Version 2: brand line + rights line only. */
+/* Footer mirrors the compact approved site treatment. */
 .site-footer{padding:0!important;background:#220302!important;border-top:1px solid rgba(255,194,28,.22)!important;color:#fff1d6!important}
 .site-footer__inner{width:min(100% - 40px,1180px);margin-inline:auto;padding:24px 0 25px;text-align:center}
 .site-footer__brand-line,.site-footer__rights-line{margin:0!important}
@@ -345,42 +353,56 @@
 .site-footer__brand-line a:hover,.site-footer__brand-line a:focus-visible{color:#fff1d6!important}
 .site-footer__rights-line{margin-top:7px!important;color:#d9b88a!important;font-size:.82rem!important;line-height:1.4}
 
-@keyframes brainFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-1.5px)}}
-@keyframes heartBeatClear{0%,100%{transform:scale(1)}14%{transform:scale(1.075)}27%{transform:scale(1)}38%{transform:scale(1.04)}52%{transform:scale(1)}}
-
 @media(min-width:1001px){
-  .future-hero .hero-grid{grid-template-columns:minmax(0,1fr) minmax(470px,.95fr)!important}
+  .future-hero .hero-grid{grid-template-columns:minmax(0,1fr) minmax(480px,.98fr)!important}
 }
 @media(max-width:1000px){
-  .future-hero .hero-grid{grid-template-columns:1fr!important;gap:48px!important}
+  .future-hero .hero-grid{grid-template-columns:1fr!important;gap:32px!important}
   .hero-visual{max-width:620px!important;margin-inline:auto!important}
 }
 @media(max-width:620px){
-  .future-hero{padding-top:64px!important;padding-bottom:70px!important}
-  .hero-visual{width:100%!important;gap:12px!important}
-  .ptg-map{width:92%!important;max-width:430px!important;margin-top:8px!important}
-  .ptg-map .map-node{width:36px!important;height:36px!important;min-width:36px!important;min-height:36px!important}
-  .ptg-map .map-node strong{font-size:1.2rem!important}
-  .ptg-map .map-node-a strong{bottom:43px!important}
-  .ptg-map .map-node .node-icon{top:28px!important;width:48px!important;height:48px!important}
-  .ptg-map .map-node .node-icon svg{width:29px!important;height:29px!important}
-  .ptg-map .map-node-b strong,.ptg-map .map-node-c strong{top:82px!important}
-  .ptg-map .map-centre{width:126px!important;height:126px!important}
-  .ptg-map .map-centre svg{width:110px!important;height:76px!important;margin-top:25px!important}
-  .emblem-logic{max-width:430px!important;padding-inline:12px!important}
-  .emblem-logic strong{font-size:1.42rem!important}
-  .emblem-logic p{font-size:.82rem!important;line-height:1.65!important}
+  .future-hero{padding-top:50px!important;padding-bottom:72px!important}
+  .future-hero .hero-grid{gap:22px!important}
+  .hero-visual{
+    width:calc(100vw - 20px)!important;
+    max-width:440px!important;
+    justify-self:center!important;
+    gap:42px!important;
+  }
+  .ptg-map{
+    width:100%!important;
+    max-width:430px!important;
+    margin-top:0!important;
+  }
+  .ptg-map .triangle-edge{stroke-width:1.85!important}
+  .ptg-map .centre-link{stroke-width:1.4!important;stroke-dasharray:2 8!important}
+  .ptg-map .map-node{width:34px!important;height:34px!important;min-width:34px!important;min-height:34px!important}
+  .ptg-map .map-node::before{width:16px!important;height:16px!important;box-shadow:0 0 0 4px rgba(246,184,49,.1),0 0 11px rgba(246,184,49,.45)!important}
+  .ptg-map .map-node strong{font-size:1.18rem!important}
+  .ptg-map .map-node-a strong{bottom:39px!important}
+  .ptg-map .map-node .node-icon{top:25px!important;width:50px!important;height:50px!important;background-size:34px 34px!important}
+  .ptg-map .map-node-b strong,.ptg-map .map-node-c strong{top:78px!important}
+  .ptg-map .map-centre{width:118px!important;height:118px!important;background-size:105px 70px,100% 100%!important}
+  .emblem-logic{
+    width:calc(100vw - 28px)!important;
+    max-width:430px!important;
+    padding-inline:4px!important;
+  }
+  .emblem-logic strong{font-size:clamp(1.34rem,6.2vw,1.62rem)!important;line-height:1.12!important}
+  .emblem-logic .logic-divider{margin:13px auto!important;width:170px!important}
+  .emblem-logic p{font-size:.88rem!important;line-height:1.68!important}
   .site-footer__inner{width:min(100% - 32px,1180px);padding:22px 0 23px}
 }
 @media(max-width:390px){
-  .ptg-map{width:90%!important}
-  .ptg-map .map-node strong{font-size:1.08rem!important}
-  .ptg-map .map-node .node-icon{width:44px!important;height:44px!important}
-  .ptg-map .map-node-b strong,.ptg-map .map-node-c strong{top:76px!important}
-  .ptg-map .map-centre{width:116px!important;height:116px!important}
-  .ptg-map .map-centre svg{width:100px!important;height:70px!important;margin-top:22px!important}
-  .emblem-logic strong{font-size:1.3rem!important}
+  .hero-visual{width:calc(100vw - 16px)!important;gap:40px!important}
+  .ptg-map{max-width:410px!important}
+  .ptg-map .map-node strong{font-size:1.1rem!important}
+  .ptg-map .map-node .node-icon{width:46px!important;height:46px!important;background-size:31px 31px!important}
+  .ptg-map .map-node-b strong,.ptg-map .map-node-c strong{top:72px!important}
+  .ptg-map .map-centre{width:110px!important;height:110px!important;background-size:98px 66px,100% 100%!important}
+  .emblem-logic strong{font-size:1.32rem!important}
+  .emblem-logic p{font-size:.84rem!important;line-height:1.66!important}
 }
 @media(prefers-reduced-motion:reduce){
-  .ptg-map .brain-symbol,.ptg-map .heart-symbol{animation:none!important}
+  .ptg-map .graph-motion-group{display:none!important}
 }
