@@ -11,3 +11,20 @@
 .journey-section + .section.shell{padding-bottom:92px!important}
 .journey-section + .section.shell:after{content:"Posters + Newsletters · Published on the HRTechify LinkedIn company page";display:flex;align-items:center;min-height:92px;margin-top:4px;padding:22px 26px;border:1px solid rgba(124,13,4,.14);border-radius:20px;background:linear-gradient(135deg,#fff8eb,#fff1d6);box-shadow:0 12px 34px rgba(74,7,3,.06);color:#7c0d04;font-size:clamp(1rem,2vw,1.18rem);font-weight:850;letter-spacing:-.01em}
 @media(max-width:620px){.journey-section + .section.shell .row-heading{align-items:flex-start;flex-direction:column}.journey-section + .section.shell:after{min-height:78px;padding:18px 20px;font-size:.95rem}}
+
+/* Keep product iframe previews fitted to the browser card instead of cropping a fixed-width desktop canvas. */
+.preview-frame iframe{
+  display:block;
+  width:166.666667%;
+  height:166.666667%;
+  max-width:none;
+  transform:scale(.6);
+  transform-origin:top left;
+}
+@media(max-width:620px){
+  .preview-frame iframe{
+    width:217.391305%;
+    height:217.391305%;
+    transform:scale(.46);
+  }
+}
