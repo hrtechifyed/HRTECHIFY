@@ -52,7 +52,7 @@
   const header=document.querySelector('.site-header');
   if(header){
     header.innerHTML=`<div class="shell header-inner">
-      <a class="brand" href="${withRoot('index.html')}" aria-label="HRTechify home"><img class="brand-logo-image" src="${withRoot('assets/hrtechify-logo.png')}" alt="HRTechify"></a>
+      <a class="brand" href="${withRoot('index.html')}" aria-label="HRTechify home"><img class="brand-logo-image" src="${withRoot('assets/hrtechify-logo.png')}" alt="HRTechify" width="62" height="62"></a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open navigation"><span></span><span></span><span></span></button>
       <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
         <a href="${withRoot('index.html')}"${activeKey==='home'?' aria-current="page"':''}>Home</a>
