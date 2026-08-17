@@ -1,0 +1,315 @@
+/* HRTechify shared editorial layout system
+   Keeps display copy balanced across the canvas while preserving readable body widths. */
+
+:root{
+  --editorial-display-max:1120px;
+  --editorial-copy-max:900px;
+}
+
+/* Long-form reading remains narrow; display headers do not inherit that narrow measure. */
+body .article-body.shell.narrow,
+body .legal-copy{
+  max-width:800px!important;
+}
+
+@media(min-width:721px){
+  /* Page heroes: one centered composition across About, Products, Insights, Contact and legal pages. */
+  body .page-hero > .shell,
+  body .page-hero > .shell.narrow,
+  body .page-hero .insights-hero-copy{
+    position:relative!important;
+    z-index:1!important;
+    width:min(1180px,calc(100% - 56px))!important;
+    max-width:1180px!important;
+    margin-inline:auto!important;
+    text-align:center!important;
+  }
+  body .page-hero .eyebrow{
+    width:100%!important;
+    text-align:center!important;
+  }
+  body .page-hero h1,
+  body .page-hero .insights-hero-copy h1{
+    width:min(100%,1080px)!important;
+    max-width:1080px!important;
+    margin:0 auto 24px!important;
+    font-size:clamp(2.8rem,4.4vw,4.8rem)!important;
+    line-height:1.01!important;
+    letter-spacing:-.042em!important;
+    text-align:center!important;
+    text-wrap:balance;
+  }
+  body .page-hero .lead,
+  body .page-hero .insights-hero-copy .lead{
+    width:min(100%,var(--editorial-copy-max))!important;
+    max-width:var(--editorial-copy-max)!important;
+    margin:0 auto!important;
+    text-align:center!important;
+    text-wrap:pretty;
+  }
+
+  /* Article mastheads get display width; article bodies keep the reading measure above. */
+  body .article-header.shell.narrow{
+    width:min(1180px,calc(100% - 56px))!important;
+    max-width:1180px!important;
+    margin-inline:auto!important;
+    text-align:center!important;
+  }
+  body .article-header h1{
+    width:min(100%,1060px)!important;
+    max-width:1060px!important;
+    margin:0 auto 22px!important;
+    font-size:clamp(2.65rem,4.1vw,4.55rem)!important;
+    line-height:1.02!important;
+    letter-spacing:-.04em!important;
+    text-align:center!important;
+    text-wrap:balance;
+  }
+  body .article-header .lead{
+    width:min(100%,var(--editorial-copy-max))!important;
+    max-width:var(--editorial-copy-max)!important;
+    margin-inline:auto!important;
+    text-align:center!important;
+  }
+  body .article-header .eyebrow,
+  body .article-header .article-meta{
+    text-align:center!important;
+  }
+  body .article-header .back-link{
+    margin-left:auto!important;
+    margin-right:auto!important;
+  }
+
+  /* Standalone section intros use the canvas symmetrically on every page. */
+  body main > section.section > .section-heading,
+  body main > section.section > .shell > .section-heading,
+  body main > section.section.shell > .section-heading,
+  body main .difference-section .difference-intro{
+    width:100%!important;
+    max-width:none!important;
+    margin-left:auto!important;
+    margin-right:auto!important;
+    text-align:center!important;
+  }
+  body main > section.section > .section-heading .eyebrow,
+  body main > section.section > .shell > .section-heading .eyebrow,
+  body main > section.section.shell > .section-heading .eyebrow,
+  body main .difference-section .difference-intro .eyebrow{
+    display:block!important;
+    width:100%!important;
+    text-align:center!important;
+  }
+  body main > section.section > .section-heading h2,
+  body main > section.section > .shell > .section-heading h2,
+  body main > section.section.shell > .section-heading h2,
+  body main .difference-section .difference-intro h2{
+    width:min(100%,var(--editorial-display-max))!important;
+    max-width:var(--editorial-display-max)!important;
+    margin:.08em auto .34em!important;
+    font-size:clamp(2.15rem,3.6vw,3.65rem)!important;
+    line-height:1.05!important;
+    text-align:center!important;
+    text-wrap:balance;
+  }
+  body main > section.section > .section-heading > p:last-child,
+  body main > section.section > .shell > .section-heading > p:last-child,
+  body main > section.section.shell > .section-heading > p:last-child,
+  body main > section.section > .section-heading > div > p:last-child,
+  body main > section.section > .shell > .section-heading > div > p:last-child,
+  body main > section.section.shell > .section-heading > div > p:last-child{
+    width:min(100%,var(--editorial-copy-max))!important;
+    max-width:var(--editorial-copy-max)!important;
+    margin-left:auto!important;
+    margin-right:auto!important;
+    text-align:center!important;
+    text-wrap:pretty;
+  }
+  body main .row-heading{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    justify-items:center!important;
+    align-items:start!important;
+    gap:18px!important;
+  }
+  body main .row-heading > div{
+    width:100%!important;
+    max-width:none!important;
+    text-align:center!important;
+  }
+  body main .row-heading > .text-link{
+    justify-self:center!important;
+    margin-inline:auto!important;
+  }
+
+  /* Vision / mission cards should feel paired, not like competing page heroes. */
+  body .vision-mission .vm-card h2{
+    font-size:clamp(2rem,2.9vw,3.05rem)!important;
+    line-height:1.08!important;
+    text-wrap:balance;
+  }
+}
+
+/* Insights hub: featured thinking uses the full card rather than a narrow headline strip. */
+body .insights-hub{
+  width:min(1180px,calc(100% - 40px))!important;
+  max-width:1180px!important;
+}
+body .insights-hub .insights-intro{
+  max-width:none!important;
+}
+body .published-insights-grid{
+  width:100%!important;
+}
+body .published-insight.featured{
+  min-height:0!important;
+  padding:clamp(38px,5vw,66px)!important;
+  align-items:center!important;
+  text-align:center!important;
+}
+body .published-insight.featured .insight-kicker{
+  justify-content:center!important;
+}
+body .published-insight.featured h2{
+  width:min(100%,1040px)!important;
+  max-width:1040px!important;
+  margin:18px auto 14px!important;
+  font-size:clamp(2.25rem,3.8vw,3.65rem)!important;
+  line-height:1.04!important;
+  text-align:center!important;
+  text-wrap:balance;
+}
+body .published-insight.featured > p{
+  width:min(100%,900px)!important;
+  max-width:900px!important;
+  margin-inline:auto!important;
+  text-align:center!important;
+}
+body .published-insight.featured .insight-takeaway{
+  width:min(100%,880px)!important;
+  margin-inline:auto!important;
+  text-align:center!important;
+}
+body .published-insight:not(.featured) h2{
+  text-wrap:balance;
+}
+body .insight-source-link{
+  display:inline-flex!important;
+  align-items:center!important;
+  width:max-content!important;
+  max-width:100%!important;
+  margin-top:20px!important;
+  padding:9px 13px!important;
+  border:1px solid rgba(124,13,4,.18)!important;
+  border-radius:999px!important;
+  color:#8f1207!important;
+  font-size:.78rem!important;
+  font-weight:900!important;
+  line-height:1.2!important;
+  letter-spacing:.01em!important;
+}
+body .published-insight.featured .insight-source-link{
+  margin-left:auto!important;
+  margin-right:auto!important;
+  border-color:rgba(255,194,28,.38)!important;
+  color:#ffd12a!important;
+}
+body .insight-source-link:hover,
+body .insight-source-link:focus-visible{
+  border-color:#f06a00!important;
+  color:#c52b05!important;
+}
+body .published-insight.featured .insight-source-link:hover,
+body .published-insight.featured .insight-source-link:focus-visible{
+  color:#fff8eb!important;
+}
+
+@media(max-width:720px){
+  body .page-hero > .shell,
+  body .page-hero > .shell.narrow,
+  body .page-hero .insights-hero-copy,
+  body .article-header.shell.narrow{
+    width:min(100% - 32px,1180px)!important;
+    max-width:none!important;
+    text-align:left!important;
+  }
+  body .page-hero .eyebrow,
+  body .page-hero h1,
+  body .page-hero .lead,
+  body .page-hero .insights-hero-copy h1,
+  body .page-hero .insights-hero-copy .lead,
+  body .article-header h1,
+  body .article-header .lead,
+  body .article-header .eyebrow,
+  body .article-header .article-meta{
+    width:100%!important;
+    max-width:none!important;
+    margin-left:0!important;
+    margin-right:0!important;
+    text-align:left!important;
+  }
+  body .page-hero h1,
+  body .page-hero .insights-hero-copy h1{
+    font-size:clamp(2.35rem,10.8vw,3.45rem)!important;
+    line-height:1.02!important;
+  }
+  body .article-header h1{
+    font-size:clamp(2.25rem,10vw,3.25rem)!important;
+    line-height:1.04!important;
+  }
+  body .article-header .back-link{
+    margin-left:0!important;
+    margin-right:0!important;
+  }
+  body main > section.section > .section-heading,
+  body main > section.section > .shell > .section-heading,
+  body main > section.section.shell > .section-heading,
+  body main .difference-section .difference-intro,
+  body main > section.section > .section-heading .eyebrow,
+  body main > section.section > .shell > .section-heading .eyebrow,
+  body main > section.section.shell > .section-heading .eyebrow,
+  body main > section.section > .section-heading h2,
+  body main > section.section > .shell > .section-heading h2,
+  body main > section.section.shell > .section-heading h2,
+  body main > section.section > .section-heading > p:last-child,
+  body main > section.section > .shell > .section-heading > p:last-child,
+  body main > section.section.shell > .section-heading > p:last-child{
+    width:100%!important;
+    max-width:none!important;
+    text-align:left!important;
+  }
+  body main .row-heading{
+    justify-items:start!important;
+  }
+  body main .row-heading > div{
+    text-align:left!important;
+  }
+  body main .row-heading > .text-link{
+    justify-self:start!important;
+    margin-left:0!important;
+    margin-right:0!important;
+  }
+  body .published-insight.featured{
+    padding:28px 24px!important;
+    align-items:flex-start!important;
+    text-align:left!important;
+  }
+  body .published-insight.featured .insight-kicker{
+    justify-content:flex-start!important;
+  }
+  body .published-insight.featured h2,
+  body .published-insight.featured > p,
+  body .published-insight.featured .insight-takeaway{
+    width:100%!important;
+    max-width:none!important;
+    margin-left:0!important;
+    margin-right:0!important;
+    text-align:left!important;
+  }
+  body .published-insight.featured h2{
+    font-size:clamp(2rem,9.5vw,2.8rem)!important;
+  }
+  body .published-insight.featured .insight-source-link{
+    margin-left:0!important;
+    margin-right:0!important;
+  }
+}

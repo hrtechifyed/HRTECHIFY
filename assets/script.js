@@ -19,6 +19,7 @@
   ensureStylesheet('hrtechify-linkedin-graph','assets/linkedin-graph.css');
   ensureStylesheet('hrtechify-ptg-motion','assets/ptg-motion.css');
   ensureStylesheet('hrtechify-final-polish','assets/final-polish.css');
+  ensureStylesheet('hrtechify-editorial-system','assets/editorial-system.css');
   document.documentElement.classList.add('js');
 
   const linkedinUrl='https://www.linkedin.com/company/hrtechifyed';
