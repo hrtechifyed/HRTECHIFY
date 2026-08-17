@@ -1,6 +1,6 @@
-/* HRTechify final visual polish: emblem clarity, unobtrusive future notes, GrowWithHR-style footer */
+/* HRTechify final approved hero visual and site polish */
 
-/* Direction / ambition notes should sit directly on the section background, never inside a highlighted card. */
+/* Direction / ambition notes stay directly on their section backgrounds. */
 .future-note,.direction-note,.ecosystem-note{
   margin-top:18px!important;
   padding:0!important;
@@ -16,98 +16,330 @@
 }
 .section-dark .future-note,.difference-section .future-note,.final-cta .future-note{color:#ffe1a8!important}
 
-/* Hero visual container keeps the emblem and its explanation together as one balanced unit. */
-.hero-visual{display:grid;gap:14px;align-self:center;justify-items:center;min-width:0}
+/* Approved hero palette: deep maroon / black with warm gold and amber light. */
+.future-hero{
+  background:
+    radial-gradient(circle at 78% 34%,rgba(240,106,0,.15),transparent 27%),
+    radial-gradient(circle at 88% 72%,rgba(255,194,28,.07),transparent 30%),
+    linear-gradient(135deg,#100102 0%,#220302 48%,#140102 100%)!important;
+}
+.future-hero .hero-grid{align-items:center!important;gap:56px!important}
+.future-hero .hero-copy{align-self:center}
 
-/* Give the graph its own contrast so it does not disappear into the hero background. */
+/* The approved graph floats freely: no card, border, panel or clipping. */
+.hero-visual{
+  position:relative;
+  isolation:isolate;
+  display:grid;
+  justify-items:center;
+  gap:16px;
+  width:min(100%,620px);
+  min-width:0;
+  margin-inline:auto;
+  overflow:visible;
+}
+.hero-visual:before{
+  content:"";
+  position:absolute;
+  z-index:0;
+  inset:7% -5% 31%;
+  pointer-events:none;
+  opacity:.72;
+  background:
+    repeating-radial-gradient(ellipse at 0 72%,transparent 0 18px,rgba(240,106,0,.07) 19px 20px,transparent 21px 29px),
+    repeating-radial-gradient(ellipse at 100% 72%,transparent 0 18px,rgba(255,194,28,.055) 19px 20px,transparent 21px 29px);
+  -webkit-mask-image:linear-gradient(90deg,#000 0%,transparent 40%,transparent 60%,#000 100%);
+  mask-image:linear-gradient(90deg,#000 0%,transparent 40%,transparent 60%,#000 100%);
+}
+.hero-visual>*{position:relative;z-index:1}
+
 .ptg-map{
+  position:relative!important;
   width:min(100%,590px)!important;
   max-width:590px!important;
+  min-height:0!important;
+  height:auto!important;
   aspect-ratio:600/520!important;
-  margin-inline:auto!important;
-  border:1px solid rgba(255,194,28,.48)!important;
-  border-radius:30px!important;
-  background:
-    radial-gradient(circle at 50% 52%,rgba(240,106,0,.22),transparent 27%),
-    linear-gradient(145deg,#190101 0%,#400603 55%,#681207 100%)!important;
-  box-shadow:inset 0 1px rgba(255,255,255,.06),0 26px 70px rgba(0,0,0,.38)!important;
-  overflow:hidden!important;
+  margin:0 auto!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  overflow:visible!important;
+  isolation:isolate;
 }
-.ptg-map:before{
+.ptg-map:before,.ptg-map:after{display:none!important}
+.ptg-map .graph-lines{
   display:block!important;
-  content:""!important;
   position:absolute!important;
   inset:0!important;
-  background:radial-gradient(circle,rgba(255,194,28,.55) 0 1px,transparent 1.4px)!important;
-  background-size:32px 32px!important;
-  opacity:.09!important;
-  pointer-events:none!important;
+  width:100%!important;
+  height:100%!important;
+  overflow:visible!important;
+  z-index:1!important;
 }
+.ptg-map marker,.ptg-map .edge-direction-group,.ptg-map .edge-direction{display:none!important}
 
-/* Triangle relationships: clean lines only. Direction is communicated by the travelling signal. */
-.ptg-map marker,
-.ptg-map .edge-direction-group,
-.ptg-map .edge-direction{display:none!important}
+/* Equilateral triangle edges are continuous; the center connections are dotted. */
 .ptg-map .triangle-edge{
-  stroke:#ffc21c!important;
-  stroke-width:1.65!important;
+  stroke:#f6c653!important;
+  fill:none!important;
+  stroke-width:2.1!important;
   stroke-linecap:round!important;
-  stroke-dasharray:7 9!important;
-  opacity:.78!important;
-  filter:drop-shadow(0 0 3px rgba(255,194,28,.20))!important;
+  stroke-dasharray:none!important;
+  opacity:.96!important;
+  filter:drop-shadow(0 0 4px rgba(246,198,83,.34))!important;
+  vector-effect:non-scaling-stroke;
 }
 .ptg-map .centre-link{
-  stroke:#f06a00!important;
-  stroke-width:1.35!important;
+  stroke:#f4a225!important;
+  fill:none!important;
+  stroke-width:1.6!important;
+  stroke-linecap:round!important;
   stroke-dasharray:2 9!important;
-  opacity:.82!important;
+  opacity:.9!important;
+  filter:drop-shadow(0 0 3px rgba(244,162,37,.25))!important;
+  vector-effect:non-scaling-stroke;
 }
 
-/* Centre: cleaner intelligence + empathy artwork. */
-.ptg-map .map-centre{
-  width:182px!important;
-  height:138px!important;
-  border-radius:28px!important;
-  background:rgba(34,3,2,.54)!important;
-  border:1px solid rgba(255,194,28,.28)!important;
-  backdrop-filter:blur(4px);
-  box-shadow:0 14px 32px rgba(0,0,0,.18),inset 0 1px rgba(255,255,255,.04)!important;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 100'%3E%3Cg fill='none' stroke='%23ffd12a' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M61 18c-8-7-20-4-23 6-9-2-16 7-13 15-8 4-8 17 0 21-4 9 5 18 14 15 2 10 15 13 22 5V18Z'/%3E%3Cpath d='M45 26c8 0 12 6 10 13M33 42c8-4 16 0 17 8M32 59c7-2 13 1 16 7M54 18c-3 7-1 12 4 16M52 48c8 1 12 7 10 14M45 74c6-2 11 1 14 5' stroke='%23fff1d6' stroke-width='2.1'/%3E%3C/g%3E%3Cpath d='M133 82c-3-3-31-24-31-44 0-12 8-20 18-20 7 0 12 4 16 10 4-6 9-10 16-10 10 0 18 8 18 20 0 20-28 41-31 44l-3 2-3-2Z' fill='%23f06a00' stroke='%23ffd12a' stroke-width='3'/%3E%3Cline x1='88' y1='18' x2='88' y2='82' stroke='%23fff1d6' stroke-opacity='.55' stroke-width='1.4' stroke-dasharray='3 5'/%3E%3C/svg%3E")!important;
-  background-repeat:no-repeat!important;
-  background-position:center!important;
-  background-size:168px 105px!important;
+/* Vertex controls sit exactly on the SVG nodes; labels and icons orbit the node without covering it. */
+.ptg-map .map-node{
+  appearance:none!important;
+  position:absolute!important;
+  z-index:6!important;
+  width:44px!important;
+  height:44px!important;
+  min-width:44px!important;
+  min-height:44px!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:50%!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  color:#f5e4a1!important;
+  text-align:center!important;
+  cursor:pointer;
+  overflow:visible!important;
+  transform:translate(-50%,-50%)!important;
 }
-.ptg-map .map-centre svg{opacity:0!important;pointer-events:none!important}
+.ptg-map .map-node-a{left:50%!important;top:15.4%!important;right:auto!important;bottom:auto!important}
+.ptg-map .map-node-b{left:20%!important;top:75.4%!important;right:auto!important;bottom:auto!important}
+.ptg-map .map-node-c{left:80%!important;top:75.4%!important;right:auto!important;bottom:auto!important}
+.ptg-map .map-node:hover,.ptg-map .map-node:focus-visible,.ptg-map .map-node[aria-pressed="true"]{
+  outline:none!important;
+  border:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  transform:translate(-50%,-50%) scale(1.02)!important;
+}
+.ptg-map .map-node strong{
+  position:absolute!important;
+  display:block!important;
+  width:max-content!important;
+  max-width:none!important;
+  margin:0!important;
+  padding:0!important;
+  color:#f3e0a0!important;
+  font-family:Georgia,"Times New Roman",serif!important;
+  font-size:clamp(1.48rem,2.15vw,1.96rem)!important;
+  font-weight:700!important;
+  line-height:1!important;
+  letter-spacing:-.025em!important;
+  white-space:nowrap!important;
+  text-shadow:0 3px 20px rgba(0,0,0,.34),0 0 14px rgba(246,198,83,.1)!important;
+  pointer-events:none;
+}
+.ptg-map .map-node:hover strong,.ptg-map .map-node:focus-visible strong,.ptg-map .map-node[aria-pressed="true"] strong{color:#ffe58a!important}
+.ptg-map .map-node-a strong{left:50%!important;bottom:52px!important;transform:translateX(-50%)!important}
+.ptg-map .map-node-b strong,.ptg-map .map-node-c strong{left:50%!important;top:99px!important;transform:translateX(-50%)!important}
+
+/* People and Technology icons from the approved visual. */
+.ptg-map .map-node .node-icon{
+  display:grid!important;
+  place-items:center!important;
+  position:absolute!important;
+  left:50%!important;
+  top:34px!important;
+  width:58px!important;
+  height:58px!important;
+  margin:0!important;
+  padding:0!important;
+  overflow:visible!important;
+  clip:auto!important;
+  white-space:normal!important;
+  transform:translateX(-50%)!important;
+  border:1px solid rgba(246,198,83,.72)!important;
+  border-radius:50%!important;
+  background:rgba(18,2,2,.72)!important;
+  box-shadow:0 0 18px rgba(246,198,83,.09)!important;
+  pointer-events:none!important;
+}
+.ptg-map .map-node .node-icon svg{
+  display:block!important;
+  width:35px!important;
+  height:35px!important;
+  overflow:visible!important;
+  fill:none!important;
+  stroke:#f5d474!important;
+  stroke-width:1.8!important;
+  stroke-linecap:round!important;
+  stroke-linejoin:round!important;
+}
+.ptg-map .map-node .node-detail{
+  position:absolute!important;
+  width:1px!important;
+  height:1px!important;
+  padding:0!important;
+  margin:-1px!important;
+  overflow:hidden!important;
+  clip:rect(0,0,0,0)!important;
+  white-space:nowrap!important;
+  border:0!important;
+}
+
+/* Center intelligence + empathy emblem: brain and heart in one glowing circle. */
+.ptg-map .map-centre{
+  appearance:none!important;
+  position:absolute!important;
+  z-index:5!important;
+  left:50%!important;
+  top:55.4%!important;
+  width:154px!important;
+  height:154px!important;
+  min-height:0!important;
+  padding:0!important;
+  transform:translate(-50%,-50%)!important;
+  border:1.6px solid rgba(246,198,83,.9)!important;
+  border-radius:50%!important;
+  background:radial-gradient(circle at 50% 45%,rgba(246,198,83,.08),rgba(28,3,3,.62) 67%,rgba(13,1,1,.76))!important;
+  box-shadow:0 0 0 1px rgba(255,242,197,.08),0 0 26px rgba(246,166,51,.22),inset 0 0 24px rgba(246,198,83,.045)!important;
+  color:#f6e5ad!important;
+  cursor:pointer;
+  overflow:visible!important;
+}
+.ptg-map .map-centre:hover,.ptg-map .map-centre:focus-visible,.ptg-map .map-centre[aria-pressed="true"]{
+  outline:none!important;
+  transform:translate(-50%,-50%) scale(1.025)!important;
+  border-color:#ffe58a!important;
+  box-shadow:0 0 0 1px rgba(255,242,197,.1),0 0 32px rgba(246,166,51,.28),inset 0 0 24px rgba(246,198,83,.055)!important;
+}
+.ptg-map .map-centre svg{
+  display:block!important;
+  width:134px!important;
+  height:92px!important;
+  margin:31px auto 0!important;
+  opacity:1!important;
+  overflow:visible!important;
+  pointer-events:none!important;
+  filter:drop-shadow(0 8px 18px rgba(0,0,0,.25))!important;
+}
+.ptg-map .brain-symbol{animation:brainFloat 2.7s ease-in-out infinite}
+.ptg-map .brain-outline{fill:none!important;stroke:#ffe5a3!important;stroke-width:3!important;stroke-linecap:round!important;stroke-linejoin:round!important}
+.ptg-map .brain-fold{fill:none!important;stroke:#f6c653!important;stroke-width:2.2!important;stroke-linecap:round!important;stroke-linejoin:round!important}
+.ptg-map .heart-symbol{fill:none!important;stroke:#f3a04a!important;stroke-width:4!important;stroke-linejoin:round!important;animation:heartBeatClear 1.5s ease-in-out infinite;filter:drop-shadow(0 0 7px rgba(243,160,74,.28))}
+.ptg-map .symbol-divider{stroke:rgba(255,238,195,.65)!important;stroke-width:1.4!important;stroke-dasharray:3 5!important}
+.ptg-map .map-centre strong{
+  position:absolute!important;
+  width:1px!important;
+  height:1px!important;
+  padding:0!important;
+  margin:-1px!important;
+  overflow:hidden!important;
+  clip:rect(0,0,0,0)!important;
+  white-space:nowrap!important;
+  border:0!important;
+}
 .ptg-map .map-centre:before,.ptg-map .map-centre:after{display:none!important}
 
-/* The travelling signal is the only directional cue. */
-.ptg-map .graph-trail-dot{fill:#f6a51b!important;filter:drop-shadow(0 0 4px rgba(246,165,27,.58))!important}
-.ptg-map .graph-motion-dot{fill:#ffd12a!important;stroke:#fff8eb!important;stroke-width:2.5!important;filter:drop-shadow(0 0 6px rgba(255,209,42,.9)) drop-shadow(0 0 11px rgba(240,106,0,.38))!important}
-
-/* Short explanation immediately below the emblem. */
-.emblem-logic{
-  width:min(100%,590px);
-  padding:15px 18px;
-  border:1px solid rgba(255,194,28,.32);
-  border-radius:16px;
-  background:linear-gradient(145deg,#fff8eb,#fff1d6);
-  color:#2a0905;
-  box-shadow:0 12px 32px rgba(34,3,2,.14);
-  text-align:left;
+/* Glowing anchors and one warm signal traversing every outer and inner path. */
+.ptg-map .graph-anchor-ring{
+  fill:none!important;
+  stroke:#ffc94c!important;
+  stroke-width:1.35!important;
+  opacity:.34!important;
+  filter:drop-shadow(0 0 4px rgba(255,201,76,.4))!important;
 }
-.emblem-logic strong{display:block;margin-bottom:5px;color:#7c0d04;font-size:0;letter-spacing:.1em;text-transform:uppercase}
-.emblem-logic strong:after{content:"What this means";font-size:.78rem}
-.emblem-logic p{margin:0!important;color:#5f2d20!important;font-size:0!important;line-height:1.55!important}
-.emblem-logic p:after{content:"People and technology reinforce each other. Intelligence and empathy guide how they are applied, and sustainable growth is the outcome.";font-size:.82rem}
+.ptg-map .graph-anchor{
+  fill:#ffc21c!important;
+  stroke:#fff1c4!important;
+  stroke-width:2.6!important;
+  filter:drop-shadow(0 0 7px rgba(255,194,28,.82)) drop-shadow(0 0 14px rgba(246,166,51,.35))!important;
+}
+.ptg-map .graph-trail-dot{fill:#ffc21c!important;filter:drop-shadow(0 0 5px rgba(255,194,28,.76))!important}
+.ptg-map .graph-motion-dot{
+  fill:#fff4bd!important;
+  stroke:#ffc21c!important;
+  stroke-width:3!important;
+  filter:drop-shadow(0 0 7px rgba(255,244,189,.98)) drop-shadow(0 0 15px rgba(246,166,51,.7))!important;
+}
+
+/* The approved artwork is self-explanatory; no hover cards or boxed captions. */
+.ptg-map .graph-explainer,.ptg-map .map-node:after{display:none!important}
+
+/* Approved message beneath the free-floating graph. */
+.emblem-logic{
+  width:min(100%,600px)!important;
+  margin:0 auto!important;
+  padding:4px 8px 0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  color:#f7f0e7!important;
+  text-align:center!important;
+  overflow:visible!important;
+}
+.emblem-logic strong{
+  display:block!important;
+  margin:0!important;
+  color:#f2dfa0!important;
+  font-family:Georgia,"Times New Roman",serif!important;
+  font-size:clamp(1.45rem,2.25vw,2.05rem)!important;
+  font-weight:700!important;
+  line-height:1.12!important;
+  letter-spacing:-.025em!important;
+  text-transform:none!important;
+}
+.emblem-logic .logic-divider{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:12px!important;
+  width:190px!important;
+  height:auto!important;
+  margin:14px auto 13px!important;
+  padding:0!important;
+  overflow:visible!important;
+  color:#f5a623!important;
+  font-size:.82rem!important;
+  line-height:1!important;
+  white-space:nowrap!important;
+}
+.emblem-logic .logic-divider:before,.emblem-logic .logic-divider:after{
+  content:"";
+  display:block;
+  flex:1;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(246,198,83,.9));
+}
+.emblem-logic .logic-divider:after{background:linear-gradient(90deg,rgba(246,198,83,.9),transparent)}
+.emblem-logic p{
+  max-width:590px!important;
+  margin:0 auto!important;
+  padding:0!important;
+  color:#f4eee8!important;
+  font-size:clamp(.86rem,1.18vw,.98rem)!important;
+  font-weight:500!important;
+  line-height:1.7!important;
+  letter-spacing:.002em!important;
+  text-align:center!important;
+}
+.emblem-logic .logic-key{color:#f2a21d!important;font-weight:850!important}
 
 /* Footer mirrors GrowWithHR Version 2: brand line + rights line only. */
 .site-footer{padding:0!important;background:#220302!important;border-top:1px solid rgba(255,194,28,.22)!important;color:#fff1d6!important}
-.site-footer__inner{
-  width:min(100% - 40px,1180px);
-  margin-inline:auto;
-  padding:24px 0 25px;
-  text-align:center;
-}
+.site-footer__inner{width:min(100% - 40px,1180px);margin-inline:auto;padding:24px 0 25px;text-align:center}
 .site-footer__brand-line,.site-footer__rights-line{margin:0!important}
 .site-footer__brand-line a{color:#ffd12a!important;font-size:.96rem;font-weight:900;text-decoration:none;letter-spacing:.01em}
 .site-footer__brand-line a:hover,.site-footer__brand-line a:focus-visible{color:#fff1d6!important}
@@ -116,12 +348,38 @@
 @keyframes brainFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-1.5px)}}
 @keyframes heartBeatClear{0%,100%{transform:scale(1)}14%{transform:scale(1.075)}27%{transform:scale(1)}38%{transform:scale(1.04)}52%{transform:scale(1)}}
 
+@media(min-width:1001px){
+  .future-hero .hero-grid{grid-template-columns:minmax(0,1fr) minmax(470px,.95fr)!important}
+}
+@media(max-width:1000px){
+  .future-hero .hero-grid{grid-template-columns:1fr!important;gap:48px!important}
+  .hero-visual{max-width:620px!important;margin-inline:auto!important}
+}
 @media(max-width:620px){
-  .ptg-map{max-width:430px!important;border-radius:24px!important}
-  .ptg-map .map-centre{width:148px!important;height:116px!important;background-size:138px 88px!important}
-  .emblem-logic{max-width:430px;padding:13px 14px}
-  .emblem-logic p:after{font-size:.76rem!important}
+  .future-hero{padding-top:64px!important;padding-bottom:70px!important}
+  .hero-visual{width:100%!important;gap:12px!important}
+  .ptg-map{width:92%!important;max-width:430px!important;margin-top:8px!important}
+  .ptg-map .map-node{width:36px!important;height:36px!important;min-width:36px!important;min-height:36px!important}
+  .ptg-map .map-node strong{font-size:1.2rem!important}
+  .ptg-map .map-node-a strong{bottom:43px!important}
+  .ptg-map .map-node .node-icon{top:28px!important;width:48px!important;height:48px!important}
+  .ptg-map .map-node .node-icon svg{width:29px!important;height:29px!important}
+  .ptg-map .map-node-b strong,.ptg-map .map-node-c strong{top:82px!important}
+  .ptg-map .map-centre{width:126px!important;height:126px!important}
+  .ptg-map .map-centre svg{width:110px!important;height:76px!important;margin-top:25px!important}
+  .emblem-logic{max-width:430px!important;padding-inline:12px!important}
+  .emblem-logic strong{font-size:1.42rem!important}
+  .emblem-logic p{font-size:.82rem!important;line-height:1.65!important}
   .site-footer__inner{width:min(100% - 32px,1180px);padding:22px 0 23px}
+}
+@media(max-width:390px){
+  .ptg-map{width:90%!important}
+  .ptg-map .map-node strong{font-size:1.08rem!important}
+  .ptg-map .map-node .node-icon{width:44px!important;height:44px!important}
+  .ptg-map .map-node-b strong,.ptg-map .map-node-c strong{top:76px!important}
+  .ptg-map .map-centre{width:116px!important;height:116px!important}
+  .ptg-map .map-centre svg{width:100px!important;height:70px!important;margin-top:22px!important}
+  .emblem-logic strong{font-size:1.3rem!important}
 }
 @media(prefers-reduced-motion:reduce){
   .ptg-map .brain-symbol,.ptg-map .heart-symbol{animation:none!important}

@@ -29,27 +29,40 @@
       <p class="lead">HRTechify explores how workplace reality, organizational intelligence and responsible technology can help people and organizations make better decisions.</p>
       <div class="actions"><a class="button" href="#audiences">Find your starting point</a><a class="text-link" href="#showcase">See the products →</a></div>
     </div>
-    <div class="intelligence-map ptg-map reveal" aria-label="People and technology, guided by intelligence and empathy, lead to growth">
-      <svg class="graph-lines" viewBox="0 0 600 520" role="img" aria-label="Growth at the top, People at the lower left, Technology at the lower right, connected to Intelligence and Empathy in the centre">
-        <defs>
-          <marker id="arrow-start" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 Z"></path></marker>
-          <marker id="arrow-end" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z"></path></marker>
-        </defs>
-        <path class="triangle-edge" d="M300 80 L120 392" marker-start="url(#arrow-start)" marker-end="url(#arrow-end)"></path>
-        <path class="triangle-edge" d="M120 392 L480 392" marker-start="url(#arrow-start)" marker-end="url(#arrow-end)"></path>
-        <path class="triangle-edge" d="M480 392 L300 80" marker-start="url(#arrow-start)" marker-end="url(#arrow-end)"></path>
-        <path class="centre-link" d="M300 288 L300 80"></path>
-        <path class="centre-link" d="M300 288 L120 392"></path>
-        <path class="centre-link" d="M300 288 L480 392"></path>
-      </svg>
-      <button class="map-node map-node-a graph-trigger" type="button" data-graph-key="growth" aria-controls="graph-explainer"><strong>Growth</strong><span>Better outcomes</span></button>
-      <button class="map-node map-node-b graph-trigger" type="button" data-graph-key="people" aria-controls="graph-explainer"><strong>People</strong><span>Trust • experience • culture</span></button>
-      <button class="map-node map-node-c graph-trigger" type="button" data-graph-key="technology" aria-controls="graph-explainer"><strong>Technology</strong><span>Structure • speed • intelligence</span></button>
-      <button class="map-centre graph-trigger" type="button" data-graph-key="centre" aria-controls="graph-explainer" aria-pressed="true">
-        <svg viewBox="0 0 120 72" aria-hidden="true"><path class="brain-half" d="M54 12c-9-8-25-4-26 8-9 2-11 15-4 20-5 9 4 20 14 18 3 8 14 9 20 3V16c0-3-2-5-4-4Z"></path><path class="heart-half" d="M64 61 61 58C42 41 42 24 53 18c7-4 13 0 17 5 4-5 10-9 17-5 11 6 11 23-8 40l-3 3-6 5-6-5Z"></path></svg>
-        <strong>Intelligence + Empathy</strong>
-      </button>
-      <p id="graph-explainer" class="graph-explainer" aria-live="polite">Organizations need both intelligence and empathy to grow.</p>
+    <div class="hero-visual reveal">
+      <div class="intelligence-map ptg-map" aria-label="Growth at the top, People at the lower left and Technology at the lower right, with intelligence and empathy at the centre">
+        <svg class="graph-lines" viewBox="0 0 600 520" role="img" aria-label="An equilateral triangle connecting Growth, People and Technology, with Intelligence and Empathy in the centre">
+          <defs>
+            <marker id="arrow-start" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 Z"></path></marker>
+            <marker id="arrow-end" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z"></path></marker>
+          </defs>
+          <path class="triangle-edge" d="M300 80 L120 392" marker-start="url(#arrow-start)" marker-end="url(#arrow-end)"></path>
+          <path class="triangle-edge" d="M120 392 L480 392" marker-start="url(#arrow-start)" marker-end="url(#arrow-end)"></path>
+          <path class="triangle-edge" d="M480 392 L300 80" marker-start="url(#arrow-start)" marker-end="url(#arrow-end)"></path>
+          <path class="centre-link" d="M300 288 L300 80"></path>
+          <path class="centre-link" d="M300 288 L120 392"></path>
+          <path class="centre-link" d="M300 288 L480 392"></path>
+        </svg>
+        <button class="map-node map-node-a graph-trigger" type="button" data-graph-key="growth" aria-controls="graph-explainer"><strong>Growth</strong><span class="node-detail">Better outcomes</span></button>
+        <button class="map-node map-node-b graph-trigger" type="button" data-graph-key="people" aria-controls="graph-explainer">
+          <span class="node-icon node-icon-people" aria-hidden="true"><svg viewBox="0 0 48 48"><circle cx="18" cy="16" r="6"></circle><circle cx="31" cy="17" r="5"></circle><path d="M7 37c0-8 4-13 11-13s11 5 11 13"></path><path d="M26 28c2-3 5-5 8-5 6 0 9 5 9 12"></path></svg></span>
+          <strong>People</strong><span class="node-detail">Trust • experience • culture</span>
+        </button>
+        <button class="map-node map-node-c graph-trigger" type="button" data-graph-key="technology" aria-controls="graph-explainer">
+          <span class="node-icon node-icon-technology" aria-hidden="true"><svg viewBox="0 0 48 48"><rect x="14" y="14" width="20" height="20" rx="2"></rect><rect x="19" y="19" width="10" height="10" rx="1"></rect><path d="M18 8v6M24 8v6M30 8v6M18 34v6M24 34v6M30 34v6M8 18h6M8 24h6M8 30h6M34 18h6M34 24h6M34 30h6"></path></svg></span>
+          <strong>Technology</strong><span class="node-detail">Structure • speed • intelligence</span>
+        </button>
+        <button class="map-centre graph-trigger" type="button" data-graph-key="centre" aria-controls="graph-explainer" aria-pressed="true">
+          <svg viewBox="0 0 120 72" aria-hidden="true"><path class="brain-half" d="M54 12c-9-8-25-4-26 8-9 2-11 15-4 20-5 9 4 20 14 18 3 8 14 9 20 3V16c0-3-2-5-4-4Z"></path><path class="heart-half" d="M64 61 61 58C42 41 42 24 53 18c7-4 13 0 17 5 4-5 10-9 17-5 11 6 11 23-8 40l-3 3-6 5-6-5Z"></path></svg>
+          <strong>Intelligence + Empathy</strong>
+        </button>
+        <p id="graph-explainer" class="graph-explainer" aria-live="polite">Organizations need both intelligence and empathy to grow.</p>
+      </div>
+      <div class="emblem-logic">
+        <strong>What this means for HRTechify</strong>
+        <span class="logic-divider" aria-hidden="true">✦</span>
+        <p>In today’s world, organizations succeed when they are both smart and empathetic. With intelligence and empathy at the core, HRTechify helps organizations focus on <span class="logic-key">People</span> and <span class="logic-key">Technology</span> for sustainable <span class="logic-key">Growth</span>—creating workplaces that are thoughtful, adaptive, and built for the future.</p>
+      </div>
     </div>
   </div>
 </section>
