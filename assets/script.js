@@ -11,6 +11,7 @@
   }
   ensureStylesheet('hrtechify-brand-styles','assets/brand-logo.css');
   ensureStylesheet('hrtechify-mobile-styles','assets/mobile-symmetry.css');
+  ensureStylesheet('hrtechify-visual-refresh','assets/visual-refresh.css');
   document.documentElement.classList.add('js');
 
   const currentFile=(location.pathname.split('/').filter(Boolean).pop()||'index.html').toLowerCase();
@@ -20,8 +21,7 @@
   if(header){
     header.innerHTML=`<div class="shell header-inner">
       <a class="brand" href="${withRoot('index.html')}" aria-label="HRTechify home">
-        <span class="brand-name">HRTECHIFY</span>
-        <span class="brand-line">PEOPLE • TECHNOLOGY • GROWTH</span>
+        <img class="brand-logo-image" src="${withRoot('assets/hrtechify-logo.png')}" alt="HRTechify">
       </a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open navigation"><span></span><span></span><span></span></button>
       <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
@@ -36,10 +36,33 @@
     </div>`;
   }
 
+  document.querySelectorAll('.founder-portrait img, img[alt*="Anurag Sinha"]').forEach(img=>{
+    img.src=withRoot('assets/founder-anurag-sinha.png');
+    img.removeAttribute('srcset');
+  });
+
+  document.querySelectorAll('.footer-brand').forEach(brand=>{
+    brand.innerHTML=`<img class="brand-logo-image" src="${withRoot('assets/hrtechify-logo.png')}" alt="HRTechify">`;
+  });
+
   const menuButton=document.querySelector('.menu-toggle');const nav=document.querySelector('#site-nav');
   if(menuButton&&nav){
     menuButton.addEventListener('click',()=>{const open=menuButton.getAttribute('aria-expanded')==='true';menuButton.setAttribute('aria-expanded',String(!open));menuButton.setAttribute('aria-label',open?'Open navigation':'Close navigation');nav.classList.toggle('is-open',!open)});
     nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menuButton.setAttribute('aria-expanded','false');nav.classList.remove('is-open')}));
+  }
+
+  const carousel=document.querySelector('.showcase-carousel');
+  if(carousel&&carousel.children.length){
+    const controls=document.createElement('div');controls.className='showcase-controls';
+    controls.innerHTML='<button class="showcase-control" type="button" data-dir="-1" aria-label="Previous product preview">←</button><button class="showcase-control" type="button" data-dir="1" aria-label="Next product preview">→</button>';
+    carousel.insertAdjacentElement('afterend',controls);
+    controls.addEventListener('click',e=>{
+      const button=e.target.closest('[data-dir]');if(!button)return;
+      const dir=Number(button.dataset.dir)||1;
+      const slide=carousel.querySelector('.showcase-slide');
+      const amount=(slide?slide.getBoundingClientRect().width:carousel.clientWidth)*dir;
+      carousel.scrollBy({left:amount,behavior:'smooth'});
+    });
   }
 
   document.querySelectorAll('[data-year]').forEach(el=>el.textContent=new Date().getFullYear());
