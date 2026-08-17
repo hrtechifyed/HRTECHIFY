@@ -12,10 +12,22 @@
   ensureStylesheet('hrtechify-brand-styles','assets/brand-logo.css');
   ensureStylesheet('hrtechify-mobile-styles','assets/mobile-symmetry.css');
   ensureStylesheet('hrtechify-visual-refresh','assets/visual-refresh.css');
+  ensureStylesheet('hrtechify-linkedin-graph','assets/linkedin-graph.css');
   document.documentElement.classList.add('js');
+
+  const linkedinUrl='https://www.linkedin.com/company/hrtechifyed';
+  if(!document.querySelector('link[rel="me"][href="'+linkedinUrl+'"]')){
+    const relMe=document.createElement('link');relMe.rel='me';relMe.href=linkedinUrl;document.head.appendChild(relMe);
+  }
+  if(!document.getElementById('hrtechify-org-schema')){
+    const schema=document.createElement('script');schema.id='hrtechify-org-schema';schema.type='application/ld+json';
+    schema.textContent=JSON.stringify({'@context':'https://schema.org','@type':'Organization','name':'HRTechify','url':'https://hrtechifyed.github.io/HRTECHIFY/','sameAs':[linkedinUrl]});
+    document.head.appendChild(schema);
+  }
 
   const currentFile=(location.pathname.split('/').filter(Boolean).pop()||'index.html').toLowerCase();
   const activeKey=currentFile==='index.html'?'home':currentFile==='products.html'?'products':currentFile==='insights.html'||location.pathname.includes('/insights/')?'insights':currentFile==='about.html'?'about':'';
+  const linkedinIcon='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.2 7.6H1.7V22h3.5V7.6ZM3.45 1.5A2.04 2.04 0 1 0 3.46 5.6a2.04 2.04 0 0 0-.01-4.1ZM22 13.7c0-4.34-2.32-6.36-5.42-6.36-2.5 0-3.62 1.37-4.24 2.34V7.6H8.86V22h3.48v-7.13c0-1.88.36-3.7 2.69-3.7 2.3 0 2.33 2.15 2.33 3.82V22H22v-8.3Z"/></svg>';
 
   const header=document.querySelector('.site-header');
   if(header){
@@ -32,6 +44,7 @@
         <a href="${withRoot('insights.html')}"${activeKey==='insights'?' aria-current="page"':''}>Insights</a>
         <a href="${withRoot('about.html')}"${activeKey==='about'?' aria-current="page"':''}>About</a>
         <a class="button button-small" href="${withRoot('index.html#audiences')}">Explore HRTechify</a>
+        <a class="linkedin-nav-link" href="${linkedinUrl}" target="_blank" rel="noopener noreferrer" aria-label="HRTechify on LinkedIn">${linkedinIcon}<span>LinkedIn</span></a>
       </nav>
     </div>`;
   }
@@ -44,6 +57,19 @@
   document.querySelectorAll('.footer-brand').forEach(brand=>{
     brand.innerHTML=`<img class="brand-logo-image" src="${withRoot('assets/hrtechify-logo.png')}" alt="HRTechify">`;
   });
+  const footerIntro=document.querySelector('.site-footer .footer-grid > div:first-child');
+  if(footerIntro&&!footerIntro.querySelector('.footer-linkedin')){
+    const linkedIn=document.createElement('a');linkedIn.className='footer-linkedin';linkedIn.href=linkedinUrl;linkedIn.target='_blank';linkedIn.rel='noopener noreferrer';linkedIn.innerHTML=`${linkedinIcon}<span>Follow HRTechify on LinkedIn ↗</span>`;footerIntro.appendChild(linkedIn);
+  }
+
+  const intelligenceMap=document.querySelector('.intelligence-map');
+  if(intelligenceMap){
+    const svg=intelligenceMap.querySelector('svg');
+    if(svg){
+      svg.setAttribute('viewBox','0 0 600 600');
+      svg.innerHTML='<path d="M300 135 L120 447 L480 447 Z"/>';
+    }
+  }
 
   const menuButton=document.querySelector('.menu-toggle');const nav=document.querySelector('#site-nav');
   if(menuButton&&nav){
