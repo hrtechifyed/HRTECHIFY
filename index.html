@@ -22,7 +22,7 @@ body #showcase > .shell > .section-heading,
 body .difference-section .difference-intro{
   width:100%!important;
   max-width:none!important;
-  margin:0 auto 48px!important;
+  margin:0 auto 42px!important;
   text-align:center!important;
 }
 body #audiences > .section-heading .eyebrow,
@@ -35,65 +35,71 @@ body .difference-section .difference-intro .eyebrow{
 body #audiences > .section-heading h2,
 body #showcase > .shell > .section-heading h2,
 body .difference-section .difference-intro h2{
-  width:min(100%,1080px)!important;
-  max-width:1080px!important;
+  width:min(100%,960px)!important;
+  max-width:960px!important;
   margin:.08em auto .34em!important;
+  font-size:clamp(2.1rem,3vw,3.2rem)!important;
+  line-height:1.06!important;
   text-align:center!important;
   text-wrap:balance;
 }
 body #audiences > .section-heading > p:last-child,
 body #showcase > .shell > .section-heading > p:last-child{
-  width:min(100%,900px)!important;
-  max-width:900px!important;
+  width:min(100%,800px)!important;
+  max-width:800px!important;
   margin:0 auto!important;
   text-align:center!important;
 }
 body .vision-mission .vm-grid{align-items:stretch!important}
 body .vision-mission .vm-card{display:flex!important;flex-direction:column!important;justify-content:flex-start!important}
 
-/* Narrative doorway: context first, graph immediately after. Specificity intentionally beats the late hero CSS layer. */
+/* Narrative doorway: compact enough to hand attention to the graph. */
+body .future-hero.journey-hero{
+  min-height:auto!important;
+  padding:54px 0 76px!important;
+}
 body .future-hero.journey-hero .hero-grid{
   grid-template-columns:1fr!important;
   justify-items:center!important;
   align-items:start!important;
-  gap:34px!important;
+  gap:22px!important;
 }
 body .future-hero.journey-hero .hero-intro{
-  width:min(100%,900px)!important;
-  max-width:900px!important;
+  width:min(100%,800px)!important;
+  max-width:800px!important;
   margin:0 auto!important;
-  padding:8px 20px 0!important;
+  padding:0 20px!important;
   text-align:center!important;
   position:relative!important;
   z-index:2!important;
 }
 body .future-hero.journey-hero .hero-intro .hero-intro-kicker{
-  margin:0 0 14px!important;
+  margin:0 0 12px!important;
   color:#ffd12a!important;
-  font-size:.76rem!important;
+  font-size:.72rem!important;
   font-weight:900!important;
-  letter-spacing:.17em!important;
+  letter-spacing:.16em!important;
   line-height:1.3!important;
   text-transform:uppercase!important;
 }
 body .future-hero.journey-hero .hero-intro h1{
-  width:min(100%,820px)!important;
+  width:min(100%,760px)!important;
   margin:0 auto!important;
   color:#fff8eb!important;
-  font-size:clamp(2.7rem,5.2vw,4.7rem)!important;
+  font-size:clamp(2.45rem,4vw,3.65rem)!important;
   font-weight:900!important;
-  letter-spacing:-.045em!important;
-  line-height:.98!important;
+  letter-spacing:-.04em!important;
+  line-height:1.04!important;
   text-align:center!important;
   text-wrap:balance;
 }
 body .future-hero.journey-hero .hero-intro .hero-intro-copy{
-  width:min(100%,760px)!important;
-  margin:22px auto 0!important;
+  width:min(100%,700px)!important;
+  margin:16px auto 0!important;
   color:#ffe1a8!important;
-  font-size:clamp(1rem,1.55vw,1.18rem)!important;
+  font-size:clamp(1rem,1.25vw,1.08rem)!important;
   font-weight:500!important;
-  line-height:1.7!important;
+  line-height:1.65!important;
   text-align:center!important;
   text-wrap:pretty;
 }
@@ -115,11 +121,12 @@ body .future-hero.journey-hero .hero-visual{
   body #showcase > .shell > .section-heading > p:last-child{
     text-align:left!important;
   }
-  body .future-hero.journey-hero .hero-grid{gap:24px!important}
+  body .future-hero.journey-hero{padding:34px 0 62px!important}
+  body .future-hero.journey-hero .hero-grid{gap:22px!important}
   body .future-hero.journey-hero .hero-intro{padding:0 12px!important}
-  body .future-hero.journey-hero .hero-intro .hero-intro-kicker{font-size:.68rem!important;margin-bottom:11px!important}
-  body .future-hero.journey-hero .hero-intro h1{font-size:clamp(2.15rem,10.6vw,3.15rem)!important;line-height:1.02!important}
-  body .future-hero.journey-hero .hero-intro .hero-intro-copy{margin-top:16px!important;font-size:.96rem!important;line-height:1.62!important}
+  body .future-hero.journey-hero .hero-intro .hero-intro-kicker{font-size:.66rem!important;margin-bottom:10px!important}
+  body .future-hero.journey-hero .hero-intro h1{font-size:clamp(2rem,9.2vw,2.72rem)!important;line-height:1.04!important}
+  body .future-hero.journey-hero .hero-intro .hero-intro-copy{margin-top:14px!important;font-size:.94rem!important;line-height:1.58!important}
 }
 </style>
 </head>
