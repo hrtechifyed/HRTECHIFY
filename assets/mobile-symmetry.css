@@ -11,3 +11,82 @@
 .journey-section + .section.shell{padding-bottom:92px!important}
 .journey-section + .section.shell:after{content:"Posters + Newsletters · Published on the HRTechify LinkedIn company page";display:flex;align-items:center;min-height:92px;margin-top:4px;padding:22px 26px;border:1px solid rgba(124,13,4,.14);border-radius:20px;background:linear-gradient(135deg,#fff8eb,#fff1d6);box-shadow:0 12px 34px rgba(74,7,3,.06);color:#7c0d04;font-size:clamp(1rem,2vw,1.18rem);font-weight:850;letter-spacing:-.01em}
 @media(max-width:620px){.journey-section + .section.shell .row-heading{align-items:flex-start;flex-direction:column}.journey-section + .section.shell:after{min-height:78px;padding:18px 20px;font-size:.95rem}}
+
+/* Homepage-wide editorial heading system: standalone section intros use the canvas symmetrically. */
+@media(min-width:721px){
+  html body main > section.section:not(.founder-section) .section-heading,
+  html body main > section.section:not(.founder-section) .difference-intro{
+    width:100%!important;
+    max-width:none!important;
+    margin-left:auto!important;
+    margin-right:auto!important;
+    text-align:center!important;
+  }
+  html body main > section.section:not(.founder-section) .section-heading .eyebrow,
+  html body main > section.section:not(.founder-section) .difference-intro .eyebrow{
+    display:block!important;
+    width:100%!important;
+    text-align:center!important;
+  }
+  html body main > section.section:not(.founder-section) .section-heading h2,
+  html body main > section.section:not(.founder-section) .difference-intro h2{
+    width:min(100%,1120px)!important;
+    max-width:1120px!important;
+    margin:.08em auto .34em!important;
+    text-align:center!important;
+    text-wrap:balance;
+  }
+  html body main > section.section:not(.founder-section) .section-heading > p:last-child,
+  html body main > section.section:not(.founder-section) .section-heading > div > p:last-child{
+    width:min(100%,920px)!important;
+    max-width:920px!important;
+    margin-left:auto!important;
+    margin-right:auto!important;
+    text-align:center!important;
+  }
+  html body main > section.section:not(.founder-section) .row-heading{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    justify-items:center!important;
+    align-items:start!important;
+    gap:18px!important;
+  }
+  html body main > section.section:not(.founder-section) .row-heading > div{
+    width:100%!important;
+    max-width:none!important;
+    text-align:center!important;
+  }
+  html body main > section.section:not(.founder-section) .row-heading > .text-link{
+    justify-self:center!important;
+    margin-left:auto!important;
+    margin-right:auto!important;
+  }
+  html body main .difference-section .difference-intro{
+    margin-bottom:48px!important;
+  }
+}
+@media(max-width:720px){
+  html body main > section.section:not(.founder-section) .section-heading,
+  html body main > section.section:not(.founder-section) .section-heading .eyebrow,
+  html body main > section.section:not(.founder-section) .section-heading h2,
+  html body main > section.section:not(.founder-section) .section-heading > p:last-child,
+  html body main > section.section:not(.founder-section) .section-heading > div > p:last-child,
+  html body main > section.section:not(.founder-section) .difference-intro,
+  html body main > section.section:not(.founder-section) .difference-intro .eyebrow,
+  html body main > section.section:not(.founder-section) .difference-intro h2{
+    width:100%!important;
+    max-width:none!important;
+    text-align:left!important;
+  }
+  html body main > section.section:not(.founder-section) .row-heading{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    justify-items:start!important;
+    gap:14px!important;
+  }
+  html body main > section.section:not(.founder-section) .row-heading > .text-link{
+    justify-self:start!important;
+    margin-left:0!important;
+    margin-right:0!important;
+  }
+}
