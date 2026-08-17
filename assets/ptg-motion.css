@@ -44,7 +44,7 @@
   vector-effect:non-scaling-stroke;
 }
 
-/* Labels are deliberately text-only: no cards, pills or permanent descriptions. */
+/* Labels are deliberately text-only and are locked to the SVG triangle vertices. */
 .ptg-map .map-node{
   appearance:none!important;
   position:absolute!important;
@@ -95,9 +95,9 @@
   color:#ffd12a!important;
   text-shadow:0 0 20px rgba(255,194,28,.28);
 }
-.ptg-map .map-node-a{left:50%!important;top:5.4%!important;right:auto!important;bottom:auto!important}
-.ptg-map .map-node-b{left:13.5%!important;top:86.5%!important;right:auto!important;bottom:auto!important}
-.ptg-map .map-node-c{left:86.5%!important;top:86.5%!important;right:auto!important;bottom:auto!important}
+.ptg-map .map-node-a{left:50%!important;top:15.4%!important;right:auto!important;bottom:auto!important}
+.ptg-map .map-node-b{left:20%!important;top:75.4%!important;right:auto!important;bottom:auto!important}
+.ptg-map .map-node-c{left:80%!important;top:75.4%!important;right:auto!important;bottom:auto!important}
 
 /* The centre is an open brain + heart visual, not another card. */
 .ptg-map .map-centre{
@@ -211,12 +211,10 @@
 
 @media(max-width:900px){
   .ptg-map{width:min(100%,540px)!important}
-  .ptg-map .map-node-a{top:4.8%!important}.ptg-map .map-node-b{left:14%!important;top:87%!important}.ptg-map .map-node-c{left:86%!important;top:87%!important}
 }
 @media(max-width:620px){
   .ptg-map{width:100%!important;max-width:430px!important;aspect-ratio:600/520!important;margin-top:10px!important}
   .ptg-map .map-node strong{font-size:1.03rem!important}
-  .ptg-map .map-node-a{top:4%!important}.ptg-map .map-node-b{left:16%!important;top:84%!important}.ptg-map .map-node-c{left:84%!important;top:84%!important}
   .ptg-map .map-centre{top:55.4%!important;width:124px!important;height:108px!important}.ptg-map .map-centre svg{width:120px!important;height:88px!important}
   .ptg-map .graph-explainer{width:174px!important;padding:11px 12px!important;font-size:.7rem!important}
   .ptg-map[data-active-node="people"] .graph-explainer{left:2%!important;top:51%!important}
