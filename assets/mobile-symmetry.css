@@ -90,3 +90,37 @@
     margin-right:0!important;
   }
 }
+
+/* Journey hierarchy: short statements stay as single-line anchors on desktop. */
+@media(min-width:1080px){
+  html body .human-journey-section .journey-heading h2{
+    width:100%!important;
+    max-width:none!important;
+    margin-left:auto!important;
+    margin-right:auto!important;
+    white-space:nowrap!important;
+    font-size:clamp(2.15rem,3vw,3rem)!important;
+    line-height:1.04!important;
+    letter-spacing:-.035em!important;
+    text-align:center!important;
+  }
+  html body .human-journey-section .journey-human-centre{
+    width:100%!important;
+    max-width:none!important;
+    text-align:center!important;
+  }
+  html body .human-journey-section .journey-human-centre strong{
+    display:block!important;
+    width:100%!important;
+    max-width:none!important;
+    white-space:nowrap!important;
+    font-size:clamp(1.95rem,2.5vw,2.55rem)!important;
+    line-height:1.08!important;
+    letter-spacing:-.025em!important;
+    text-align:center!important;
+  }
+}
+
+/* Do not surface editorial filler as published HRTechify thinking. */
+html body main > section.section.shell:has(.editorial-insights){display:none!important}
+html body .journey-section + .section.shell:after{content:none!important;display:none!important}
