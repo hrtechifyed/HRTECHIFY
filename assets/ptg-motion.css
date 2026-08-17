@@ -231,3 +231,60 @@
   .ptg-map .heart-half,.ptg-map .brain-half,.ptg-map .map-centre:before,.ptg-map .map-centre:after,.ptg-map .brain-sparks path,.ptg-map .brain-neuron,.ptg-map .graph-anchor-ring{animation:none!important}
   .ptg-map .graph-motion-group{display:none!important}
 }
+
+/* Hover-only explanations: arrival of the cyan signal never opens text. */
+.ptg-map .graph-explainer{display:none!important}
+.ptg-map .map-node::after{
+  content:attr(aria-label);
+  position:absolute;
+  z-index:20;
+  width:220px;
+  padding:13px 15px;
+  border:1px solid rgba(240,106,0,.28);
+  border-radius:15px;
+  background:#fff8eb;
+  color:#35110c;
+  box-shadow:0 18px 40px rgba(0,0,0,.22);
+  font-size:.76rem;
+  font-weight:650;
+  line-height:1.45;
+  letter-spacing:0;
+  text-align:left;
+  text-shadow:none;
+  white-space:normal;
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transition:opacity .18s ease,transform .18s ease,visibility .18s ease;
+}
+.ptg-map .map-node:hover::after,.ptg-map .map-node:focus::after{
+  opacity:1;
+  visibility:visible;
+}
+.ptg-map .map-node-a::after{
+  left:50%;
+  top:calc(100% + 14px);
+  transform:translate(-50%,-5px);
+}
+.ptg-map .map-node-a:hover::after,.ptg-map .map-node-a:focus::after{transform:translate(-50%,0)}
+.ptg-map .map-node-b::after{
+  left:12px;
+  bottom:calc(100% + 14px);
+  transform:translateY(5px);
+}
+.ptg-map .map-node-b:hover::after,.ptg-map .map-node-b:focus::after{transform:translateY(0)}
+.ptg-map .map-node-c::after{
+  right:12px;
+  bottom:calc(100% + 14px);
+  transform:translateY(5px);
+}
+.ptg-map .map-node-c:hover::after,.ptg-map .map-node-c:focus::after{transform:translateY(0)}
+
+@media(max-width:620px){
+  .ptg-map .map-node::after{width:178px;padding:10px 12px;font-size:.68rem}
+  .ptg-map .map-node-b::after{left:0}
+  .ptg-map .map-node-c::after{right:0}
+}
+@media(max-width:390px){
+  .ptg-map .map-node::after{width:154px;font-size:.64rem}
+}
