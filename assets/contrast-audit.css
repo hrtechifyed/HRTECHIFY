@@ -1,0 +1,124 @@
+/* HRTechify global contrast and navigation audit — 2026-08-17 */
+
+/* Navigation: the primary links already provide all destinations. Hide the redundant CTA consistently. */
+.site-nav > a.button.button-small{display:none!important}
+
+/* Dark surfaces: guarantee WCAG-friendly foregrounds. */
+body .page-hero{color:#fff8eb!important}
+body .page-hero h1,
+body .page-hero h2,
+body .page-hero h3{color:#fff8eb!important}
+body .page-hero .eyebrow{color:#ffd12a!important}
+body .page-hero .lead,
+body .page-hero p:not(.eyebrow){color:#ffe1a8!important;opacity:1!important}
+
+body .audience-card.audience-org{color:#fff8eb!important}
+body .audience-card.audience-org > span{color:#ffd12a!important}
+body .audience-card.audience-org h3,
+body .audience-card.audience-org strong{color:#ffd12a!important}
+body .audience-card.audience-org p{color:#ffe1a8!important}
+body .audience-card.audience-org .audience-paths em{color:#fff1d6!important;background:rgba(255,194,28,.14)!important;border:1px solid rgba(255,209,42,.28)}
+
+body .difference-section{color:#fff8eb!important}
+body .difference-section .eyebrow,
+body .difference-section .difference-new span,
+body .difference-section .difference-manifesto > span,
+body .difference-section .difference-manifesto strong{color:#ffd12a!important}
+body .difference-section h2,
+body .difference-section h3,
+body .difference-section strong{color:#fff8eb!important}
+body .difference-section p{color:#ffe1a8!important}
+body .difference-section .difference-old span,
+body .difference-section .difference-old p{color:#f3cf9b!important}
+
+body .section-dark,
+body .conversations-section,
+body .final-cta{color:#fff8eb!important}
+body .section-dark h1,
+body .section-dark h2,
+body .section-dark h3,
+body .conversations-section h1,
+body .conversations-section h2,
+body .conversations-section h3,
+body .final-cta h1,
+body .final-cta h2,
+body .final-cta h3{color:#fff8eb!important}
+body .section-dark .eyebrow,
+body .conversations-section .eyebrow,
+body .final-cta .eyebrow{color:#ffd12a!important}
+body .section-dark p,
+body .conversations-section p,
+body .final-cta p{color:#ffe1a8!important}
+
+body .product-card{color:#fff8eb!important}
+body .product-card h2,
+body .product-card h3{color:#fff8eb!important}
+body .product-card .product-label,
+body .product-card h3 small,
+body .product-card .text-link{color:#ffd12a!important}
+body .product-card p{color:#ffe1a8!important}
+
+body .vm-belief,
+body .journey-center,
+body .conversation-card,
+body .thinking-grid > div{color:#fff8eb!important}
+body .vm-belief strong,
+body .journey-center strong,
+body .thinking-grid > div strong,
+body .thinking-grid > div b{color:#ffd12a!important}
+body .vm-belief p,
+body .journey-center span,
+body .conversation-card p,
+body .thinking-grid > div p{color:#ffe1a8!important}
+body .conversation-card h1,
+body .conversation-card h2,
+body .conversation-card h3{color:#fff8eb!important}
+
+body .site-footer{color:#fff8eb!important}
+body .site-footer h2{color:#ffd12a!important}
+body .site-footer p,
+body .site-footer a,
+body .site-footer .footer-base{color:#ffe1a8!important}
+
+/* Product showcase has a dark section shell but light cards inside it. Scope contrast to the dark chrome only. */
+body .product-showcase > .shell > .section-heading h2{color:#fff8eb!important}
+body .product-showcase > .shell > .section-heading .eyebrow,
+body .product-showcase .carousel-hint{color:#ffd12a!important}
+body .product-showcase > .shell > .section-heading p:last-child,
+body .product-showcase .browser-chrome span{color:#ffe1a8!important}
+body .product-showcase .showcase-caption{color:#2a0905!important}
+body .product-showcase .showcase-caption strong{color:#2a0905!important}
+body .product-showcase .showcase-caption span{color:#a82205!important}
+body .product-showcase .showcase-caption a{color:#6b0b05!important}
+
+/* Buttons remain dark-on-gold/orange for strong contrast even inside dark containers. */
+body .button,
+body .section-dark .button,
+body .page-hero .button,
+body .final-cta .button,
+body .conversation-card .button{color:#220302!important}
+
+/* Light surfaces: keep small accent text deep enough for easy reading. */
+body .section:not(.section-dark) .eyebrow,
+body .vision-mission .eyebrow,
+body .audience-card:not(.audience-org) > span,
+body .insight-card > div,
+body .vm-card > span,
+body .tension-card > span{color:#a82205!important}
+
+/* Links on light cards should not rely on orange alone. */
+body .insight-card .text-link,
+body .audience-card:not(.audience-org) strong,
+body .showcase-caption a,
+body .linkedin-publishing-copy .text-link{color:#6b0b05!important}
+
+/* Keyboard focus must remain obvious on both light and dark backgrounds. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible{outline:3px solid #ffd12a!important;outline-offset:4px!important}
+
+@media(max-width:900px){
+  .site-nav{gap:2px!important}
+}
