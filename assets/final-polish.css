@@ -44,33 +44,26 @@
   pointer-events:none!important;
 }
 
-/* Triangle relationships: the full sides remain visible, with explicit opposing arrows on every side. */
-.ptg-map marker{display:block!important;overflow:visible!important}
-.ptg-map marker path{fill:#ffd12a!important;stroke:none!important;opacity:1!important}
+/* Triangle relationships: clean lines only. Direction is communicated by the travelling signal. */
+.ptg-map marker,
+.ptg-map .edge-direction-group,
+.ptg-map .edge-direction{display:none!important}
 .ptg-map .triangle-edge{
   stroke:#ffc21c!important;
-  stroke-width:2.05!important;
+  stroke-width:1.65!important;
   stroke-linecap:round!important;
   stroke-dasharray:7 9!important;
   opacity:.78!important;
-  filter:drop-shadow(0 0 4px rgba(255,194,28,.28))!important;
-}
-.ptg-map .edge-direction{
-  fill:none!important;
-  stroke:#ffd12a!important;
-  stroke-width:3!important;
-  stroke-linecap:round!important;
-  opacity:1!important;
-  filter:drop-shadow(0 0 5px rgba(255,194,28,.58))!important;
+  filter:drop-shadow(0 0 3px rgba(255,194,28,.20))!important;
 }
 .ptg-map .centre-link{
   stroke:#f06a00!important;
-  stroke-width:1.6!important;
+  stroke-width:1.35!important;
   stroke-dasharray:2 9!important;
-  opacity:.88!important;
+  opacity:.82!important;
 }
 
-/* Make the centre unmistakably read as intelligence (brain) + empathy (heart). */
+/* Centre: cleaner intelligence + empathy artwork. */
 .ptg-map .map-centre{
   width:182px!important;
   height:138px!important;
@@ -79,18 +72,17 @@
   border:1px solid rgba(255,194,28,.28)!important;
   backdrop-filter:blur(4px);
   box-shadow:0 14px 32px rgba(0,0,0,.18),inset 0 1px rgba(255,255,255,.04)!important;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 100'%3E%3Cg fill='none' stroke='%23ffd12a' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M61 18c-8-7-20-4-23 6-9-2-16 7-13 15-8 4-8 17 0 21-4 9 5 18 14 15 2 10 15 13 22 5V18Z'/%3E%3Cpath d='M45 26c8 0 12 6 10 13M33 42c8-4 16 0 17 8M32 59c7-2 13 1 16 7M54 18c-3 7-1 12 4 16M52 48c8 1 12 7 10 14M45 74c6-2 11 1 14 5' stroke='%23fff1d6' stroke-width='2.1'/%3E%3C/g%3E%3Cpath d='M133 82c-3-3-31-24-31-44 0-12 8-20 18-20 7 0 12 4 16 10 4-6 9-10 16-10 10 0 18 8 18 20 0 20-28 41-31 44l-3 2-3-2Z' fill='%23f06a00' stroke='%23ffd12a' stroke-width='3'/%3E%3Cline x1='88' y1='18' x2='88' y2='82' stroke='%23fff1d6' stroke-opacity='.55' stroke-width='1.4' stroke-dasharray='3 5'/%3E%3C/svg%3E")!important;
+  background-repeat:no-repeat!important;
+  background-position:center!important;
+  background-size:168px 105px!important;
 }
-.ptg-map .map-centre svg{width:168px!important;height:105px!important;margin:9px auto 0!important;overflow:visible!important}
-.ptg-map .brain-symbol{transform-origin:48px 48px;animation:brainFloat 2.7s ease-in-out infinite}
-.ptg-map .brain-outline{fill:#ffd12a;stroke:#fff1d6;stroke-width:2.1;stroke-linejoin:round;filter:drop-shadow(0 0 7px rgba(255,194,28,.2))}
-.ptg-map .brain-fold{fill:none;stroke:#7c0d04;stroke-width:2.35;stroke-linecap:round;stroke-linejoin:round;opacity:1}
-.ptg-map .heart-symbol{fill:#f06a00;stroke:#ffd12a;stroke-width:2.6;transform-origin:136px 52px;animation:heartBeatClear 1.5s ease-in-out infinite;filter:drop-shadow(0 0 10px rgba(240,106,0,.42))}
-.ptg-map .symbol-divider{stroke:rgba(255,248,235,.62);stroke-width:1.4;stroke-dasharray:3 5}
-.ptg-map .map-centre:before,.ptg-map .map-centre:after{left:70%!important;top:51%!important}
+.ptg-map .map-centre svg{opacity:0!important;pointer-events:none!important}
+.ptg-map .map-centre:before,.ptg-map .map-centre:after{display:none!important}
 
-/* Keep the travelling signal: it represents continuous learning and feedback around the system. */
-.ptg-map .graph-trail-dot{fill:#f6a51b!important;filter:drop-shadow(0 0 5px rgba(246,165,27,.7))!important}
-.ptg-map .graph-motion-dot{fill:#ffd12a!important;stroke:#fff8eb!important;stroke-width:3!important;filter:drop-shadow(0 0 7px rgba(255,209,42,.95)) drop-shadow(0 0 14px rgba(240,106,0,.5))!important}
+/* The travelling signal is the only directional cue. */
+.ptg-map .graph-trail-dot{fill:#f6a51b!important;filter:drop-shadow(0 0 4px rgba(246,165,27,.58))!important}
+.ptg-map .graph-motion-dot{fill:#ffd12a!important;stroke:#fff8eb!important;stroke-width:2.5!important;filter:drop-shadow(0 0 6px rgba(255,209,42,.9)) drop-shadow(0 0 11px rgba(240,106,0,.38))!important}
 
 /* Short explanation immediately below the emblem. */
 .emblem-logic{
@@ -103,8 +95,10 @@
   box-shadow:0 12px 32px rgba(34,3,2,.14);
   text-align:left;
 }
-.emblem-logic strong{display:block;margin-bottom:5px;color:#7c0d04;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase}
-.emblem-logic p{margin:0!important;color:#5f2d20!important;font-size:.82rem!important;line-height:1.55!important}
+.emblem-logic strong{display:block;margin-bottom:5px;color:#7c0d04;font-size:0;letter-spacing:.1em;text-transform:uppercase}
+.emblem-logic strong:after{content:"What this means";font-size:.78rem}
+.emblem-logic p{margin:0!important;color:#5f2d20!important;font-size:0!important;line-height:1.55!important}
+.emblem-logic p:after{content:"People and technology reinforce each other. Intelligence and empathy guide how they are applied, and sustainable growth is the outcome.";font-size:.82rem}
 
 /* Footer mirrors GrowWithHR Version 2: brand line + rights line only. */
 .site-footer{padding:0!important;background:#220302!important;border-top:1px solid rgba(255,194,28,.22)!important;color:#fff1d6!important}
@@ -124,10 +118,9 @@
 
 @media(max-width:620px){
   .ptg-map{max-width:430px!important;border-radius:24px!important}
-  .ptg-map .map-centre{width:148px!important;height:116px!important}
-  .ptg-map .map-centre svg{width:138px!important;height:88px!important;margin-top:9px!important}
+  .ptg-map .map-centre{width:148px!important;height:116px!important;background-size:138px 88px!important}
   .emblem-logic{max-width:430px;padding:13px 14px}
-  .emblem-logic p{font-size:.76rem!important}
+  .emblem-logic p:after{font-size:.76rem!important}
   .site-footer__inner{width:min(100% - 32px,1180px);padding:22px 0 23px}
 }
 @media(prefers-reduced-motion:reduce){
