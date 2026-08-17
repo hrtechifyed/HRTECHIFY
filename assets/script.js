@@ -180,3 +180,174 @@
     });
   }
 })();
+
+/* Refined animated People • Technology • Growth system */
+(function(){
+  const scriptEl=document.currentScript||Array.from(document.scripts).find(s=>(s.getAttribute('src')||'').includes('assets/script.js'));
+  const scriptSrc=(scriptEl&&scriptEl.getAttribute('src'))||'assets/script.js';
+  const rootPrefix=scriptSrc.replace(/assets\/script\.js(?:[?#].*)?$/,'');
+  if(!document.getElementById('hrtechify-ptg-motion')){
+    const link=document.createElement('link');
+    link.id='hrtechify-ptg-motion';
+    link.rel='stylesheet';
+    link.href=`${rootPrefix}assets/ptg-motion.css`;
+    document.head.appendChild(link);
+  }
+
+  const graph=document.querySelector('.ptg-map');
+  if(!graph)return;
+  const svg=graph.querySelector('.graph-lines');
+  const explainer=graph.querySelector('#graph-explainer');
+  if(!svg||!explainer)return;
+
+  const NS='http://www.w3.org/2000/svg';
+  const messages={
+    people:{title:'People',body:'People drive trust, experience and culture.'},
+    technology:{title:'Technology',body:'Brings structure, speed, and intelligence.'},
+    growth:{title:'Growth',body:'Growth happens when people and technology work together.'},
+    centre:{title:'Intelligence + Empathy',body:'Organizations need both intelligence and empathy to grow.'}
+  };
+  const anchorData=[
+    {key:'growth',x:300,y:80},
+    {key:'people',x:120,y:392},
+    {key:'technology',x:480,y:392}
+  ];
+
+  function makeSvg(tag,attrs={}){
+    const el=document.createElementNS(NS,tag);
+    Object.entries(attrs).forEach(([key,value])=>el.setAttribute(key,String(value)));
+    return el;
+  }
+
+  const anchorGroup=makeSvg('g',{'class':'graph-anchor-group','aria-hidden':'true'});
+  const anchorEls=new Map();
+  anchorData.forEach(({key,x,y})=>{
+    const ring=makeSvg('circle',{'class':'graph-anchor-ring',cx:x,cy:y,r:16});
+    const dot=makeSvg('circle',{'class':'graph-anchor',cx:x,cy:y,r:6,'data-graph-key':key});
+    anchorGroup.append(ring,dot);
+    anchorEls.set(key,dot);
+  });
+  svg.appendChild(anchorGroup);
+
+  const motionGroup=makeSvg('g',{'class':'graph-motion-group','aria-hidden':'true'});
+  const trail=[];
+  for(let i=0;i<5;i++){
+    const circle=makeSvg('circle',{'class':'graph-trail-dot',r:Math.max(2.4,5.4-i*.65),cx:300,cy:80});
+    motionGroup.appendChild(circle);
+    trail.push(circle);
+  }
+  const movingDot=makeSvg('circle',{'class':'graph-motion-dot',r:7,cx:300,cy:80});
+  motionGroup.appendChild(movingDot);
+  svg.appendChild(motionGroup);
+
+  const centreSvg=graph.querySelector('.map-centre svg');
+  if(centreSvg&&!centreSvg.querySelector('.brain-sparks')){
+    centreSvg.insertAdjacentHTML('beforeend','<g class="brain-sparks" aria-hidden="true"><path d="M20 20 L12 14"></path><path d="M18 34 L8 34"></path><path d="M21 49 L12 56"></path><circle class="brain-neuron" cx="40" cy="25" r="2.2"></circle><circle class="brain-neuron" cx="47" cy="38" r="2"></circle><circle class="brain-neuron" cx="39" cy="50" r="1.8"></circle></g>');
+  }
+
+  let manualUntil=0;
+  let hideTimer=0;
+  const triggers=Array.from(graph.querySelectorAll('.graph-trigger'));
+
+  function renderTooltip(key,manual=false){
+    const message=messages[key];
+    if(!message)return;
+    if(!manual&&Date.now()<manualUntil)return;
+    window.clearTimeout(hideTimer);
+    if(manual)manualUntil=Date.now()+3200;
+    graph.dataset.activeNode=key;
+    graph.dataset.tooltipVisible='true';
+    explainer.innerHTML=`<strong>${message.title}</strong><span>${message.body}</span>`;
+    triggers.forEach(trigger=>trigger.setAttribute('aria-pressed',String(trigger.dataset.graphKey===key)));
+    anchorEls.forEach((anchor,anchorKey)=>anchor.classList.toggle('is-active',anchorKey===key));
+  }
+
+  function hideTooltip(delay=0){
+    window.clearTimeout(hideTimer);
+    hideTimer=window.setTimeout(()=>{
+      if(Date.now()<manualUntil)return;
+      graph.dataset.tooltipVisible='false';
+      anchorEls.forEach(anchor=>anchor.classList.remove('is-active'));
+      triggers.forEach(trigger=>trigger.setAttribute('aria-pressed','false'));
+    },delay);
+  }
+
+  triggers.forEach(trigger=>{
+    const key=trigger.dataset.graphKey;
+    const message=messages[key];
+    if(message)trigger.setAttribute('aria-label',`${message.title}: ${message.body}`);
+    trigger.addEventListener('mouseenter',()=>renderTooltip(key,true));
+    trigger.addEventListener('focus',()=>renderTooltip(key,true));
+    trigger.addEventListener('click',()=>renderTooltip(key,true));
+    trigger.addEventListener('mouseleave',()=>hideTooltip(420));
+    trigger.addEventListener('blur',()=>hideTooltip(420));
+  });
+
+  const outer=Array.from(svg.querySelectorAll('.triangle-edge'));
+  const inner=Array.from(svg.querySelectorAll('.centre-link'));
+  if(outer.length<3||inner.length<3)return;
+
+  const routes=[
+    {path:outer[0],reverse:false,arrive:'people'},
+    {path:outer[1],reverse:false,arrive:'technology'},
+    {path:outer[2],reverse:false,arrive:'growth'},
+    {path:inner[0],reverse:true,arrive:'centre'},
+    {path:inner[1],reverse:false,arrive:'people'},
+    {path:inner[1],reverse:true,arrive:'centre'},
+    {path:inner[2],reverse:false,arrive:'technology'},
+    {path:inner[2],reverse:true,arrive:'centre'},
+    {path:inner[0],reverse:false,arrive:'growth'}
+  ];
+
+  const history=[];
+  function placeMotion(point){
+    movingDot.setAttribute('cx',point.x);
+    movingDot.setAttribute('cy',point.y);
+    history.unshift({x:point.x,y:point.y});
+    if(history.length>55)history.length=55;
+    const offsets=[4,8,13,19,26];
+    trail.forEach((circle,index)=>{
+      const past=history[Math.min(offsets[index],history.length-1)]||point;
+      circle.setAttribute('cx',past.x);
+      circle.setAttribute('cy',past.y);
+    });
+  }
+
+  function wait(ms){return new Promise(resolve=>window.setTimeout(resolve,ms));}
+  function animatePath(route){
+    const length=route.path.getTotalLength();
+    const duration=Math.max(900,length*4.4);
+    return new Promise(resolve=>{
+      let start=null;
+      function frame(now){
+        if(start===null)start=now;
+        const progress=Math.min(1,(now-start)/duration);
+        const distance=route.reverse?length*(1-progress):length*progress;
+        placeMotion(route.path.getPointAtLength(distance));
+        if(progress<1)requestAnimationFrame(frame);else resolve();
+      }
+      requestAnimationFrame(frame);
+    });
+  }
+
+  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduced){
+    motionGroup.style.display='none';
+    return;
+  }
+
+  (async function runSignal(){
+    placeMotion({x:300,y:80});
+    await wait(650);
+    while(document.documentElement.contains(graph)){
+      for(const route of routes){
+        hideTooltip();
+        await animatePath(route);
+        renderTooltip(route.arrive,false);
+        await wait(route.arrive==='centre'?620:1100);
+        hideTooltip();
+        await wait(140);
+      }
+    }
+  })();
+})();
