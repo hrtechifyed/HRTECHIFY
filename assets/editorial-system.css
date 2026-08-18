@@ -1,6 +1,7 @@
 /* HRTechify runtime visual layer.
    The unified UX system remains the site-wide visual system; the original
-   People • Technology • Growth graphic is restored as a protected component. */
-@import url("ux-system.css");
-@import url("ptg-restore.css");
-@import url("layout-balance.css");
+   People • Technology • Growth graphic is restored as a protected component.
+   Versioned imports force GitHub Pages/browser caches to fetch the latest visual layer. */
+@import url("ux-system.css?v=20260818-1255");
+@import url("ptg-restore.css?v=20260818-1255");
+@import url("layout-balance.css?v=20260818-1255");
