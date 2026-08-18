@@ -1,3 +1,5 @@
 /* HRTechify runtime visual layer.
-   The unified UX system replaces the overlapping editorial override stack. */
+   The unified UX system remains the site-wide visual system; the original
+   People • Technology • Growth graphic is restored as a protected component. */
 @import url("ux-system.css");
+@import url("ptg-restore.css");

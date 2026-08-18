@@ -1,0 +1,253 @@
+/* Restore the original HRTechify People • Technology • Growth graphic.
+   This intentionally overrides only the PTG component changed by ux-system.css. */
+
+html body .journey-hero .ptg-map{
+  position:relative!important;
+  display:block!important;
+  width:min(100%,590px)!important;
+  max-width:590px!important;
+  aspect-ratio:600/520!important;
+  min-height:0!important;
+  height:auto!important;
+  margin-inline:auto!important;
+  padding:0!important;
+  gap:0!important;
+  grid-template-columns:none!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  overflow:visible!important;
+  isolation:isolate!important;
+}
+
+html body .journey-hero .ptg-map:before,
+html body .journey-hero .ptg-map:after{
+  display:none!important;
+}
+
+html body .journey-hero .ptg-map>.graph-lines{
+  display:block!important;
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  z-index:1!important;
+  overflow:visible!important;
+}
+
+html body .journey-hero .ptg-map marker{display:none!important}
+html body .journey-hero .ptg-map .triangle-edge{
+  stroke:#f5b83d!important;
+  fill:none!important;
+  stroke-width:1.8!important;
+  stroke-linecap:round!important;
+  stroke-dasharray:2 10!important;
+  opacity:.92!important;
+  filter:drop-shadow(0 0 4px rgba(245,184,61,.24))!important;
+  vector-effect:non-scaling-stroke!important;
+}
+html body .journey-hero .ptg-map .centre-link{
+  stroke:#ee8b2d!important;
+  fill:none!important;
+  stroke-width:1.55!important;
+  stroke-linecap:round!important;
+  stroke-dasharray:2 9!important;
+  opacity:.8!important;
+  filter:drop-shadow(0 0 3px rgba(238,139,45,.2))!important;
+  vector-effect:non-scaling-stroke!important;
+}
+
+html body .journey-hero .ptg-map .map-node{
+  appearance:none!important;
+  position:absolute!important;
+  z-index:5!important;
+  display:block!important;
+  inset:auto!important;
+  width:auto!important;
+  height:auto!important;
+  min-width:0!important;
+  min-height:0!important;
+  margin:0!important;
+  padding:8px 10px!important;
+  gap:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  color:#fff8eb!important;
+  text-align:center!important;
+  cursor:pointer!important;
+  transform:translate(-50%,-50%)!important;
+  transition:color .2s ease,transform .2s ease,text-shadow .2s ease!important;
+}
+html body .journey-hero .ptg-map .map-node strong{
+  display:block!important;
+  position:static!important;
+  color:#fff8eb!important;
+  font-size:clamp(1.28rem,2.2vw,1.72rem)!important;
+  line-height:1.05!important;
+  font-weight:850!important;
+  letter-spacing:-.03em!important;
+  text-shadow:0 2px 18px rgba(0,0,0,.28)!important;
+}
+html body .journey-hero .ptg-map .map-node span{
+  position:absolute!important;
+  width:1px!important;
+  height:1px!important;
+  min-width:0!important;
+  min-height:0!important;
+  padding:0!important;
+  margin:-1px!important;
+  overflow:hidden!important;
+  clip:rect(0,0,0,0)!important;
+  white-space:nowrap!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+}
+html body .journey-hero .ptg-map .node-icon,
+html body .journey-hero .ptg-map .node-icon svg{
+  display:none!important;
+}
+html body .journey-hero .ptg-map .map-node-a:before{
+  content:none!important;
+  display:none!important;
+}
+html body .journey-hero .ptg-map .map-node:hover,
+html body .journey-hero .ptg-map .map-node:focus-visible,
+html body .journey-hero .ptg-map .map-node[aria-pressed="true"]{
+  border:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  outline:none!important;
+  transform:translate(-50%,-50%) scale(1.055)!important;
+}
+html body .journey-hero .ptg-map .map-node:hover strong,
+html body .journey-hero .ptg-map .map-node:focus-visible strong,
+html body .journey-hero .ptg-map .map-node[aria-pressed="true"] strong{
+  color:#ffd12a!important;
+  text-shadow:0 0 20px rgba(255,194,28,.28)!important;
+}
+html body .journey-hero .ptg-map .map-node-a{
+  left:50%!important;
+  top:15.4%!important;
+  right:auto!important;
+  bottom:auto!important;
+}
+html body .journey-hero .ptg-map .map-node-b{
+  left:20%!important;
+  top:75.4%!important;
+  right:auto!important;
+  bottom:auto!important;
+}
+html body .journey-hero .ptg-map .map-node-c{
+  left:80%!important;
+  top:75.4%!important;
+  right:auto!important;
+  bottom:auto!important;
+}
+
+html body .journey-hero .ptg-map .map-centre{
+  appearance:none!important;
+  position:absolute!important;
+  z-index:4!important;
+  display:block!important;
+  left:50%!important;
+  top:55.4%!important;
+  right:auto!important;
+  bottom:auto!important;
+  width:154px!important;
+  height:126px!important;
+  min-width:0!important;
+  min-height:0!important;
+  padding:0!important;
+  gap:0!important;
+  transform:translate(-50%,-50%)!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  color:#fff8eb!important;
+  text-align:center!important;
+  cursor:pointer!important;
+  overflow:visible!important;
+}
+html body .journey-hero .ptg-map .map-centre:hover,
+html body .journey-hero .ptg-map .map-centre:focus-visible,
+html body .journey-hero .ptg-map .map-centre[aria-pressed="true"]{
+  outline:none!important;
+  border:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  transform:translate(-50%,-50%) scale(1.035)!important;
+}
+html body .journey-hero .ptg-map .map-centre svg{
+  display:block!important;
+  position:static!important;
+  inset:auto!important;
+  width:150px!important;
+  height:104px!important;
+  margin:10px auto 0!important;
+  overflow:visible!important;
+  fill:initial!important;
+  stroke:none!important;
+  filter:drop-shadow(0 12px 20px rgba(0,0,0,.2))!important;
+}
+html body .journey-hero .ptg-map .brain-half{
+  fill:#8b1d13!important;
+  stroke:none!important;
+}
+html body .journey-hero .ptg-map .heart-half{
+  fill:#f48b28!important;
+  stroke:none!important;
+}
+html body .journey-hero .ptg-map .map-centre strong{
+  position:absolute!important;
+  width:1px!important;
+  height:1px!important;
+  padding:0!important;
+  margin:-1px!important;
+  overflow:hidden!important;
+  clip:rect(0,0,0,0)!important;
+  white-space:nowrap!important;
+  border:0!important;
+}
+
+html body .journey-hero .ptg-map .graph-explainer{
+  display:none!important;
+}
+
+@media(max-width:900px){
+  html body .journey-hero .ptg-map{width:min(100%,540px)!important}
+}
+@media(max-width:620px){
+  html body .journey-hero .ptg-map{
+    display:block!important;
+    width:100%!important;
+    max-width:430px!important;
+    aspect-ratio:600/520!important;
+    margin-top:10px!important;
+    grid-template-columns:none!important;
+  }
+  html body .journey-hero .ptg-map .map-node{
+    min-height:0!important;
+    padding:8px 10px!important;
+  }
+  html body .journey-hero .ptg-map .map-node strong{font-size:1.03rem!important}
+  html body .journey-hero .ptg-map .map-centre{
+    top:55.4%!important;
+    width:124px!important;
+    height:108px!important;
+    min-height:0!important;
+    padding:0!important;
+  }
+  html body .journey-hero .ptg-map .map-centre svg{
+    width:120px!important;
+    height:88px!important;
+  }
+}
+@media(max-width:390px){
+  html body .journey-hero .ptg-map .map-node strong{font-size:.94rem!important}
+}
