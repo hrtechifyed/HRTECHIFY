@@ -60,7 +60,7 @@
         <a href="${withRoot('index.html#for-people')}">For People</a>
         <a href="${withRoot('index.html#for-organizations')}">For Organizations</a>
         <a href="${withRoot('products.html')}"${activeKey==='products'?' aria-current="page"':''}>Products</a>
-        <a href="${withRoot('insights.html')}"${activeKey==='insights'?' aria-current="page"':''}>Views & Thoughts</a>
+        <a href="${withRoot('insights.html')}"${activeKey==='insights'?' aria-current="page"':''}>Views</a>
         <a href="${withRoot('about.html')}"${activeKey==='about'?' aria-current="page"':''}>About</a>
         <a class="button button-small" href="${withRoot('index.html#audiences')}">Explore HRTechify</a>
         <a class="linkedin-nav-link" href="${linkedinUrl}" target="_blank" rel="noopener noreferrer" aria-label="HRTechify on LinkedIn">${linkedinIcon}<span>LinkedIn</span></a>
@@ -92,12 +92,14 @@
 
   document.querySelectorAll('a[href*="insights.html"]').forEach(link=>{
     const text=link.textContent.trim();
-    if(text==='Insights')link.textContent='Views & Thoughts';
-    if(text==='Explore HRTechify Insights →')link.textContent='Explore Views & Thoughts →';
-    if(text==='Explore all insights →')link.textContent='Explore all views & thoughts →';
+    if(text==='Insights'||text==='Views & Thoughts')link.textContent='Views';
+    if(text==='Explore HRTechify Insights →'||text==='Explore Views & Thoughts →')link.textContent='Explore Views →';
+    if(text==='Explore all insights →'||text==='Explore all views & thoughts →')link.textContent='Explore all views →';
+    if(text==='Read Insights →')link.textContent='Read Views →';
   });
   document.querySelectorAll('.eyebrow').forEach(label=>{
-    if(label.textContent.trim()==='HRTechify Insights')label.textContent='Views & Thoughts';
+    const text=label.textContent.trim();
+    if(text==='HRTechify Insights'||text==='Views & Thoughts')label.textContent='Views';
   });
 
   const menuButton=document.querySelector('.menu-toggle');
