@@ -1,0 +1,204 @@
+/* HRTechify layout balance pass
+   Refines proportion, spacing and product presentation without changing copy or destinations. */
+
+/* HOME — reduce dead space and make role / journey content easier to scan. */
+html body .human-journey-section{padding-block:76px!important}
+html body .human-journey-section .journey-heading{margin-bottom:34px!important}
+html body .journey-track-human{
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  gap:16px!important;
+  max-width:1060px!important;
+  margin-inline:auto!important;
+}
+html body .journey-track-human>div{
+  min-height:150px!important;
+  padding:20px!important;
+}
+html body .journey-track-human>div:nth-of-type(n+5){min-height:142px!important}
+html body .journey-track-human span{font-size:1.05rem!important}
+html body .journey-track-human small{font-size:.88rem!important;line-height:1.48!important}
+html body .journey-human-centre{
+  max-width:1060px!important;
+  margin:20px auto 0!important;
+  padding:21px 28px!important;
+}
+html body .journey-human-centre strong{font-size:clamp(1.3rem,2.2vw,1.7rem)!important}
+html body .journey-human-centre span{font-size:.92rem!important}
+
+/* Three-step journey: simplify the secondary chips and make the sequence more obvious. */
+html body #audiences{padding-top:78px!important;padding-bottom:82px!important}
+html body .audience-grid-three{gap:28px!important}
+html body .audience-grid-three .audience-card{min-height:360px!important;padding:28px!important}
+html body .audience-grid-three .audience-card>span{min-height:34px!important;padding:7px 11px!important}
+html body .audience-grid-three .audience-card h3{margin:20px 0 10px!important}
+html body .audience-paths{gap:7px!important;margin:15px 0 20px!important}
+html body .audience-card .audience-paths em{
+  display:block!important;
+  min-height:34px!important;
+  padding:8px 11px!important;
+  border-radius:12px!important;
+  background:#fff7e7!important;
+  color:#5a2b1f!important;
+  font-size:.78rem!important;
+  line-height:1.35!important;
+  opacity:1!important;
+}
+html body .audience-grid-three .audience-card:not(:last-child):after{
+  right:-29px!important;
+  width:29px!important;
+  top:42px!important;
+}
+
+/* Product proof on homepage: use more of the canvas and reduce surrounding emptiness. */
+html body #showcase{padding-block:78px!important}
+html body #showcase .section-heading{margin-bottom:30px!important}
+html body #showcase .product-snapshot-grid{gap:20px!important;max-width:1120px!important;margin-inline:auto!important}
+html body #showcase .product-snapshot-link{aspect-ratio:16/8.45!important}
+html body #showcase .product-snapshot-link img{aspect-ratio:auto!important;object-fit:contain!important}
+html body #showcase .showcase-caption{min-height:96px!important;padding:18px 20px!important}
+
+/* Vision / Mission: wider, shorter, more statement-like. */
+html body .vision-mission{padding-block:72px!important}
+html body .vision-mission .vm-grid{gap:20px!important}
+html body .vision-mission .vm-card{
+  min-height:230px!important;
+  padding:34px 38px!important;
+}
+html body .vision-mission .vm-card span{margin-bottom:16px!important}
+html body .vision-mission .vm-card h2{
+  font-size:clamp(1.9rem,2.8vw,2.8rem)!important;
+  max-width:17ch!important;
+}
+
+/* Principles: favor breathing room over four cramped mini-cards. */
+html body .difference-section{padding-block:78px!important}
+html body .principle-grid,
+html body .principle-grid-light{
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:18px!important;
+  max-width:980px!important;
+  margin-inline:auto!important;
+}
+html body .principle-card{min-height:170px!important;padding:24px 26px!important}
+html body .principle-card h3{margin-top:22px!important;max-width:28ch!important}
+
+/* Latest insight + founder: stronger content, less empty runway. */
+html body .latest-insight-home{max-width:1020px!important}
+html body .latest-insight-home .insight-card{min-height:230px!important;padding:30px 34px!important}
+html body .latest-insight-home .insight-card h3{font-size:clamp(1.6rem,2.6vw,2.2rem)!important;max-width:30ch!important}
+html body main>.section.shell.founder-section{padding-top:64px!important;padding-bottom:78px!important}
+html body main>.section.shell.founder-section .founder-portrait{max-width:290px!important}
+html body main>.section.shell.founder-section{grid-template-columns:300px 1fr!important;gap:48px!important}
+
+/* PRODUCTS — parallel offer cards use the canvas more confidently. */
+html body .product-detail-grid{
+  width:min(1240px,calc(100% - 48px))!important;
+  max-width:1240px!important;
+  gap:28px!important;
+  padding-top:76px!important;
+  padding-bottom:76px!important;
+}
+html body .product-detail{min-height:520px!important;padding:34px!important}
+html body .product-detail dl div{min-height:76px!important;padding:16px 0!important}
+
+/* Products proof: stacked, full-width static screenshots. */
+html body .product-showcase{padding-block:78px!important}
+html body .product-showcase .section-heading{margin-bottom:34px!important}
+html body .product-showcase .showcase-carousel{
+  display:grid!important;
+  grid-template-columns:1fr!important;
+  grid-auto-flow:row!important;
+  grid-auto-columns:auto!important;
+  gap:36px!important;
+  overflow:visible!important;
+  scroll-snap-type:none!important;
+  padding:0!important;
+  margin:0!important;
+}
+html body .product-showcase .showcase-slide{
+  width:100%!important;
+  max-width:none!important;
+  min-width:0!important;
+  scroll-snap-align:none!important;
+}
+html body .product-showcase .browser-chrome{display:none!important}
+html body .product-showcase .preview-frame{
+  width:100%!important;
+  height:auto!important;
+  aspect-ratio:16/8.45!important;
+  overflow:hidden!important;
+  border-radius:20px 20px 0 0!important;
+  background:#100806!important;
+}
+html body .product-showcase .preview-frame iframe{display:none!important}
+html body .product-showcase .preview-frame:before{
+  content:"";
+  display:block;
+  width:100%;
+  height:100%;
+  background-position:center;
+  background-repeat:no-repeat;
+  background-size:contain;
+}
+html body .product-showcase .showcase-slide:nth-child(1) .preview-frame:before{background-image:url("corporatex-home-snapshot.svg")}
+html body .product-showcase .showcase-slide:nth-child(2) .preview-frame:before{background-image:url("growwithhr-home-snapshot.svg")}
+html body .product-showcase .showcase-caption{
+  min-height:86px!important;
+  padding:18px 22px!important;
+  border-radius:0 0 20px 20px!important;
+}
+html body .product-showcase .carousel-hint,
+html body .product-showcase .showcase-controls{display:none!important}
+
+/* ABOUT — use the canvas rather than leaving the hero visually unfinished. */
+html body .page-hero>.shell.narrow{max-width:1040px!important}
+html body .page-hero>.shell.narrow h1{max-width:18ch!important}
+html body .about-vm .vm-grid{max-width:1120px!important;margin-inline:auto!important}
+html body .about-vm .vm-card h2{max-width:18ch!important}
+html body .pillar-grid{
+  max-width:1080px!important;
+  margin-inline:auto!important;
+  gap:20px!important;
+}
+html body .pillar-card{min-height:190px!important;padding:30px!important}
+html body .about-founder{max-width:1120px!important;margin-inline:auto!important}
+
+/* PTG — preserve the original component itself; only scale its host slightly so labels breathe. */
+html body .journey-hero .hero-visual .ptg-map{max-width:560px!important}
+
+@media(max-width:980px){
+  html body .journey-track-human{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  html body .product-detail-grid{width:min(100% - 40px,1240px)!important}
+}
+
+@media(max-width:768px){
+  html body .human-journey-section{padding-block:64px!important}
+  html body .journey-track-human,
+  html body .principle-grid,
+  html body .principle-grid-light{grid-template-columns:1fr!important}
+  html body .journey-track-human>div{min-height:126px!important}
+  html body .journey-human-centre{padding:20px!important}
+  html body #audiences{padding-block:64px!important}
+  html body .audience-grid-three{gap:16px!important}
+  html body .audience-grid-three .audience-card{min-height:0!important}
+  html body #showcase{padding-block:64px!important}
+  html body .vision-mission{padding-block:60px!important}
+  html body .vision-mission .vm-card{min-height:220px!important;padding:28px!important}
+  html body .vision-mission .vm-card h2{max-width:none!important}
+  html body .difference-section{padding-block:64px!important}
+  html body main>.section.shell.founder-section{
+    grid-template-columns:1fr!important;
+    gap:28px!important;
+    padding-top:52px!important;
+    padding-bottom:64px!important;
+  }
+  html body main>.section.shell.founder-section .founder-portrait{max-width:320px!important}
+  html body .product-detail-grid{width:min(100% - 32px,1240px)!important;padding-block:60px!important}
+  html body .product-showcase{padding-block:64px!important}
+  html body .product-showcase .showcase-carousel{gap:24px!important}
+  html body .product-showcase .preview-frame{aspect-ratio:16/9!important}
+  html body .product-showcase .showcase-caption{align-items:flex-start!important;flex-direction:column!important}
+  html body .pillar-grid{grid-template-columns:1fr!important}
+  html body .pillar-card{min-height:0!important}
+  html body .journey-hero .hero-visual .ptg-map{max-width:430px!important}
+}
