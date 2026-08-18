@@ -8,10 +8,7 @@
         "http://127.0.0.1:4173/about.html",
         "http://127.0.0.1:4173/contact.html",
         "http://127.0.0.1:4173/privacy.html",
-        "http://127.0.0.1:4173/terms.html",
-        "http://127.0.0.1:4173/insights/ai-explain-compliance-outcome.html",
-        "http://127.0.0.1:4173/insights/employee-exits-sequences-not-scores.html",
-        "http://127.0.0.1:4173/insights/two-sides-of-the-workplace.html"
+        "http://127.0.0.1:4173/terms.html"
       ],
       "numberOfRuns": 1
     },
