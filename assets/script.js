@@ -4,7 +4,7 @@
   const rootPrefix=scriptSrc.replace(/assets\/script\.js(?:[?#].*)?$/,'');
   const withRoot=(path)=>/^(?:https?:)?\/\//i.test(path)||path.startsWith('#')?path:`${rootPrefix}${path}`;
   function ensureStylesheet(id,path){if(document.getElementById(id)||document.querySelector(`link[href$="${path}"]`))return;const link=document.createElement('link');link.id=id;link.rel='stylesheet';link.href=withRoot(path);document.head.appendChild(link);}
-  ensureStylesheet('hrtechify-brand-styles','assets/brand-logo.css');ensureStylesheet('hrtechify-advisory-redesign','assets/advisory-redesign.css');ensureStylesheet('hrtechify-ui-audit-fixes','assets/ui-audit-fixes.css');document.documentElement.classList.add('js');
+  ensureStylesheet('hrtechify-brand-styles','assets/brand-logo.css');ensureStylesheet('hrtechify-advisory-redesign','assets/advisory-redesign.css');ensureStylesheet('hrtechify-ui-audit-fixes','assets/ui-audit-fixes.css');ensureStylesheet('hrtechify-contrast-guard','assets/contrast-guard.css');document.documentElement.classList.add('js');
   const linkedinUrl='https://www.linkedin.com/company/hrtechifyed',youtubeUrl='https://www.youtube.com/@HRTechify',instagramUrl='https://www.instagram.com/hrtechify';
   const currentFile=(location.pathname.split('/').filter(Boolean).pop()||'index.html').toLowerCase();const activeKey=currentFile==='index.html'?'home':currentFile==='products.html'?'products':currentFile==='insights.html'||location.pathname.includes('/insights/')?'views':currentFile==='about.html'?'about':currentFile==='contact.html'?'contact':'';
   const header=document.querySelector('.site-header');
