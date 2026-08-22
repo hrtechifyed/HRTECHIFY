@@ -19,6 +19,7 @@
 
   const linkedinUrl='https://www.linkedin.com/company/hrtechifyed';
   const youtubeUrl='https://www.youtube.com/@HRTechify';
+  const instagramUrl='https://www.instagram.com/hrtechify';
   const whatsappNumber='919980736408';
   const whatsappText=encodeURIComponent('Hello HRTechify, I would like to connect.');
   const whatsappUrl=`https://wa.me/${whatsappNumber}?text=${whatsappText}`;
@@ -50,7 +51,7 @@
         <div><img class="footer-logo" src="${withRoot('assets/hrtechify-logo.png')}" alt="HRTechify"><p><strong>People • Technology • Growth</strong></p><p>Building HR products and perspectives that connect workplace reality, responsible technology and better people systems.</p></div>
         <div><h2>Navigate</h2><a href="${withRoot('products.html')}">What We Build</a><a href="${withRoot('insights.html')}">Views</a><a href="${withRoot('about.html')}">Who We Are</a><a href="${withRoot('contact.html')}">Get In Touch</a></div>
         <div><h2>Products</h2><a href="https://hrtechifyed.github.io/The-Corporatex/">CorporateX</a><a href="https://growwithhr.onrender.com/">GrowWithHR</a><a href="${withRoot('products.html')}">All product directions</a></div>
-        <div><h2>Connect</h2><a href="${linkedinUrl}" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="${youtubeUrl}" target="_blank" rel="noopener noreferrer">YouTube ↗</a><a href="${whatsappUrl}" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a><a href="mailto:hrtechifyed@gmail.com">Email ↗</a></div>
+        <div><h2>Connect</h2><a href="${linkedinUrl}" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="${instagramUrl}" target="_blank" rel="noopener noreferrer">Instagram ↗</a><a href="${youtubeUrl}" target="_blank" rel="noopener noreferrer">YouTube ↗</a><a href="${whatsappUrl}" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a><a href="mailto:hrtechifyed@gmail.com">Email ↗</a></div>
       </div>
       <p class="footer-disclosure">HRTechify is a founder-built initiative in active development. It is not yet presented as a full-fledged operating company. Product capabilities and availability may evolve as the work develops.</p>
       <div class="footer-base-advisory"><span>© <span data-year></span> HRTechify. All rights reserved.</span><span><a href="${withRoot('privacy.html')}">Privacy</a> · <a href="${withRoot('terms.html')}">Terms</a></span></div>
