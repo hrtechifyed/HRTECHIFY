@@ -1,0 +1,206 @@
+/* Mobile-first product page refinement and robust hamburger bars. */
+
+/* Robust three-line hamburger: use spans so generic icon styles cannot collapse bars. */
+.site-header .menu-bars{
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+  align-items:center!important;
+  gap:5px!important;
+  width:24px!important;
+  height:24px!important;
+}
+.site-header .menu-bars .menu-bar{
+  display:block!important;
+  position:static!important;
+  width:22px!important;
+  height:2px!important;
+  min-height:2px!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:99px!important;
+  background:#220302!important;
+  opacity:1!important;
+  transform:none!important;
+  box-shadow:none!important;
+}
+.site-header .menu-toggle[aria-expanded="true"] .menu-bars .menu-bar:nth-child(1){transform:translateY(7px) rotate(45deg)!important}
+.site-header .menu-toggle[aria-expanded="true"] .menu-bars .menu-bar:nth-child(2){opacity:0!important}
+.site-header .menu-toggle[aria-expanded="true"] .menu-bars .menu-bar:nth-child(3){transform:translateY(-7px) rotate(-45deg)!important}
+
+/* Product summary cards should act as high-value navigation, not decorative copy. */
+.products-hero-summary a{
+  display:block!important;
+  color:inherit!important;
+  text-decoration:none!important;
+}
+.products-hero-summary a:hover,
+.products-hero-summary a:focus-visible{
+  border-color:rgba(255,216,90,.48)!important;
+  background:rgba(255,248,235,.09)!important;
+}
+.products-hero-summary .product-quick-action{
+  display:inline-flex!important;
+  margin-top:12px!important;
+  color:#ffd85a!important;
+  font-size:.8rem!important;
+  font-weight:800!important;
+  letter-spacing:.02em!important;
+}
+
+@media(max-width:700px){
+  /* Keep the first screen focused on the actual products. */
+  .products-page .products-hero{
+    padding:34px 0 30px!important;
+  }
+  .products-page .products-hero-grid{
+    gap:20px!important;
+  }
+  .products-page .products-hero-copy h1{
+    max-width:12ch!important;
+    margin:0!important;
+    font-size:clamp(2.25rem,10.6vw,3rem)!important;
+    line-height:.99!important;
+    letter-spacing:-.03em!important;
+  }
+  .products-page .products-hero-copy .lead{
+    margin:16px 0 0!important;
+    max-width:36ch!important;
+    font-size:.98rem!important;
+    line-height:1.55!important;
+  }
+  .products-page .products-hero-summary{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:10px!important;
+    margin-top:2px!important;
+  }
+  .products-page .products-hero-summary a{
+    min-height:144px!important;
+    padding:16px!important;
+    border:1px solid rgba(255,216,90,.22)!important;
+    border-radius:14px!important;
+    background:rgba(255,248,235,.055)!important;
+  }
+  .products-page .products-hero-summary a span{
+    margin-bottom:9px!important;
+    font-size:.68rem!important;
+  }
+  .products-page .products-hero-summary a h2{
+    margin-bottom:7px!important;
+    font-size:1.05rem!important;
+  }
+  .products-page .products-hero-summary a p{
+    font-size:.82rem!important;
+    line-height:1.4!important;
+  }
+  .products-page .products-hero-summary .product-quick-action{
+    margin-top:9px!important;
+    font-size:.74rem!important;
+  }
+
+  .products-page .status-strip{
+    font-size:.82rem!important;
+  }
+
+  /* Reduce text density after the hero without removing substance. */
+  .products-page .service-detail{
+    padding:42px 0!important;
+  }
+  .products-page .service-grid{
+    gap:12px!important;
+  }
+  .products-page .service-number{
+    font-size:.78rem!important;
+    margin-bottom:2px!important;
+  }
+  .products-page .service-copy .eyebrow{
+    margin-bottom:7px!important;
+  }
+  .products-page .service-copy h2{
+    margin-bottom:10px!important;
+    font-size:clamp(2rem,9vw,2.55rem)!important;
+  }
+  .products-page .service-copy>p{
+    margin:0 0 13px!important;
+    font-size:.95rem!important;
+    line-height:1.58!important;
+  }
+  .products-page .service-meta{
+    margin-top:6px!important;
+    padding:14px!important;
+    border:1px solid rgba(34,3,2,.1)!important;
+    border-radius:12px!important;
+  }
+  .products-page .service-meta h3{
+    margin:0 0 9px!important;
+    font-size:.82rem!important;
+    text-transform:uppercase!important;
+    letter-spacing:.08em!important;
+  }
+  .products-page .service-meta ul{
+    display:flex!important;
+    flex-wrap:wrap!important;
+    gap:7px!important;
+    margin:0!important;
+    padding:0!important;
+    list-style:none!important;
+  }
+  .products-page .service-meta li{
+    margin:0!important;
+    padding:7px 9px!important;
+    border-radius:999px!important;
+    background:#fff1d6!important;
+    color:#220302!important;
+    font-size:.78rem!important;
+    line-height:1.25!important;
+  }
+  .products-page .service-actions{
+    margin-top:14px!important;
+  }
+  .products-page .service-actions .primary{
+    width:100%!important;
+    justify-content:center!important;
+  }
+
+  .products-page .advisory-section{
+    padding:42px 0!important;
+  }
+  .products-page .advisory-section .section-head{
+    margin-bottom:16px!important;
+  }
+  .products-page .advisory-section h2{
+    font-size:clamp(1.8rem,8.6vw,2.45rem)!important;
+    line-height:1.04!important;
+  }
+  .products-page .advisory-section .section-lead{
+    font-size:.94rem!important;
+    line-height:1.55!important;
+  }
+  .products-page .faq-advisory details{
+    padding:14px 0!important;
+  }
+  .products-page .faq-advisory summary{
+    font-size:.96rem!important;
+  }
+  .products-page .faq-advisory details p{
+    font-size:.9rem!important;
+    line-height:1.52!important;
+  }
+
+  .products-page .final-cta-advisory{
+    padding:42px 0!important;
+  }
+  .products-page .final-cta-advisory h2{
+    font-size:clamp(1.9rem,8.6vw,2.5rem)!important;
+  }
+}
+
+@media(max-width:420px){
+  .products-page .products-hero-summary{
+    grid-template-columns:1fr!important;
+  }
+  .products-page .products-hero-summary a{
+    min-height:0!important;
+  }
+}
