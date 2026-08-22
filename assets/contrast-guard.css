@@ -1,0 +1,207 @@
+/* HRTechify contrast guard
+   Loaded last. Keep dark surfaces light-on-dark and light surfaces dark-on-light. */
+:root{
+  --contrast-dark:#220302;
+  --contrast-dark-2:#3a0704;
+  --contrast-light:#fff8eb;
+  --contrast-paper:#fffdf8;
+  --contrast-soft:#fff3df;
+  --contrast-muted-dark:#6f5047;
+  --contrast-muted-light:#efd7c5;
+  --contrast-accent:#ffd85a;
+}
+
+/* Light surfaces */
+.site-header,
+.site-header .site-nav,
+.advisory-section:not(.dark),
+.advisory-section.soft,
+.page-section,
+.contact-channel,
+.insight-card,
+.principle-advisory,
+.audience-advisory article,
+.service-meta,
+.faq-advisory details,
+.status-strip,
+.products-hero-summary article,
+.hero-summary-card {
+  color:var(--contrast-dark)!important;
+}
+
+.site-header .site-nav a:not(.button),
+.site-header .site-nav a:not(.button):visited,
+.advisory-section:not(.dark) h1,
+.advisory-section:not(.dark) h2,
+.advisory-section:not(.dark) h3,
+.advisory-section.soft h1,
+.advisory-section.soft h2,
+.advisory-section.soft h3,
+.contact-channel h1,
+.contact-channel h2,
+.contact-channel h3,
+.insight-card h1,
+.insight-card h2,
+.insight-card h3,
+.principle-advisory h3,
+.audience-advisory h3,
+.service-meta h3,
+.faq-advisory summary,
+.status-strip strong,
+.status-strip span {
+  color:var(--contrast-dark)!important;
+}
+
+.advisory-section:not(.dark) p,
+.advisory-section.soft p,
+.contact-channel p,
+.insight-card p,
+.principle-advisory p,
+.audience-advisory p,
+.service-meta p,
+.service-meta li,
+.faq-advisory p {
+  color:var(--contrast-muted-dark)!important;
+}
+
+/* Dark surfaces */
+.hero-advisory,
+.page-hero,
+.products-hero,
+.advisory-section.dark,
+.section-dark,
+.final-dark,
+.site-footer,
+.product-card,
+.audience-org,
+.conversation-card,
+.difference-manifesto,
+.journey-center {
+  color:var(--contrast-light)!important;
+}
+
+.hero-advisory h1,
+.hero-advisory h2,
+.hero-advisory h3,
+.page-hero h1,
+.page-hero h2,
+.page-hero h3,
+.products-hero h1,
+.products-hero h2,
+.products-hero h3,
+.advisory-section.dark h1,
+.advisory-section.dark h2,
+.advisory-section.dark h3,
+.section-dark h1,
+.section-dark h2,
+.section-dark h3,
+.site-footer h1,
+.site-footer h2,
+.site-footer h3,
+.product-card h2,
+.product-card h3,
+.audience-org h2,
+.audience-org h3,
+.conversation-card h2,
+.conversation-card h3,
+.difference-manifesto,
+.journey-center strong {
+  color:var(--contrast-light)!important;
+}
+
+.hero-advisory p,
+.page-hero p,
+.products-hero p,
+.advisory-section.dark p,
+.section-dark p,
+.site-footer p,
+.product-card p,
+.audience-org p,
+.conversation-card p,
+.journey-center span {
+  color:var(--contrast-muted-light)!important;
+}
+
+/* Navigation: no yellow text on pale yellow active state. */
+.site-header .site-nav a:not(.button):hover,
+.site-header .site-nav a:not(.button):focus-visible,
+.site-header .site-nav a:not(.button)[aria-current="page"] {
+  background:#f9e8c6!important;
+  color:var(--contrast-dark)!important;
+}
+
+.site-header .site-nav .button,
+.site-header .site-nav .button:visited {
+  background:var(--contrast-dark)!important;
+  color:var(--contrast-light)!important;
+  border-color:var(--contrast-dark)!important;
+}
+
+.site-header .site-nav .button:hover,
+.site-header .site-nav .button:focus-visible {
+  background:var(--contrast-dark-2)!important;
+  color:#fff!important;
+}
+
+/* Links remain visible on both tones. */
+.advisory-section:not(.dark) a:not(.button):not(.cta-link),
+.advisory-section.soft a:not(.button):not(.cta-link),
+.contact-channel a,
+.insight-card a {
+  color:#7f170d!important;
+}
+
+.hero-advisory a:not(.button),
+.page-hero a:not(.button),
+.products-hero a:not(.button),
+.advisory-section.dark a:not(.button),
+.site-footer a,
+.site-footer a:visited {
+  color:#ffe18a!important;
+}
+
+/* Button logic follows the surface rather than one global color. */
+.advisory-section:not(.dark) .button-secondary,
+.advisory-section.soft .button-secondary,
+.advisory-section:not(.dark) .secondary-btn,
+.advisory-section.soft .secondary-btn {
+  color:var(--contrast-dark)!important;
+  border-color:rgba(34,3,2,.35)!important;
+  background:transparent!important;
+}
+
+.hero-advisory .button-secondary,
+.page-hero .button-secondary,
+.products-hero .button-secondary,
+.advisory-section.dark .button-secondary {
+  color:var(--contrast-light)!important;
+  border-color:rgba(255,248,235,.52)!important;
+  background:transparent!important;
+}
+
+/* Footer headings can use gold as an accent; body/link text stays light. */
+.site-footer .footer-advisory h2 {
+  color:var(--contrast-accent)!important;
+}
+.site-footer .footer-advisory a,
+.site-footer .footer-advisory a:visited,
+.site-footer .footer-disclosure,
+.site-footer .footer-base-advisory {
+  color:#e3c8b8!important;
+}
+.site-footer .footer-advisory a:hover,
+.site-footer .footer-advisory a:focus-visible {
+  color:#ffe18a!important;
+}
+
+/* Strong visible keyboard focus on both light and dark surfaces. */
+:where(a,button,summary):focus-visible {
+  outline:3px solid #c56b00!important;
+  outline-offset:3px!important;
+}
+.hero-advisory :where(a,button,summary):focus-visible,
+.page-hero :where(a,button,summary):focus-visible,
+.advisory-section.dark :where(a,button,summary):focus-visible,
+.site-footer :where(a,button,summary):focus-visible {
+  outline-color:#ffd85a!important;
+}
