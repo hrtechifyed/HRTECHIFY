@@ -17,6 +17,51 @@
   ensureStylesheet('hrtechify-advisory-redesign','assets/advisory-redesign.css');
   document.documentElement.classList.add('js');
 
+  if(!document.getElementById('hrtechify-responsive-nav')){
+    const style=document.createElement('style');
+    style.id='hrtechify-responsive-nav';
+    style.textContent=`
+      /* Responsive navigation override: desktop tabs, compact menu on tablet/mobile. */
+      .site-header .header-inner{position:relative}
+      .site-header .menu-toggle{align-items:center;justify-content:center;gap:5px;min-width:48px;min-height:44px;cursor:pointer;border:1px solid rgba(34,3,2,.16);border-radius:3px;background:#fffdf8!important;color:#220302!important}
+      .site-header .menu-toggle .menu-bars{display:flex;flex-direction:column;gap:4px}
+      .site-header .menu-toggle .menu-bars i{display:block;width:21px;height:2px;background:#220302;transition:transform .2s ease,opacity .2s ease}
+      .site-header .menu-toggle .menu-label{font-size:.72rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+      .site-header .menu-toggle[aria-expanded="true"] .menu-bars i:nth-child(1){transform:translateY(6px) rotate(45deg)}
+      .site-header .menu-toggle[aria-expanded="true"] .menu-bars i:nth-child(2){opacity:0}
+      .site-header .menu-toggle[aria-expanded="true"] .menu-bars i:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+
+      @media (min-width:1101px){
+        .site-header .menu-toggle{display:none!important}
+        .site-header .site-nav{display:flex!important;position:static!important;align-items:center!important;gap:24px!important;padding:0!important;background:transparent!important;border:0!important;box-shadow:none!important}
+        .site-header .site-nav>a{display:inline-flex!important;align-items:center!important;min-height:42px!important;padding:0 2px!important;white-space:nowrap!important}
+        .site-header .site-nav .button{padding:12px 18px!important}
+      }
+
+      @media (min-width:761px) and (max-width:1100px){
+        .site-header .menu-toggle{display:inline-flex!important}
+        .site-header .menu-toggle .menu-label{display:inline!important;margin-left:3px}
+        .site-header .site-nav{position:absolute!important;right:0!important;left:auto!important;top:72px!important;width:min(390px,calc(100vw - 48px))!important;display:none!important;flex-direction:column!important;align-items:stretch!important;gap:0!important;padding:14px!important;background:#fffdf8!important;border:1px solid rgba(34,3,2,.14)!important;box-shadow:0 24px 70px rgba(34,3,2,.14)!important}
+        .site-header .site-nav.is-open{display:flex!important}
+        .site-header .site-nav>a{display:flex!important;align-items:center!important;min-height:48px!important;padding:12px 14px!important;border-bottom:1px solid rgba(34,3,2,.09)!important;font-size:.9rem!important}
+        .site-header .site-nav>a:last-child{border-bottom:0!important}
+        .site-header .site-nav .button{margin-top:8px!important;justify-content:center!important}
+        .site-header .linkedin-nav-link span{display:inline!important}
+      }
+
+      @media (max-width:760px){
+        .site-header .menu-toggle{display:inline-flex!important;padding:9px 10px!important}
+        .site-header .menu-toggle .menu-label{display:none!important}
+        .site-header .site-nav{position:absolute!important;left:15px!important;right:15px!important;top:68px!important;width:auto!important;display:none!important;flex-direction:column!important;align-items:stretch!important;gap:0!important;padding:12px!important;background:#fffdf8!important;border:1px solid rgba(34,3,2,.14)!important;box-shadow:0 24px 70px rgba(34,3,2,.14)!important;max-height:calc(100vh - 92px)!important;overflow:auto!important}
+        .site-header .site-nav.is-open{display:flex!important}
+        .site-header .site-nav>a{display:flex!important;align-items:center!important;min-height:50px!important;padding:13px 12px!important;border-bottom:1px solid rgba(34,3,2,.09)!important;font-size:.92rem!important}
+        .site-header .site-nav .button{margin-top:8px!important;justify-content:center!important}
+        .site-header .linkedin-nav-link span{display:inline!important}
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
   const linkedinUrl='https://www.linkedin.com/company/hrtechifyed';
   const youtubeUrl='https://www.youtube.com/@HRTechify';
   const instagramUrl='https://www.instagram.com/hrtechify';
@@ -32,7 +77,7 @@
   if(header){
     header.innerHTML=`<div class="shell header-inner">
       <a class="brand" href="${withRoot('index.html')}" aria-label="HRTechify home"><img class="brand-logo-image" src="${withRoot('assets/hrtechify-logo.png')}" alt="HRTechify" width="60" height="60"></a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open navigation"><span></span><span></span><span></span></button>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open navigation"><span class="menu-bars" aria-hidden="true"><i></i><i></i><i></i></span><span class="menu-label">Menu</span></button>
       <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
         <a href="${withRoot('index.html')}"${activeKey==='home'?' aria-current="page"':''}>Home</a>
         <a href="${withRoot('products.html')}"${activeKey==='products'?' aria-current="page"':''}>What We Build</a>
@@ -72,16 +117,23 @@
   const menuButton=document.querySelector('.menu-toggle');
   const nav=document.querySelector('#site-nav');
   if(menuButton&&nav){
+    const closeMenu=()=>{
+      menuButton.setAttribute('aria-expanded','false');
+      menuButton.setAttribute('aria-label','Open navigation');
+      nav.classList.remove('is-open');
+    };
     menuButton.addEventListener('click',()=>{
       const open=menuButton.getAttribute('aria-expanded')==='true';
       menuButton.setAttribute('aria-expanded',String(!open));
       menuButton.setAttribute('aria-label',open?'Open navigation':'Close navigation');
       nav.classList.toggle('is-open',!open);
     });
-    nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
-      menuButton.setAttribute('aria-expanded','false');
-      nav.classList.remove('is-open');
-    }));
+    nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
+    document.addEventListener('click',e=>{
+      if(menuButton.getAttribute('aria-expanded')==='true'&&!header.contains(e.target))closeMenu();
+    });
+    document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu();});
+    window.addEventListener('resize',()=>{if(window.innerWidth>1100)closeMenu();});
   }
 
   document.querySelectorAll('[data-year]').forEach(el=>el.textContent=String(new Date().getFullYear()));
