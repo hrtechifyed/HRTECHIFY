@@ -6,37 +6,38 @@
 .footer-view-switch{
   display:flex!important;
   align-items:center!important;
-  justify-content:space-between!important;
-  gap:18px!important;
-  margin:24px 0 0!important;
-  padding:18px 0 0!important;
+  justify-content:flex-end!important;
+  gap:8px!important;
+  margin:20px 0 0!important;
+  padding:16px 0 0!important;
   border-top:1px solid rgba(255,255,255,.09)!important;
 }
 .footer-view-switch__label{
-  color:#a98d80!important;
-  font-size:.76rem!important;
-  line-height:1.4!important;
+  display:none!important;
 }
 .footer-view-switch__controls{
   display:flex!important;
-  flex-wrap:wrap!important;
+  align-items:center!important;
   gap:8px!important;
 }
 .footer-view-switch__button{
+  width:42px!important;
+  height:42px!important;
+  min-width:42px!important;
   min-height:42px!important;
   display:inline-flex!important;
   align-items:center!important;
   justify-content:center!important;
-  gap:8px!important;
-  padding:8px 12px!important;
+  padding:0!important;
   border:1px solid rgba(255,216,90,.24)!important;
   border-radius:10px!important;
   background:transparent!important;
   color:#e1c9bb!important;
   font:inherit!important;
-  font-size:.78rem!important;
-  font-weight:700!important;
   cursor:pointer!important;
+}
+.footer-view-switch__button>span{
+  display:none!important;
 }
 .footer-view-switch__button:hover,
 .footer-view-switch__button:focus-visible{
@@ -223,17 +224,17 @@ html[data-view-mode="wide"] .footer-advisory-grid{
 /* Hard safety breakpoints: even a manually selected wide view must remain usable on a phone. */
 @media(max-width:700px){
   .footer-view-switch{
-    align-items:flex-start!important;
-    flex-direction:column!important;
-    gap:10px!important;
+    justify-content:flex-end!important;
+    align-items:center!important;
+    flex-direction:row!important;
+    gap:8px!important;
   }
-  .footer-view-switch__controls{width:100%!important}
+  .footer-view-switch__controls{width:auto!important}
   .footer-view-switch__button{
-    flex:1 1 0!important;
-    min-width:0!important;
-    padding-inline:9px!important;
+    flex:0 0 42px!important;
+    min-width:42px!important;
+    padding:0!important;
   }
-  .footer-view-switch__button span{font-size:.72rem!important}
 
   html[data-view-mode="compact"] .products-hero-summary,
   html[data-view-mode="compact"] .principles-advisory,
