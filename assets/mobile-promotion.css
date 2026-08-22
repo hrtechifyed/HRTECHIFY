@@ -1,0 +1,18 @@
+/* Mobile = visual discovery + progressive disclosure. Desktop retains full detail. */
+@media (max-width:700px){
+  .hero-advisory,.page-hero{padding:46px 0 38px!important}
+  .hero-advisory h1,.page-hero h1{font-size:clamp(2.15rem,10.5vw,3.25rem)!important;line-height:1.02!important;max-width:12ch!important}
+  .hero-advisory .hero-lead,.page-hero .lead{font-size:.98rem!important;line-height:1.55!important;max-width:34ch!important}
+  .hero-actions{gap:10px!important}.hero-actions .button{min-height:46px!important}
+  .products-hero-grid{gap:24px!important}.products-hero-summary{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important}
+  .products-hero-summary a{min-height:150px!important;padding:18px 16px!important;display:flex!important;flex-direction:column!important;justify-content:flex-end!important;border-radius:16px!important;background:linear-gradient(155deg,#111827,#000)!important;border:1px solid rgba(255,193,7,.45)!important;text-decoration:none!important}
+  .products-hero-summary a>span:first-child{margin-bottom:auto!important;color:#ffc107!important}.products-hero-summary h2{font-size:1.12rem!important;color:#fff!important}.products-hero-summary p{font-size:.82rem!important;line-height:1.4!important;color:#f7f7f7!important}.product-quick-action{font-size:.76rem!important;color:#ff9800!important}
+  .status-strip .shell{gap:5px!important}.status-strip span{font-size:.78rem!important}
+  .advisory-section{padding:46px 0!important}.section-head{margin-bottom:22px!important}.section-head h2{font-size:clamp(1.85rem,8.6vw,2.55rem)!important}.section-head .section-lead{font-size:.92rem!important;line-height:1.55!important}
+  .practice-row{padding:20px 0!important}.practice-row p{font-size:.9rem!important;line-height:1.5!important}
+  .principle-advisory,.audience-advisory article{min-height:0!important;padding:20px!important}.principle-advisory p,.audience-advisory p{font-size:.9rem!important}
+  .service-detail{padding:44px 0!important}.service-copy>p{font-size:.94rem!important;line-height:1.55!important}.service-meta{margin-top:4px!important;padding:16px!important;border-radius:14px!important;background:#fff!important}.service-meta ul{display:flex!important;flex-wrap:wrap!important;gap:7px!important}.service-meta li{padding:7px 10px!important;border-radius:999px!important;background:#fff3cd!important;color:#111827!important;font-size:.78rem!important}
+  .faq-advisory details{padding:16px 0!important}.faq-advisory summary{font-size:.98rem!important}.faq-advisory p{font-size:.9rem!important;line-height:1.55!important}
+  .founder-advisory .portrait{max-width:220px!important;aspect-ratio:1/1!important;border-radius:18px!important}.founder-advisory h2{font-size:2rem!important}.founder-advisory p{font-size:.92rem!important;line-height:1.55!important}
+  .final-cta-advisory{padding:44px 0!important}.final-cta-advisory h2{font-size:2rem!important}
+}
