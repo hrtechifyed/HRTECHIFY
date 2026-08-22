@@ -25,4 +25,9 @@ jobs:
           done
           exit 1
       - run: npm run check:links
-      - run: npm run lhci
+      - name: Lighthouse mobile - all public pages
+        run: npm run lhci
+      - name: Lighthouse tablet - key customer journeys
+        run: npx lhci autorun --config=./lighthouserc.tablet.json
+      - name: Lighthouse desktop - key customer journeys
+        run: npx lhci autorun --config=./lighthouserc.desktop.json
