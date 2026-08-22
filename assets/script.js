@@ -19,10 +19,9 @@
 
   const linkedinUrl='https://www.linkedin.com/company/hrtechifyed';
   const youtubeUrl='https://www.youtube.com/@HRTechify';
-  /* Add the official digits-only WhatsApp number with country code here when approved, e.g. 9198XXXXXXXX. */
-  const whatsappNumber='';
+  const whatsappNumber='919980736408';
   const whatsappText=encodeURIComponent('Hello HRTechify, I would like to connect.');
-  const whatsappUrl=whatsappNumber?`https://wa.me/${whatsappNumber}?text=${whatsappText}`:withRoot('contact.html#whatsapp');
+  const whatsappUrl=`https://wa.me/${whatsappNumber}?text=${whatsappText}`;
   const linkedinIcon='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.2 7.6H1.7V22h3.5V7.6ZM3.45 1.5A2.04 2.04 0 1 0 3.46 5.6a2.04 2.04 0 0 0-.01-4.1ZM22 13.7c0-4.34-2.32-6.36-5.42-6.36-2.5 0-3.62 1.37-4.24 2.34V7.6H8.86V22h3.48v-7.13c0-1.88.36-3.7 2.69-3.7 2.3 0 2.33 2.15 2.33 3.82V22H22v-8.3Z"/></svg>';
 
   const currentFile=(location.pathname.split('/').filter(Boolean).pop()||'index.html').toLowerCase();
@@ -51,7 +50,7 @@
         <div><img class="footer-logo" src="${withRoot('assets/hrtechify-logo.png')}" alt="HRTechify"><p><strong>People • Technology • Growth</strong></p><p>Building HR products and perspectives that connect workplace reality, responsible technology and better people systems.</p></div>
         <div><h2>Navigate</h2><a href="${withRoot('products.html')}">What We Build</a><a href="${withRoot('insights.html')}">Views</a><a href="${withRoot('about.html')}">Who We Are</a><a href="${withRoot('contact.html')}">Get In Touch</a></div>
         <div><h2>Products</h2><a href="https://hrtechifyed.github.io/The-Corporatex/">CorporateX</a><a href="https://growwithhr.onrender.com/">GrowWithHR</a><a href="${withRoot('products.html')}">All product directions</a></div>
-        <div><h2>Connect</h2><a href="${linkedinUrl}" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="${youtubeUrl}" target="_blank" rel="noopener noreferrer">YouTube ↗</a><a href="${whatsappUrl}"${whatsappNumber?' target="_blank" rel="noopener noreferrer"':''}>WhatsApp${whatsappNumber?' ↗':' · setup pending'}</a><a href="mailto:hrtechifyed@gmail.com">Email ↗</a></div>
+        <div><h2>Connect</h2><a href="${linkedinUrl}" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="${youtubeUrl}" target="_blank" rel="noopener noreferrer">YouTube ↗</a><a href="${whatsappUrl}" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a><a href="mailto:hrtechifyed@gmail.com">Email ↗</a></div>
       </div>
       <p class="footer-disclosure">HRTechify is a founder-built initiative in active development. It is not yet presented as a full-fledged operating company. Product capabilities and availability may evolve as the work develops.</p>
       <div class="footer-base-advisory"><span>© <span data-year></span> HRTechify. All rights reserved.</span><span><a href="${withRoot('privacy.html')}">Privacy</a> · <a href="${withRoot('terms.html')}">Terms</a></span></div>
@@ -62,9 +61,9 @@
     const wa=document.createElement('a');
     wa.className='whatsapp-float';
     wa.href=whatsappUrl;
-    if(whatsappNumber){wa.target='_blank';wa.rel='noopener noreferrer';}
-    else wa.dataset.unconfigured='true';
-    wa.setAttribute('aria-label',whatsappNumber?'Chat with HRTechify on WhatsApp':'WhatsApp contact setup');
+    wa.target='_blank';
+    wa.rel='noopener noreferrer';
+    wa.setAttribute('aria-label','Chat with HRTechify on WhatsApp');
     wa.innerHTML='<span>WhatsApp</span>';
     document.body.appendChild(wa);
   }
