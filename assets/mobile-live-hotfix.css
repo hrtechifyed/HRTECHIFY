@@ -1,0 +1,54 @@
+/* Live mobile hotfix: visual-first, readable, and contrast-safe. Loaded last. */
+@media (max-width:700px){
+  /* Header */
+  .site-header{background:#fff!important;border-bottom:1px solid rgba(0,0,0,.14)!important}
+  .site-header .menu-toggle{background:#fff!important;border:1px solid rgba(0,0,0,.18)!important;border-radius:12px!important;box-shadow:none!important}
+  .site-header .menu-bars i{background:#000!important;height:2px!important;min-height:2px!important;width:24px!important;opacity:1!important}
+
+  /* Homepage: promotion first, less reading before product discovery */
+  body:not(.about-page) .hero-advisory{padding:44px 0 38px!important;background:#000!important}
+  body:not(.about-page) .hero-advisory h1{font-size:clamp(2.45rem,10.5vw,3.25rem)!important;line-height:1.01!important;max-width:10.5ch!important;color:#fff!important;margin-bottom:20px!important}
+  body:not(.about-page) .hero-advisory .eyebrow{color:#ffd54a!important;font-size:.78rem!important}
+  body:not(.about-page) .hero-advisory .hero-lead{font-size:.96rem!important;line-height:1.5!important;color:#fff!important;display:-webkit-box!important;-webkit-line-clamp:3!important;-webkit-box-orient:vertical!important;overflow:hidden!important;max-width:35ch!important}
+  body:not(.about-page) .hero-actions{display:grid!important;grid-template-columns:1fr!important;gap:9px!important;margin-top:22px!important}
+  body:not(.about-page) .hero-actions .button{min-height:46px!important;padding:12px 16px!important;font-size:.92rem!important}
+  body:not(.about-page) .hero-actions .button:first-child{background:#ffc107!important;color:#000!important;border-color:#ffc107!important}
+  body:not(.about-page) .hero-actions .button-secondary{background:#000!important;color:#fff!important;border:1px solid #fff!important}
+  body:not(.about-page) .status-strip{padding:14px 0!important;background:#ffd54a!important}
+  body:not(.about-page) .status-strip .shell{display:flex!important;gap:8px!important;align-items:center!important;flex-wrap:wrap!important}
+  body:not(.about-page) .status-strip strong,body:not(.about-page) .status-strip span{color:#000!important;font-size:.76rem!important;line-height:1.35!important}
+
+  /* About: correct the light-background contrast regression */
+  .about-page .page-hero{padding:44px 0 38px!important;background:#fff!important;color:#000!important}
+  .about-page .page-hero .eyebrow{color:#9a5a00!important;font-size:.78rem!important}
+  .about-page .page-hero h1{color:#111827!important;font-size:clamp(2.2rem,9.5vw,3rem)!important;line-height:1.03!important;max-width:11ch!important;margin:14px 0 18px!important}
+  .about-page .page-hero .lead{color:#3f3f46!important;font-size:.95rem!important;line-height:1.5!important;display:-webkit-box!important;-webkit-line-clamp:3!important;-webkit-box-orient:vertical!important;overflow:hidden!important;max-width:36ch!important}
+  .about-page .status-strip{padding:14px 0!important;background:#ffd54a!important;color:#000!important}
+  .about-page .status-strip .shell{display:block!important}
+  .about-page .status-strip strong{display:block!important;color:#000!important;font-size:.72rem!important;letter-spacing:.11em!important;text-transform:uppercase!important;margin-bottom:4px!important}
+  .about-page .status-strip span{display:block!important;color:#000!important;font-size:.86rem!important;font-weight:700!important}
+
+  /* All light sections: dark text. All dark sections: white text. */
+  .advisory-section:not(.dark),.advisory-section.soft{background:#fff!important;color:#111827!important}
+  .advisory-section:not(.dark) h1,.advisory-section:not(.dark) h2,.advisory-section:not(.dark) h3,.advisory-section.soft h1,.advisory-section.soft h2,.advisory-section.soft h3{color:#111827!important}
+  .advisory-section:not(.dark) p,.advisory-section.soft p{color:#3f3f46!important}
+  .advisory-section.dark{background:#000!important;color:#fff!important}
+  .advisory-section.dark h1,.advisory-section.dark h2,.advisory-section.dark h3,.advisory-section.dark p{color:#fff!important}
+  .advisory-section.dark .eyebrow{color:#ffd54a!important}
+
+  /* Mobile reading density */
+  .advisory-section{padding:42px 0!important}
+  .section-head{gap:12px!important;margin-bottom:20px!important}
+  .section-head .eyebrow{font-size:.74rem!important;letter-spacing:.1em!important}
+  .section-head h2{font-size:clamp(1.85rem,8.2vw,2.45rem)!important;line-height:1.06!important}
+  .section-head .section-lead{font-size:.9rem!important;line-height:1.5!important;display:-webkit-box!important;-webkit-line-clamp:4!important;-webkit-box-orient:vertical!important;overflow:hidden!important}
+  .practice-row{padding:18px 0!important;gap:12px!important}
+  .practice-row h3{font-size:1.2rem!important}.practice-row p{font-size:.86rem!important;line-height:1.45!important}
+  .principle-advisory,.audience-advisory article{padding:18px!important;min-height:0!important}.principle-advisory p,.audience-advisory p{font-size:.86rem!important;line-height:1.45!important}
+
+  /* Founder: compact professional presentation */
+  .founder-advisory{gap:24px!important}.founder-advisory .portrait{max-width:210px!important;aspect-ratio:4/5!important;margin:0 auto!important}.founder-advisory h2{font-size:2rem!important}.founder-advisory p{font-size:.9rem!important;line-height:1.5!important}
+
+  /* Footer remains compact */
+  .footer-advisory{padding-top:34px!important}.footer-advisory-grid{gap:20px!important}
+}
