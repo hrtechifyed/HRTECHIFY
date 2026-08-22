@@ -4,156 +4,24 @@
   const rootPrefix=scriptSrc.replace(/assets\/script\.js(?:[?#].*)?$/,'');
   const withRoot=(path)=>/^(?:https?:)?\/\//i.test(path)||path.startsWith('#')?path:`${rootPrefix}${path}`;
 
-  function ensureStylesheet(id,path){
-    if(document.getElementById(id)||document.querySelector(`link[href$="${path}"]`))return;
-    const link=document.createElement('link');
-    link.id=id;
-    link.rel='stylesheet';
-    link.href=withRoot(path);
-    document.head.appendChild(link);
-  }
+  function ensureStylesheet(id,path){if(document.getElementById(id)||document.querySelector(`link[href$="${path}"]`))return;const link=document.createElement('link');link.id=id;link.rel='stylesheet';link.href=withRoot(path);document.head.appendChild(link);}
+  ensureStylesheet('hrtechify-brand-styles','assets/brand-logo.css');ensureStylesheet('hrtechify-advisory-redesign','assets/advisory-redesign.css');document.documentElement.classList.add('js');
 
-  ensureStylesheet('hrtechify-brand-styles','assets/brand-logo.css');
-  ensureStylesheet('hrtechify-advisory-redesign','assets/advisory-redesign.css');
-  document.documentElement.classList.add('js');
+  if(!document.getElementById('hrtechify-responsive-nav')){const style=document.createElement('style');style.id='hrtechify-responsive-nav';style.textContent=`
+.site-header .header-inner{position:relative}.site-header .menu-toggle{align-items:center;justify-content:center;gap:5px;min-width:48px;min-height:44px;cursor:pointer;border:1px solid rgba(34,3,2,.16);border-radius:3px;background:#fffdf8!important;color:#220302!important}.site-header .menu-toggle .menu-bars{display:flex;flex-direction:column;gap:4px}.site-header .menu-toggle .menu-bars i{display:block;width:21px;height:2px;background:#220302;transition:transform .2s ease,opacity .2s ease}.site-header .menu-toggle .menu-label{font-size:.72rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase}.site-header .menu-toggle[aria-expanded="true"] .menu-bars i:nth-child(1){transform:translateY(6px) rotate(45deg)}.site-header .menu-toggle[aria-expanded="true"] .menu-bars i:nth-child(2){opacity:0}.site-header .menu-toggle[aria-expanded="true"] .menu-bars i:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+@media (min-width:1101px){.site-header .menu-toggle{display:none!important}.site-header .site-nav{display:flex!important;position:static!important;align-items:center!important;gap:24px!important;padding:0!important;background:transparent!important;border:0!important;box-shadow:none!important}.site-header .site-nav>a{display:inline-flex!important;align-items:center!important;min-height:42px!important;padding:0 2px!important;white-space:nowrap!important}.site-header .site-nav .button{padding:12px 18px!important}}
+@media (min-width:761px) and (max-width:1100px){.site-header .menu-toggle{display:inline-flex!important}.site-header .menu-toggle .menu-label{display:inline!important;margin-left:3px}.site-header .site-nav{position:absolute!important;right:0!important;left:auto!important;top:72px!important;width:min(390px,calc(100vw - 48px))!important;display:none!important;flex-direction:column!important;align-items:stretch!important;gap:0!important;padding:14px!important;background:#220302!important;border:1px solid rgba(255,216,90,.24)!important;box-shadow:0 24px 70px rgba(34,3,2,.22)!important}.site-header .site-nav.is-open{display:flex!important}.site-header .site-nav>a{display:flex!important;align-items:center!important;min-height:48px!important;padding:12px 14px!important;border-bottom:1px solid rgba(255,216,90,.15)!important;color:#fff8eb!important;font-size:.9rem!important}.site-header .site-nav>a:last-child{border-bottom:0!important}.site-header .site-nav .button{margin-top:8px!important;justify-content:center!important;background:#ffc21c!important;color:#220302!important}.site-header .linkedin-nav-link span{display:inline!important}}
+@media (max-width:760px){.site-header .menu-toggle{display:inline-flex!important;padding:9px 10px!important}.site-header .menu-toggle .menu-label{display:none!important}.site-header .site-nav{position:absolute!important;left:15px!important;right:15px!important;top:68px!important;width:auto!important;display:none!important;flex-direction:column!important;align-items:stretch!important;gap:0!important;padding:12px!important;background:#220302!important;border:1px solid rgba(255,216,90,.24)!important;box-shadow:0 24px 70px rgba(34,3,2,.22)!important;max-height:calc(100vh - 92px)!important;overflow:auto!important}.site-header .site-nav.is-open{display:flex!important}.site-header .site-nav>a{display:flex!important;align-items:center!important;min-height:50px!important;padding:13px 12px!important;border-bottom:1px solid rgba(255,216,90,.15)!important;color:#fff8eb!important;font-size:.92rem!important}.site-header .site-nav .button{margin-top:8px!important;justify-content:center!important;background:#ffc21c!important;color:#220302!important}.site-header .linkedin-nav-link span{display:inline!important}}
+`;document.head.appendChild(style);}
 
-  if(!document.getElementById('hrtechify-responsive-nav')){
-    const style=document.createElement('style');
-    style.id='hrtechify-responsive-nav';
-    style.textContent=`
-      /* Responsive navigation override: desktop tabs, compact menu on tablet/mobile. */
-      .site-header .header-inner{position:relative}
-      .site-header .menu-toggle{align-items:center;justify-content:center;gap:5px;min-width:48px;min-height:44px;cursor:pointer;border:1px solid rgba(34,3,2,.16);border-radius:3px;background:#fffdf8!important;color:#220302!important}
-      .site-header .menu-toggle .menu-bars{display:flex;flex-direction:column;gap:4px}
-      .site-header .menu-toggle .menu-bars i{display:block;width:21px;height:2px;background:#220302;transition:transform .2s ease,opacity .2s ease}
-      .site-header .menu-toggle .menu-label{font-size:.72rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
-      .site-header .menu-toggle[aria-expanded="true"] .menu-bars i:nth-child(1){transform:translateY(6px) rotate(45deg)}
-      .site-header .menu-toggle[aria-expanded="true"] .menu-bars i:nth-child(2){opacity:0}
-      .site-header .menu-toggle[aria-expanded="true"] .menu-bars i:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
-
-      @media (min-width:1101px){
-        .site-header .menu-toggle{display:none!important}
-        .site-header .site-nav{display:flex!important;position:static!important;align-items:center!important;gap:24px!important;padding:0!important;background:transparent!important;border:0!important;box-shadow:none!important}
-        .site-header .site-nav>a{display:inline-flex!important;align-items:center!important;min-height:42px!important;padding:0 2px!important;white-space:nowrap!important}
-        .site-header .site-nav .button{padding:12px 18px!important}
-      }
-
-      @media (min-width:761px) and (max-width:1100px){
-        .site-header .menu-toggle{display:inline-flex!important}
-        .site-header .menu-toggle .menu-label{display:inline!important;margin-left:3px}
-        .site-header .site-nav{position:absolute!important;right:0!important;left:auto!important;top:72px!important;width:min(390px,calc(100vw - 48px))!important;display:none!important;flex-direction:column!important;align-items:stretch!important;gap:0!important;padding:14px!important;background:#fffdf8!important;border:1px solid rgba(34,3,2,.14)!important;box-shadow:0 24px 70px rgba(34,3,2,.14)!important}
-        .site-header .site-nav.is-open{display:flex!important}
-        .site-header .site-nav>a{display:flex!important;align-items:center!important;min-height:48px!important;padding:12px 14px!important;border-bottom:1px solid rgba(34,3,2,.09)!important;font-size:.9rem!important}
-        .site-header .site-nav>a:last-child{border-bottom:0!important}
-        .site-header .site-nav .button{margin-top:8px!important;justify-content:center!important}
-        .site-header .linkedin-nav-link span{display:inline!important}
-      }
-
-      @media (max-width:760px){
-        .site-header .menu-toggle{display:inline-flex!important;padding:9px 10px!important}
-        .site-header .menu-toggle .menu-label{display:none!important}
-        .site-header .site-nav{position:absolute!important;left:15px!important;right:15px!important;top:68px!important;width:auto!important;display:none!important;flex-direction:column!important;align-items:stretch!important;gap:0!important;padding:12px!important;background:#fffdf8!important;border:1px solid rgba(34,3,2,.14)!important;box-shadow:0 24px 70px rgba(34,3,2,.14)!important;max-height:calc(100vh - 92px)!important;overflow:auto!important}
-        .site-header .site-nav.is-open{display:flex!important}
-        .site-header .site-nav>a{display:flex!important;align-items:center!important;min-height:50px!important;padding:13px 12px!important;border-bottom:1px solid rgba(34,3,2,.09)!important;font-size:.92rem!important}
-        .site-header .site-nav .button{margin-top:8px!important;justify-content:center!important}
-        .site-header .linkedin-nav-link span{display:inline!important}
-      }
-    `;
-    document.head.appendChild(style);
-  }
-
-  const linkedinUrl='https://www.linkedin.com/company/hrtechifyed';
-  const youtubeUrl='https://www.youtube.com/@HRTechify';
-  const instagramUrl='https://www.instagram.com/hrtechify';
-  const whatsappNumber='919980736408';
-  const whatsappText=encodeURIComponent('Hello HRTechify, I would like to connect.');
-  const whatsappUrl=`https://wa.me/${whatsappNumber}?text=${whatsappText}`;
+  const linkedinUrl='https://www.linkedin.com/company/hrtechifyed',youtubeUrl='https://www.youtube.com/@HRTechify',instagramUrl='https://www.instagram.com/hrtechify';
+  const whatsappNumber='919999999999',whatsappText=encodeURIComponent('Hello HRTechify, I would like to connect.'),whatsappUrl=`https://wa.me/${whatsappNumber}?text=${whatsappText}`;
   const linkedinIcon='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.2 7.6H1.7V22h3.5V7.6ZM3.45 1.5A2.04 2.04 0 1 0 3.46 5.6a2.04 2.04 0 0 0-.01-4.1ZM22 13.7c0-4.34-2.32-6.36-5.42-6.36-2.5 0-3.62 1.37-4.24 2.34V7.6H8.86V22h3.48v-7.13c0-1.88.36-3.7 2.69-3.7 2.3 0 2.33 2.15 2.33 3.82V22H22v-8.3Z"/></svg>';
-
-  const currentFile=(location.pathname.split('/').filter(Boolean).pop()||'index.html').toLowerCase();
-  const activeKey=currentFile==='index.html'?'home':currentFile==='products.html'?'products':currentFile==='insights.html'||location.pathname.includes('/insights/')?'views':currentFile==='about.html'?'about':currentFile==='contact.html'?'contact':'';
-
-  const header=document.querySelector('.site-header');
-  if(header){
-    header.innerHTML=`<div class="shell header-inner">
-      <a class="brand" href="${withRoot('index.html')}" aria-label="HRTechify home"><img class="brand-logo-image" src="${withRoot('assets/hrtechify-logo.png')}" alt="HRTechify" width="60" height="60"></a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open navigation"><span class="menu-bars" aria-hidden="true"><i></i><i></i><i></i></span><span class="menu-label">Menu</span></button>
-      <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
-        <a href="${withRoot('index.html')}"${activeKey==='home'?' aria-current="page"':''}>Home</a>
-        <a href="${withRoot('products.html')}"${activeKey==='products'?' aria-current="page"':''}>What We Build</a>
-        <a href="${withRoot('insights.html')}"${activeKey==='views'?' aria-current="page"':''}>Views</a>
-        <a href="${withRoot('about.html')}"${activeKey==='about'?' aria-current="page"':''}>Who We Are</a>
-        <a class="button button-small" href="${withRoot('contact.html')}"${activeKey==='contact'?' aria-current="page"':''}>Get In Touch</a>
-        <a class="linkedin-nav-link" href="${linkedinUrl}" target="_blank" rel="noopener noreferrer" aria-label="HRTechify on LinkedIn">${linkedinIcon}<span>LinkedIn</span></a>
-      </nav>
-    </div>`;
-  }
-
-  const footer=document.querySelector('.site-footer');
-  if(footer){
-    footer.innerHTML=`<div class="footer-advisory shell">
-      <div class="footer-advisory-grid">
-        <div><img class="footer-logo" src="${withRoot('assets/hrtechify-logo.png')}" alt="HRTechify"><p><strong>People • Technology • Growth</strong></p><p>Building HR products and perspectives that connect workplace reality, responsible technology and better people systems.</p></div>
-        <div><h2>Navigate</h2><a href="${withRoot('products.html')}">What We Build</a><a href="${withRoot('insights.html')}">Views</a><a href="${withRoot('about.html')}">Who We Are</a><a href="${withRoot('contact.html')}">Get In Touch</a></div>
-        <div><h2>Products</h2><a href="https://hrtechifyed.github.io/The-Corporatex/">CorporateX</a><a href="https://growwithhr.onrender.com/">GrowWithHR</a><a href="${withRoot('products.html')}">All product directions</a></div>
-        <div><h2>Connect</h2><a href="${linkedinUrl}" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="${instagramUrl}" target="_blank" rel="noopener noreferrer">Instagram ↗</a><a href="${youtubeUrl}" target="_blank" rel="noopener noreferrer">YouTube ↗</a><a href="${whatsappUrl}" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a><a href="mailto:hrtechifyed@gmail.com">Email ↗</a></div>
-      </div>
-      <p class="footer-disclosure">HRTechify is a founder-built initiative in active development. It is not yet presented as a full-fledged operating company. Product capabilities and availability may evolve as the work develops.</p>
-      <div class="footer-base-advisory"><span>© <span data-year></span> HRTechify. All rights reserved.</span><span><a href="${withRoot('privacy.html')}">Privacy</a> · <a href="${withRoot('terms.html')}">Terms</a></span></div>
-    </div>`;
-  }
-
-  if(!document.querySelector('.whatsapp-float')){
-    const wa=document.createElement('a');
-    wa.className='whatsapp-float';
-    wa.href=whatsappUrl;
-    wa.target='_blank';
-    wa.rel='noopener noreferrer';
-    wa.setAttribute('aria-label','Chat with HRTechify on WhatsApp');
-    wa.innerHTML='<span>WhatsApp</span>';
-    document.body.appendChild(wa);
-  }
-
-  const menuButton=document.querySelector('.menu-toggle');
-  const nav=document.querySelector('#site-nav');
-  if(menuButton&&nav){
-    const closeMenu=()=>{
-      menuButton.setAttribute('aria-expanded','false');
-      menuButton.setAttribute('aria-label','Open navigation');
-      nav.classList.remove('is-open');
-    };
-    menuButton.addEventListener('click',()=>{
-      const open=menuButton.getAttribute('aria-expanded')==='true';
-      menuButton.setAttribute('aria-expanded',String(!open));
-      menuButton.setAttribute('aria-label',open?'Open navigation':'Close navigation');
-      nav.classList.toggle('is-open',!open);
-    });
-    nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
-    document.addEventListener('click',e=>{
-      if(menuButton.getAttribute('aria-expanded')==='true'&&!header.contains(e.target))closeMenu();
-    });
-    document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu();});
-    window.addEventListener('resize',()=>{if(window.innerWidth>1100)closeMenu();});
-  }
-
-  document.querySelectorAll('[data-year]').forEach(el=>el.textContent=String(new Date().getFullYear()));
-
-  const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(!reducedMotion&&'IntersectionObserver'in window){
-    const io=new IntersectionObserver(entries=>{
-      entries.forEach(entry=>{
-        if(entry.isIntersecting){entry.target.classList.add('is-visible');io.unobserve(entry.target);}
-      });
-    },{threshold:.1});
-    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-  }else{
-    document.querySelectorAll('.reveal').forEach(el=>el.classList.add('is-visible'));
-  }
-
-  function track(eventName,detail={}){
-    window.hrtechifyDataLayer=window.hrtechifyDataLayer||[];
-    window.hrtechifyDataLayer.push({event:eventName,...detail,timestamp:new Date().toISOString()});
-    window.dispatchEvent(new CustomEvent('hrtechify:analytics',{detail:{event:eventName,...detail}}));
-  }
-  document.querySelectorAll('[data-event]').forEach(el=>el.addEventListener('click',()=>track(el.dataset.event,{href:el.getAttribute('href')})));
+  const whatsappIcon='<svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16 3a12.8 12.8 0 0 0-11 19.3L3.5 28.5l6.4-1.7A12.9 12.9 0 1 0 16 3Zm0 23.3c-2 0-3.9-.6-5.5-1.5l-.4-.2-3.8 1 1-3.7-.3-.4A10.4 10.4 0 1 1 16 26.3Zm5.7-7.8c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.7.1-1.8-.9-3-1.6-4.2-3.6-.3-.6.3-.5.9-1.8.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9 0 1.7 1.2 3.3 1.4 3.5.2.2 2.5 3.8 6 5.3 2.2.9 3 .9 4.1.8.7-.1 1.9-.8 2.2-1.5.3-.7.3-1.3.2-1.5-.2-.3-.4-.4-.7-.5Z"/></svg>';
+  const currentFile=(location.pathname.split('/').filter(Boolean).pop()||'index.html').toLowerCase();const activeKey=currentFile==='index.html'?'home':currentFile==='products.html'?'products':currentFile==='insights.html'||location.pathname.includes('/insights/')?'views':currentFile==='about.html'?'about':currentFile==='contact.html'?'contact':'';
+  const header=document.querySelector('.site-header');if(header){header.innerHTML=`<div class="shell header-inner"><a class="brand" href="${withRoot('index.html')}" aria-label="HRTechify home"><img class="brand-logo-image" src="${withRoot('assets/hrtechify-logo.png')}" alt="HRTechify" width="60" height="60"></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open navigation"><span class="menu-bars" aria-hidden="true"><i></i><i></i><i></i></span><span class="menu-label">Menu</span></button><nav id="site-nav" class="site-nav" aria-label="Primary navigation"><a href="${withRoot('index.html')}"${activeKey==='home'?' aria-current="page"':''}>Home</a><a href="${withRoot('products.html')}"${activeKey==='products'?' aria-current="page"':''}>What I’m Working On</a><a href="${withRoot('insights.html')}"${activeKey==='views'?' aria-current="page"':''}>Views</a><a href="${withRoot('about.html')}"${activeKey==='about'?' aria-current="page"':''}>Who I Am</a><a class="button button-small" href="${withRoot('contact.html')}"${activeKey==='contact'?' aria-current="page"':''}>Get In Touch</a><a class="linkedin-nav-link" href="${linkedinUrl}" target="_blank" rel="noopener noreferrer" aria-label="HRTechify on LinkedIn">${linkedinIcon}<span>LinkedIn</span></a></nav></div>`;}
+  const footer=document.querySelector('.site-footer');if(footer){footer.innerHTML=`<div class="footer-advisory shell"><div class="footer-advisory-grid"><div><img class="footer-logo" src="${withRoot('assets/hrtechify-logo.png')}" alt="HRTechify"><p><strong>People • Technology • Growth</strong></p><p>I am exploring HR products and perspectives that connect workplace reality, responsible technology and better people systems.</p></div><div><h2>Navigate</h2><a href="${withRoot('products.html')}">What I’m Working On</a><a href="${withRoot('insights.html')}">Views</a><a href="${withRoot('about.html')}">Who I Am</a><a href="${withRoot('contact.html')}">Get In Touch</a></div><div><h2>Projects</h2><a href="https://hrtechifyed.github.io/The-Corporatex/">CorporateX</a><a href="https://growwithhr.onrender.com/">GrowWithHR</a><a href="${withRoot('products.html')}">What I’m working on</a></div><div><h2>Connect</h2><a href="${linkedinUrl}" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="${instagramUrl}" target="_blank" rel="noopener noreferrer">Instagram ↗</a><a href="${youtubeUrl}" target="_blank" rel="noopener noreferrer">YouTube ↗</a><a href="${whatsappUrl}" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a><a href="mailto:hrtechifyed@gmail.com">Email ↗</a></div></div><p class="footer-disclosure">HRTechify is a founder-built initiative in active development. It is not yet presented as a full-fledged operating company. Product capabilities and availability may evolve as I continue working on it.</p><div class="footer-base-advisory"><span>© <span data-year></span> HRTechify. All rights reserved.</span><span><a href="${withRoot('privacy.html')}">Privacy</a> · <a href="${withRoot('terms.html')}">Terms</a></span></div></div>`;}
+  if(!document.querySelector('.whatsapp-float')){const wa=document.createElement('a');wa.className='whatsapp-float';wa.href=whatsappUrl;wa.target='_blank';wa.rel='noopener noreferrer';wa.setAttribute('aria-label','Chat with HRTechify on WhatsApp');wa.innerHTML=whatsappIcon;document.body.appendChild(wa);}
+  const menuButton=document.querySelector('.menu-toggle'),nav=document.querySelector('#site-nav');if(menuButton&&nav){const closeMenu=()=>{menuButton.setAttribute('aria-expanded','false');menuButton.setAttribute('aria-label','Open navigation');nav.classList.remove('is-open');};menuButton.addEventListener('click',()=>{const open=menuButton.getAttribute('aria-expanded')==='true';menuButton.setAttribute('aria-expanded',String(!open));menuButton.setAttribute('aria-label',open?'Open navigation':'Close navigation');nav.classList.toggle('is-open',!open);});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));document.addEventListener('click',e=>{if(menuButton.getAttribute('aria-expanded')==='true'&&!header.contains(e.target))closeMenu();});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu();});window.addEventListener('resize',()=>{if(window.innerWidth>1100)closeMenu();});}
+  document.querySelectorAll('[data-year]').forEach(el=>el.textContent=String(new Date().getFullYear()));const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;if(!reducedMotion&&'IntersectionObserver'in window){const io=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');io.unobserve(entry.target);}});},{threshold:.1});document.querySelectorAll('.reveal').forEach(el=>io.observe(el));}else{document.querySelectorAll('.reveal').forEach(el=>el.classList.add('is-visible'));}
 })();
