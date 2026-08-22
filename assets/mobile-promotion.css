@@ -1,4 +1,5 @@
 /* Mobile = visual discovery + progressive disclosure. Desktop retains full detail. */
+/* release-refresh: 2026-08-23 */
 @media (max-width:700px){
   .hero-advisory,.page-hero{padding:46px 0 38px!important}
   .hero-advisory h1,.page-hero h1{font-size:clamp(2.15rem,10.5vw,3.25rem)!important;line-height:1.02!important;max-width:12ch!important}
