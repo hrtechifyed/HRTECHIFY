@@ -1,0 +1,16 @@
+/* HRTechify small-label readability refinements.
+   Keep section eyebrow/kicker treatment consistent across the site. */
+.eyebrow,
+.section-kicker {
+  font-size:clamp(.84rem,1vw,.96rem)!important;
+  line-height:1.3!important;
+  letter-spacing:.14em!important;
+}
+
+@media (max-width:600px){
+  .eyebrow,
+  .section-kicker {
+    font-size:.86rem!important;
+    letter-spacing:.13em!important;
+  }
+}
