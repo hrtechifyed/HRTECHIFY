@@ -1,0 +1,1 @@
+Temporary implementation marker for selectable compact and wide presentation modes.
