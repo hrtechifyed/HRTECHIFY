@@ -1,0 +1,91 @@
+/* HRTechify unified colour system.
+   The rendered site is restricted to black, white, off-white, yellow and
+   orange on both desktop and mobile. Layout remains component-owned. */
+:root{
+  --theme-black:#000;
+  --theme-white:#fff;
+  --theme-off-white:#fff8eb;
+  --theme-yellow:#ffd84d;
+  --theme-orange:#ff8a00;
+}
+
+/* One uninterrupted black canvas. This neutralises legacy surface gradients
+   without changing component spacing, sizing or interaction. */
+html,body,body *,body *::before,body *::after{
+  background-color:var(--theme-black)!important;
+  background-image:none!important;
+}
+body *{border-color:rgba(255,216,77,.35)!important}
+
+html,body,
+.site-header,.site-nav,.page-hero,.products-hero,
+.advisory-section,.advisory-section.soft,.advisory-section.dark,
+.service-detail,.status-strip,.final-cta-advisory,.site-footer,
+.hr-header,.hr-mobile-menu,.hr-hero,.hr-build,.hr-why,.hr-founder,.hr-footer,
+.product-card,.principle-advisory,.insight-card,.contact-channel,
+.service-meta,.faq-advisory details,.article,.article-header,.article-body,
+.article-principle,.legal-copy,.products-hero-summary a,.practice-row,
+.contact-form,.topic-pills span{
+  background:var(--theme-black)!important;
+  color:var(--theme-white)!important;
+}
+
+main :where(h1,h2,h3,h4,p,li,dt,dd,label,small,strong,span),
+footer :where(h1,h2,h3,h4,p,li,small,strong,span){
+  color:var(--theme-white)!important;
+}
+
+main :where(p,li,dd,small),footer :where(p,li,small){
+  color:var(--theme-off-white)!important;
+}
+
+.eyebrow,.section-kicker,.hr-eyebrow{
+  color:var(--theme-orange)!important;
+}
+
+.hr-section-label,.product-label,.practice-no,.principle-advisory>span,
+.service-number,.hr-product-card a,.hr-product-title,
+.site-footer h2,.footer-advisory h2,.article-meta,.product-quick-action{
+  color:var(--theme-yellow)!important;
+}
+
+.site-nav a,.site-nav a:visited,.site-nav a[aria-current="page"],
+.hr-desktop-nav a,.hr-mobile-menu a,.text-link-advisory,
+.text-link,.service-actions a,.founder-actions a,.site-footer a{
+  color:var(--theme-white)!important;
+}
+
+.site-nav a:hover,.site-nav a:focus-visible,
+.site-nav a[aria-current="page"],.hr-desktop-nav a.active,
+.hr-desktop-nav a:hover,.hr-mobile-menu a:hover,
+.text-link-advisory:hover,.text-link:hover,.site-footer a:hover{
+  color:var(--theme-yellow)!important;
+}
+
+.button,.cta-link,.service-actions .primary,.hr-button.primary,
+.hr-desktop-nav .cta{
+  background:var(--theme-yellow)!important;
+  border-color:var(--theme-yellow)!important;
+  color:var(--theme-black)!important;
+}
+
+.hr-product-card,.contact-form,.field input,.field select,.field textarea{
+  background:var(--theme-black)!important;
+  color:var(--theme-white)!important;
+  border-color:rgba(255,216,77,.5)!important;
+}
+
+.hr-product-card p,.hr-founder p,.hr-signature,.hr-why-item p,
+.page-hero p,.advisory-section p,.service-detail p,.service-meta li,
+.principle-advisory p,.insight-card p,.site-footer p{
+  color:var(--theme-white)!important;
+}
+
+:where(a,button,summary,input,select,textarea):focus-visible{
+  outline:3px solid var(--theme-yellow)!important;
+  outline-offset:3px!important;
+}
+
+@media(max-width:900px){
+  .site-nav{background:var(--theme-black)!important}
+}
