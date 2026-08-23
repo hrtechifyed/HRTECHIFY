@@ -7,11 +7,11 @@
   --cream:#f5efe5;
   --gold:#ffc83d;
   --gold-2:#ffad0a;
-  /* Product accents retain the mockup hues while meeting WCAG AA on white. */
+  /* Light surfaces use only black or the accessible brand orange. */
   --orange:#d63a00;
-  --blue:#0666d6;
-  --ink:#111111;
-  --muted:#d7d7d7;
+  --blue:#d63a00;
+  --ink:#000000;
+  --muted:#ffffff;
   --line:rgba(255,255,255,.13);
 }
 *{box-sizing:border-box}
@@ -29,12 +29,12 @@ img{display:block;max-width:100%}
 .hr-brand-logo{width:43px;height:43px;object-fit:contain;flex:0 0 auto}
 .hr-brand-copy{display:block;line-height:1}
 .hr-brand-name{display:block;font-size:18px;font-weight:800;letter-spacing:-.02em}
-.hr-brand-tag{display:block;margin-top:4px;color:#d8d8d8;font-size:9px;font-weight:500;white-space:nowrap}
+.hr-brand-tag{display:block;margin-top:4px;color:#fff;font-size:9px;font-weight:500;white-space:nowrap}
 .hr-desktop-nav{display:flex;align-items:center;gap:30px}
 .hr-desktop-nav a{font-size:12px;color:#fff;padding:8px 0;position:relative}
 .hr-desktop-nav a.active{color:var(--gold)}
 .hr-desktop-nav a.active:after{content:"";position:absolute;left:50%;bottom:0;width:24px;height:2px;background:var(--gold);transform:translateX(-50%)}
-.hr-desktop-nav .cta{padding:11px 18px;border-radius:4px;background:var(--gold);color:#111;font-weight:800}
+.hr-desktop-nav .cta{padding:11px 18px;border-radius:4px;background:var(--gold);color:#000;font-weight:800}
 .hr-menu-button{display:none;width:44px;height:44px;padding:0;border:0;background:transparent;align-items:center;justify-content:center;flex-direction:column;gap:5px;cursor:pointer}
 .hr-menu-button span{display:block;width:24px;height:2px;background:#fff;border-radius:999px}
 .hr-mobile-menu{display:none;position:absolute;top:73px;left:16px;right:16px;background:#090909;border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:8px;box-shadow:0 18px 40px rgba(0,0,0,.45)}
@@ -48,10 +48,10 @@ img{display:block;max-width:100%}
 .hr-eyebrow{margin:0;color:var(--gold);font-size:13px;font-weight:900;letter-spacing:.16em;text-transform:uppercase}
 .hr-hero h1{margin:17px 0 18px;max-width:610px;font-family:Georgia,'Times New Roman',serif;font-size:clamp(48px,4.6vw,69px);line-height:.98;letter-spacing:-.035em;font-weight:700}
 .hr-hero h1 .accent{color:var(--gold)}
-.hr-hero-copy{max-width:540px;color:#f3f3f3;font-size:15px;line-height:1.55}
+.hr-hero-copy{max-width:540px;color:#fff;font-size:15px;line-height:1.55}
 .hr-actions{display:flex;gap:12px;margin-top:24px}
 .hr-button{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 18px;border:1px solid rgba(255,255,255,.55);border-radius:3px;color:#fff;font-size:12px;font-weight:800}
-.hr-button.primary{background:var(--gold);border-color:var(--gold);color:#111}
+.hr-button.primary{background:var(--gold);border-color:var(--gold);color:#000}
 
 /* People / Technology / Growth visual */
 .hr-orbit{position:relative;aspect-ratio:1/1;max-width:470px;margin:0 auto}
@@ -60,7 +60,7 @@ img{display:block;max-width:100%}
 .hr-orbit-glow{position:absolute;inset:11%;border:3px solid transparent;border-top-color:var(--gold-2);border-right-color:var(--gold-2);border-radius:50%;transform:rotate(-18deg);filter:drop-shadow(0 0 8px rgba(255,122,0,.95))}
 .hr-orbit-centre{position:absolute;inset:40% 32%;display:grid;place-items:center;text-align:center}
 .hr-orbit-centre strong{font-size:21px}
-.hr-orbit-centre span{font-size:9px;color:#ddd;white-space:nowrap;margin-top:5px}
+.hr-orbit-centre span{font-size:9px;color:#fff;white-space:nowrap;margin-top:5px}
 .hr-orbit-node{position:absolute;width:132px;text-align:center}
 .hr-node-icon{width:58px;height:58px;margin:0 auto 7px;border:2px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold);box-shadow:0 0 18px rgba(255,174,0,.28)}
 .hr-node-icon svg{width:30px;height:30px;stroke:currentColor;fill:none;stroke-width:1.7}
@@ -80,7 +80,7 @@ img{display:block;max-width:100%}
 .hr-product-icon{width:31px;height:31px;border:2px solid currentColor;border-radius:50%;display:grid;place-items:center;flex:0 0 auto}
 .hr-product-icon svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2}
 .hr-product-title h3{margin:0;font-size:20px}
-.hr-product-card p{margin:9px 0 12px;font-size:13px;line-height:1.4;color:#202020;max-width:42ch}
+.hr-product-card p{margin:9px 0 12px;font-size:13px;line-height:1.4;color:#000;max-width:42ch}
 .hr-product-card a{font-size:12px;font-weight:700}
 .hr-orange{color:var(--orange)}
 .hr-blue{color:var(--blue)}
@@ -95,7 +95,7 @@ img{display:block;max-width:100%}
 .hr-why-item p{margin:0;color:#fff;font-size:10px;line-height:1.42}
 
 /* Founder */
-.hr-founder{background:var(--cream);color:#111;padding:14px 0}
+.hr-founder{background:var(--cream);color:#000;padding:14px 0}
 .hr-founder-grid{display:grid;grid-template-columns:64px 1fr auto;gap:14px;align-items:center}
 .hr-founder img{width:58px;height:58px;border-radius:50%;object-fit:cover}
 .hr-founder-title{font-size:9px;font-weight:900;letter-spacing:.09em;text-transform:uppercase}
@@ -103,7 +103,7 @@ img{display:block;max-width:100%}
 .hr-signature{font-family:'Brush Script MT','Segoe Script',cursive;font-size:24px;white-space:nowrap}
 
 /* Footer */
-.hr-footer{background:#030303;color:#d0d0d0;padding:8px 0;font-size:9px}
+.hr-footer{background:#030303;color:#fff;padding:8px 0;font-size:9px}
 .hr-footer-inner{display:flex;justify-content:space-between;align-items:center;gap:16px}
 .hr-footer a{color:#fff}
 
@@ -135,12 +135,12 @@ img{display:block;max-width:100%}
   .hr-product-icon svg{width:15px;height:15px}
   .hr-product-card p{font-size:11px;line-height:1.35;margin:7px 0 9px;max-width:34ch}
   .hr-product-card a{font-size:10px}
-  .hr-why{background:linear-gradient(180deg,#f6efe3,#f3ead9);color:#111;padding:17px 0 20px}
-  .hr-why .hr-section-label{color:#111}
+  .hr-why{background:linear-gradient(180deg,#f6efe3,#f3ead9);color:#000;padding:17px 0 20px}
+  .hr-why .hr-section-label{color:#000}
   .hr-why-grid{grid-template-columns:1fr;margin-top:12px}
   .hr-why-item{grid-template-columns:54px 1fr;align-items:center}
   .hr-why-item:not(:first-child){display:none}
   .hr-why-icon{width:50px;height:50px;background:#030303;color:var(--gold);border-color:var(--gold)}
-  .hr-why-item p{color:#111;font-size:12px;line-height:1.35}
+  .hr-why-item p{color:#000;font-size:12px;line-height:1.35}
   .hr-founder,.hr-footer{display:none}
 }

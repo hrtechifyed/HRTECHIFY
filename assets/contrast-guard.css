@@ -3,11 +3,11 @@
 :root{
   --contrast-dark:#220302;
   --contrast-dark-2:#3a0704;
-  --contrast-light:#fff8eb;
+  --contrast-light:#ffffff;
   --contrast-paper:#fffdf8;
   --contrast-soft:#fff3df;
-  --contrast-muted-dark:#6f5047;
-  --contrast-muted-light:#efd7c5;
+  --contrast-muted-dark:#000000;
+  --contrast-muted-light:#ffffff;
   --contrast-accent:#ffd85a;
 }
 
@@ -148,7 +148,7 @@
 .advisory-section.soft a:not(.button):not(.cta-link),
 .contact-channel a,
 .insight-card a {
-  color:#7f170d!important;
+  color:#d63a00!important;
 }
 
 .hero-advisory a:not(.button),
@@ -157,7 +157,7 @@
 .advisory-section.dark a:not(.button),
 .site-footer a,
 .site-footer a:visited {
-  color:#ffe18a!important;
+  color:#ffd85a!important;
 }
 
 /* Button logic follows the surface rather than one global color. */
@@ -187,7 +187,7 @@
 .site-footer .footer-advisory a:visited,
 .site-footer .footer-disclosure,
 .site-footer .footer-base-advisory {
-  color:#e3c8b8!important;
+  color:#fff!important;
 }
 .site-footer .footer-advisory a:hover,
 .site-footer .footer-advisory a:focus-visible {
