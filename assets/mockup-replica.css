@@ -7,11 +7,11 @@
   --cream:#f5efe5;
   --gold:#ffc83d;
   --gold-2:#ffad0a;
-  /* Light surfaces use only black or the accessible brand orange. */
+  /* Product accents retain the mockup hues while meeting WCAG AA on white. */
   --orange:#d63a00;
-  --blue:#d63a00;
-  --ink:#000000;
-  --muted:#ffffff;
+  --blue:#0666d6;
+  --ink:#111111;
+  --muted:#d7d7d7;
   --line:rgba(255,255,255,.13);
 }
 *{box-sizing:border-box}
