@@ -63,7 +63,6 @@
         <a href="${withRoot('insights.html')}"${activeKey==='insights'?' aria-current="page"':''}>Views</a>
         <a href="${withRoot('about.html')}"${activeKey==='about'?' aria-current="page"':''}>About</a>
         <a class="button button-small" href="${withRoot('index.html#audiences')}">Explore HRTechify</a>
-        <a class="linkedin-nav-link" href="${linkedinUrl}" target="_blank" rel="noopener noreferrer" aria-label="HRTechify on LinkedIn">${linkedinIcon}<span>LinkedIn</span></a>
       </nav>
     </div>`;
   }
