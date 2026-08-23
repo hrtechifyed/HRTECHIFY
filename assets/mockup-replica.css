@@ -7,8 +7,9 @@
   --cream:#f5efe5;
   --gold:#ffc83d;
   --gold-2:#ffad0a;
-  --orange:#ff5a1f;
-  --blue:#2f80ed;
+  /* Product accents retain the mockup hues while meeting WCAG AA on white. */
+  --orange:#d63a00;
+  --blue:#0666d6;
   --ink:#111111;
   --muted:#d7d7d7;
   --line:rgba(255,255,255,.13);
