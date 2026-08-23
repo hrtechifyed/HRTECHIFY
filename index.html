@@ -1,87 +1,164 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>HRTechify</title>
-<meta name="description" content="HRTechify is an HR company focused on people, talent, leadership, workplace realities and HR technology — helping people and organisations make better workplace decisions.">
-<meta name="theme-color" content="#050505">
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/mockup-replica.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>HRTechify</title>
+  <meta name="description" content="HRTechify is an HR company focused on people, talent, leadership, workplace realities and HR technology — helping people and organisations make better workplace decisions.">
+  <meta name="theme-color" content="#030303">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/mockup-replica.css">
 </head>
-<body class="mockup-home">
-<header class="mk-nav">
-  <div class="mk-shell mk-nav-inner">
-    <a class="mk-brand" href="index.html" aria-label="HRTechify home">
-      <img src="assets/hrtechify-logo.png" alt="HRTechify">
-      <span>HRTechify<small>People • Technology • Growth</small></span>
+<body>
+<header class="hr-header">
+  <div class="hr-shell hr-header-inner">
+    <a class="hr-brand" href="index.html" aria-label="HRTechify home">
+      <img class="hr-brand-logo" src="assets/hrtechify-logo.png" alt="HRTechify">
+      <span class="hr-brand-copy">
+        <span class="hr-brand-name">HRTechify</span>
+        <span class="hr-brand-tag">People • Technology • Growth</span>
+      </span>
     </a>
-    <nav class="mk-links" aria-label="Primary navigation">
+    <nav class="hr-desktop-nav" aria-label="Primary navigation">
       <a class="active" href="index.html">Home</a>
       <a href="https://hrtechifyed.github.io/The-Corporatex/">CorporateX</a>
       <a href="https://hrtechifyed.github.io/GrowwithHR-Version2/">GrowWithHR</a>
       <a href="about.html">About</a>
-      <a class="mk-cta" href="contact.html">Get in touch</a>
+      <a class="cta" href="contact.html">Get in touch</a>
     </nav>
-    <button class="mk-menu" type="button" aria-label="Open menu" aria-expanded="false"><i></i><i></i><i></i></button>
-    <nav class="mk-mobile-nav" aria-label="Mobile navigation">
-      <a href="index.html">Home</a><a href="https://hrtechifyed.github.io/The-Corporatex/">CorporateX</a><a href="https://hrtechifyed.github.io/GrowwithHR-Version2/">GrowWithHR</a><a href="about.html">About</a><a href="contact.html">Get in touch</a>
+    <button class="hr-menu-button" type="button" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="mobile-menu" class="hr-mobile-menu" aria-label="Mobile navigation">
+      <a href="index.html">Home</a>
+      <a href="https://hrtechifyed.github.io/The-Corporatex/">CorporateX</a>
+      <a href="https://hrtechifyed.github.io/GrowwithHR-Version2/">GrowWithHR</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Get in touch</a>
     </nav>
   </div>
 </header>
+
 <main>
-<section class="mk-hero">
-  <div class="mk-shell mk-hero-grid">
-    <div>
-      <div class="mk-kicker">People • Technology • Growth</div>
-      <h1>Better workplace <em>decisions start</em> with better questions.</h1>
-      <p>Exploring practical ways to help people and organisations make better workplace decisions.</p>
-      <div class="mk-actions"><a class="mk-btn primary" href="products.html">Explore what I’m working on</a><a class="mk-btn" href="contact.html">Start a conversation</a></div>
-    </div>
-    <div class="mk-hero-visual" aria-label="HRTechify People Technology Growth model">
-      <div class="mk-orbit">
-        <div class="arc"></div>
-        <div class="mk-center">HRTechify<small>People • Technology • Growth</small></div>
-        <div class="mk-node people"><div class="icon">♙</div><strong>PEOPLE</strong><span>Human insight<br>at the centre</span></div>
-        <div class="mk-node tech"><div class="icon">▣</div><strong>TECHNOLOGY</strong><span>Responsible tech<br>that empowers</span></div>
-        <div class="mk-node growth"><div class="icon">↗</div><strong>GROWTH</strong><span>Sustainable impact<br>that matters</span></div>
+  <section class="hr-hero">
+    <div class="hr-shell hr-hero-grid">
+      <div>
+        <p class="hr-eyebrow">People • Technology • Growth</p>
+        <h1>Better workplace <span class="accent">decisions start</span> with better questions.</h1>
+        <p class="hr-hero-copy">Exploring practical ways to help people and organisations make better workplace decisions.</p>
+        <div class="hr-actions">
+          <a class="hr-button primary" href="products.html">Explore what I’m working on</a>
+          <a class="hr-button" href="contact.html">Start a conversation</a>
+        </div>
+      </div>
+      <div class="hr-hero-visual" aria-label="HRTechify People Technology Growth model">
+        <div class="hr-orbit">
+          <div class="hr-orbit-ring"></div>
+          <div class="hr-orbit-ring inner"></div>
+          <div class="hr-orbit-glow"></div>
+          <div class="hr-orbit-centre"><strong>HRTechify</strong><span>People • Technology • Growth</span></div>
+          <div class="hr-orbit-node people">
+            <div class="hr-node-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><circle cx="11" cy="10" r="4"/><circle cx="21" cy="10" r="4"/><path d="M5 25c.5-5 3-8 6-8s5.5 3 6 8M15 25c.5-5 3-8 6-8s5.5 3 6 8"/></svg></div>
+            <strong>PEOPLE</strong><p>Human insight<br>at the centre</p>
+          </div>
+          <div class="hr-orbit-node tech">
+            <div class="hr-node-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><rect x="9" y="9" width="14" height="14" rx="2"/><path d="M13 13h6v6h-6zM16 3v4M16 25v4M3 16h4M25 16h4M6 6l3 3M23 23l3 3M26 6l-3 3M9 23l-3 3"/></svg></div>
+            <strong>TECHNOLOGY</strong><p>Responsible tech<br>that empowers</p>
+          </div>
+          <div class="hr-orbit-node growth">
+            <div class="hr-node-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M6 25V17h5v8M14 25V12h5v13M22 25V7h5v18M5 10l7-5 5 3 10-6"/><path d="M22 2h5v5"/></svg></div>
+            <strong>GROWTH</strong><p>Sustainable impact<br>that matters</p>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
-<section class="mk-build">
-  <div class="mk-shell">
-    <div class="mk-section-kicker">What I’m building</div>
-    <h2>Two initiatives. One connected HR perspective.</h2>
-    <div class="mk-products">
-      <article class="mk-card"><div class="mk-card-head"><span class="mk-card-icon orange">×</span><h3>CorporateX</h3></div><p>Exit stories shared anonymously. Real experiences. Insights that help others decide better.</p><a class="orange" href="https://hrtechifyed.github.io/The-Corporatex/">Explore CorporateX →</a></article>
-      <article class="mk-card"><div class="mk-card-head"><span class="mk-card-icon blue">◎</span><h3>GrowWithHR</h3></div><p>Executive advisory reports for HR compliance, workplace readiness and people strategy.</p><a class="blue" href="https://hrtechifyed.github.io/GrowwithHR-Version2/">Explore GrowWithHR →</a></article>
+  </section>
+
+  <section class="hr-build">
+    <div class="hr-shell">
+      <div class="hr-section-label">What I’m building</div>
+      <h2>Two initiatives. One purpose.</h2>
+      <div class="hr-product-grid">
+        <article class="hr-product-card">
+          <div class="hr-product-title hr-orange">
+            <span class="hr-product-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="3"/><path d="M6 20c.6-4.2 2.6-6.5 6-6.5s5.4 2.3 6 6.5M4 4l16 16M20 4L4 20"/></svg></span>
+            <h3>CorporateX</h3>
+          </div>
+          <p>Exit stories shared anonymously. Real experiences. Insights that help others decide better.</p>
+          <a class="hr-orange" href="https://hrtechifyed.github.io/The-Corporatex/">Explore CorporateX →</a>
+        </article>
+        <article class="hr-product-card">
+          <div class="hr-product-title hr-blue">
+            <span class="hr-product-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3a7 7 0 1 0 0 14M12 3c4.5 0 8 3.2 8 7.3 0 3.4-2.4 6.3-5.8 7.1M12 7a3 3 0 1 0 0 6M12 17v4M9 21h6"/></svg></span>
+            <h3>GrowWithHR</h3>
+          </div>
+          <p>Executive advisory reports for HR compliance, workplace readiness and people strategy.</p>
+          <a class="hr-blue" href="https://hrtechifyed.github.io/GrowwithHR-Version2/">Explore GrowWithHR →</a>
+        </article>
+      </div>
     </div>
-  </div>
-</section>
-<section class="mk-why">
-  <div class="mk-shell">
-    <div class="mk-section-kicker" style="color:#fff">Why HRTechify exists</div>
-    <div class="mk-why-grid">
-      <article class="mk-why-item"><div class="mk-why-icon">◎</div><p><strong>Because people and organisations are asking important questions.</strong><br>HRTechify exists to explore them and find better answers.</p></article>
-      <article class="mk-why-item"><div class="mk-why-icon">?</div><p>Because the world of work is changing faster than our systems.</p></article>
-      <article class="mk-why-item"><div class="mk-why-icon">◇</div><p>Because better context leads to fairer decisions and stronger outcomes.</p></article>
-      <article class="mk-why-item"><div class="mk-why-icon">◎</div><p>Because growth means nothing if people do not grow with it.</p></article>
+  </section>
+
+  <section class="hr-why">
+    <div class="hr-shell">
+      <div class="hr-section-label">Why HRTechify exists</div>
+      <div class="hr-why-grid">
+        <article class="hr-why-item">
+          <div class="hr-why-icon" aria-hidden="true"><svg viewBox="0 0 28 28"><circle cx="9" cy="9" r="3"/><circle cx="19" cy="9" r="3"/><path d="M4 23c.4-4 2-6 5-6s4.6 2 5 6M14 23c.4-4 2-6 5-6s4.6 2 5 6"/></svg></div>
+          <p><strong>People and organisations are asking important questions.</strong><br>HRTechify exists to explore them and find better answers.</p>
+        </article>
+        <article class="hr-why-item">
+          <div class="hr-why-icon" aria-hidden="true"><svg viewBox="0 0 28 28"><rect x="5" y="4" width="18" height="20" rx="3"/><path d="M11 11a3 3 0 1 1 5 2c-1.5 1-2 1.7-2 3M14 20h.01"/></svg></div>
+          <p>Because the world of work is changing faster than our systems.</p>
+        </article>
+        <article class="hr-why-item">
+          <div class="hr-why-icon" aria-hidden="true"><svg viewBox="0 0 28 28"><path d="M6 20c7-1 11-5 16-13-8 1-13 4-14 10M8 17l-3 5M10 15l4 4"/></svg></div>
+          <p>Because better context leads to fairer decisions and stronger outcomes.</p>
+        </article>
+        <article class="hr-why-item">
+          <div class="hr-why-icon" aria-hidden="true"><svg viewBox="0 0 28 28"><circle cx="14" cy="14" r="9"/><circle cx="14" cy="14" r="5"/><path d="M14 14l8-8M19 6h3v3"/></svg></div>
+          <p>Because growth means nothing if people don’t grow with it.</p>
+        </article>
+      </div>
     </div>
-  </div>
-</section>
-<section class="mk-founder">
-  <div class="mk-shell mk-founder-grid">
-    <img src="assets/founder-anurag-sinha.png" alt="Founder of HRTechify">
-    <div><small>Founder’s note</small><p>I’m Anurag Sinha. HR professional. Builder. Explorer of people, talent, technology and workplace realities. This is HRTechify.<br>Let’s build better workplaces together.</p></div>
-    <div class="mk-sign">Anurag Sinha</div>
-  </div>
-</section>
+  </section>
+
+  <section class="hr-founder">
+    <div class="hr-shell hr-founder-grid">
+      <img src="assets/founder-anurag-sinha.png" alt="Founder of HRTechify">
+      <div>
+        <div class="hr-founder-title">Founder’s note</div>
+        <p>I’m Anurag Sinha. HR professional. Builder. Explorer of people, talent, technology and workplace realities. This is HRTechify.<br>Let’s build better workplaces together.</p>
+      </div>
+      <div class="hr-signature">Anurag Sinha</div>
+    </div>
+  </section>
 </main>
-<footer class="mk-footer"><div class="mk-shell mk-footer-inner"><span>© 2026 HRTechify. All rights reserved.</span><span>LinkedIn ↗</span></div></footer>
+
+<footer class="hr-footer">
+  <div class="hr-shell hr-footer-inner">
+    <span>© 2026 HRTechify. All rights reserved.</span>
+    <a href="https://www.linkedin.com/company/hrtechifyed" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+  </div>
+</footer>
+
 <script>
-const b=document.querySelector('.mk-menu'),m=document.querySelector('.mk-mobile-nav');
-b?.addEventListener('click',()=>{const o=b.getAttribute('aria-expanded')==='true';b.setAttribute('aria-expanded',String(!o));m.classList.toggle('open',!o);});
+(() => {
+  const button = document.querySelector('.hr-menu-button');
+  const menu = document.querySelector('.hr-mobile-menu');
+  if (!button || !menu) return;
+  const close = () => { button.setAttribute('aria-expanded','false'); menu.classList.remove('open'); };
+  button.addEventListener('click', () => {
+    const open = button.getAttribute('aria-expanded') === 'true';
+    button.setAttribute('aria-expanded', String(!open));
+    menu.classList.toggle('open', !open);
+  });
+  menu.querySelectorAll('a').forEach(link => link.addEventListener('click', close));
+  document.addEventListener('keydown', event => { if (event.key === 'Escape') close(); });
+  document.addEventListener('click', event => {
+    if (!button.contains(event.target) && !menu.contains(event.target)) close();
+  });
+})();
 </script>
 </body>
 </html>
