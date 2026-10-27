@@ -13,5 +13,8 @@
     "html-validate": "9.7.1",
     "http-server": "14.1.1",
     "linkinator": "6.1.2"
+  },
+  "engines": {
+    "node": "^24.22.1"
   }
 }
